@@ -1,3 +1,4 @@
+import ArticleCard from "../components/ArticleCard";
 import Navbar from "./components/Navbar";
 import Technology from "./components/Technology";
 
@@ -66,7 +67,7 @@ export default function Home() {
             <p className="text-2xl md:text-4xl font-light">
               Because choosing right tools is crucial
             </p>
-            <div className="flex justify-around items-center flex-col md:flex-row">
+            <div className="flex justify-between items-center flex-col md:flex-row">
               <div className="flex flex-col justify-between">
                 <div className=" pt-4">
                   <Technology
@@ -108,7 +109,7 @@ export default function Home() {
         </div>
       </section>
       <section>
-        <div className="bg-slate-300 p-5 flex justify-center h-96">
+        <div className="bg-slate-300 p-5 flex justify-center">
           <div className="container">
             <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-gray-900">
               Blog
@@ -116,6 +117,23 @@ export default function Home() {
             <p className="text-2xl md:text-4xl font-light">
               Becuase valuable knowledge is worth reading
             </p>
+            <div className="flex justify-between items-center flex-col md:flex-row">
+              <div className="flex md:flex-row flex-col md:max-w-6xl">
+                <div className="p-3">
+                  <ArticleCard />
+                </div>
+                <div className="p-3">
+                  <ArticleCard />
+                </div>
+                <div className="p-3">
+                  <ArticleCard />
+                </div>
+              </div>
+              <div className="flex flex-col justify-center items-center text-center">
+                <i class="fas fa-angle-double-right text-6xl md:text-8xl hover:text-slate-500 cursor-pointer"></i>
+                <span>Discover more</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
