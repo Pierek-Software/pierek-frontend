@@ -2,7 +2,7 @@
 export default function Navbar() {
   return (
     <nav>
-      <ul className="flex justify-center align-middle items-center p-4 max-w-6xl mx-auto">
+      <ul className="flex justify-center align-middle items-center p-6 max-w-6xl mx-auto">
         <li className="md:grow px-5 text-xl font-bold">
           <a href="/">
             <img
@@ -19,7 +19,7 @@ export default function Navbar() {
           Carrer
         </li>
         <li className="hidden md:block px-5 text-white text-xl">
-          <button className="bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-4 rounded-full">
+          <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full">
             <a href="/contact">Contact</a>
           </button>
         </li>
