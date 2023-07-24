@@ -1,7 +1,7 @@
 import Navbar from "../components/templates/Navbar";
-import Technology from "./components/Technology";
+import Technology from "../components/atom/Technology";
 import BlogSection from "../components/templates/BlogSection";
-import { DiscoverMoreButton } from "../components/atom/Button";
+import Footer from "../components/templates/Footer";
 
 export default function Home() {
   return (
@@ -15,7 +15,6 @@ export default function Home() {
       "
       >
         <Navbar />
-
         <h2 className="font-extrabold mt-28 text-white text-center text-4xl  md:text-8xl  md:max-w-3xl md:mt-40 md:ml-32 md:text-left">
           Problem solving oriented software house
         </h2>
@@ -33,17 +32,13 @@ export default function Home() {
         ></path>
       </svg>
 
-      <section>
-        <div className="bg-white p-5 flex justify-center h-64 md:h-96">
-          <div className="container">
-            <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
-              Custom Software Development
-            </h1>
-            <p className="text-2xl md:text-4xl font-light">
-              Becuase tailored solutions are the best solutions
-            </p>
-          </div>
-        </div>
+      <section className="container mx-auto">
+        <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          Custom Software Development
+        </h1>
+        <p className="text-2xl md:text-4xl font-light">
+          Becuase tailored solutions are the best solutions
+        </p>
       </section>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -53,18 +48,18 @@ export default function Home() {
           d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
         ></path>
       </svg>
-      <section>
-        <div className=" p-5 flex bg-slate-950 text-white justify-center h-64 md:h-96">
-          <div className="container">
-            <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold">
-              Outsouring
-            </h1>
-            <p className="text-2xl md:text-4xl font-light">
-              Becuase good people are hard to find
-            </p>
-          </div>
+
+      <section className="bg-slate-950 text-white">
+        <div className="container mx-auto">
+          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold">
+            Outsouring
+          </h1>
+          <p className="text-2xl md:text-4xl font-light">
+            Becuase good people are hard to find
+          </p>
         </div>
       </section>
+
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
         <path
           fill="#020617"
@@ -72,70 +67,54 @@ export default function Home() {
           d="M0,128L48,138.7C96,149,192,171,288,176C384,181,480,171,576,176C672,181,768,203,864,192C960,181,1056,139,1152,133.3C1248,128,1344,160,1392,176L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
         ></path>
       </svg>
-      <section>
-        <div className="bg-white p-5 flex justify-center">
-          <div className="container">
-            <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
-              Technologies
-            </h1>
-            <p className="text-2xl md:text-4xl font-light">
-              Because choosing right tools is crucial
-            </p>
-            <div className="flex justify-center items-center flex-col md:flex-row">
-              <div className="flex flex-col justify-between">
-                <div className=" pt-4">
-                  <Technology
-                    icon="fa-brands fa-js"
-                    name="JavaScript / TypeScript Development"
-                  />
-                </div>
-                <div className="flex justify-center pt-4">
-                  <Technology
-                    icon="fa-brands fa-node-js"
-                    name="Node.js Development"
-                  />
-                  <Technology
-                    icon="fa-brands fa-react"
-                    name="React Development"
-                  />
-                </div>
-                <div className="flex justify-center pt-4">
-                  <Technology
-                    icon="fa-brands fa-aws"
-                    name="Amazon Web Services"
-                  />
-                  <Technology
-                    icon="fa-brands fa-microsoft"
-                    name="Microsoft Azure"
-                  />
-                  <Technology
-                    icon="fa-brands fa-google"
-                    name="Google Cloud Platform"
-                  />
-                </div>
+
+      <section className="bg-white p-5 container mx-auto">
+        <div className="">
+          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+            Technologies
+          </h1>
+          <p className="text-2xl md:text-4xl font-light">
+            Because choosing right tools is crucial
+          </p>
+          <div className="flex justify-center items-center flex-col md:flex-row">
+            <div className="flex flex-col justify-between">
+              <div className=" pt-4">
+                <Technology
+                  icon="fa-brands fa-js"
+                  name="JavaScript / TypeScript Development"
+                />
               </div>
-              {/* <DiscoverMoreButton url="/technologies" /> */}
+              <div className="flex justify-center pt-4">
+                <Technology
+                  icon="fa-brands fa-node-js"
+                  name="Node.js Development"
+                />
+                <Technology
+                  icon="fa-brands fa-react"
+                  name="React Development"
+                />
+              </div>
+              <div className="flex justify-center pt-4">
+                <Technology
+                  icon="fa-brands fa-aws"
+                  name="Amazon Web Services"
+                />
+                <Technology
+                  icon="fa-brands fa-microsoft"
+                  name="Microsoft Azure"
+                />
+                <Technology
+                  icon="fa-brands fa-google"
+                  name="Google Cloud Platform"
+                />
+              </div>
             </div>
+            {/* <DiscoverMoreButton url="/technologies" /> */}
           </div>
         </div>
       </section>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#020617"
-          fill-opacity="1"
-          d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
       {/* <BlogSection /> */}
-      <section>
-        <div className="bg-slate-950 p-5 flex text-white justify-center">
-          <div className="container">
-            <div className="flex justify-center text-center">
-              <p>contact@pierek.com ©2023</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Footer />
     </>
   );
 }
