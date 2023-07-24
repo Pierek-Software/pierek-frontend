@@ -47,7 +47,7 @@ export default function Home() {
         </p>
       </section>
 
-      <Footer />
+      <Footer wave={false} />
     </>
   );
 }
