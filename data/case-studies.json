@@ -1,0 +1,29 @@
+[
+  {
+    "id": 0,
+    "category": "Finance",
+    "title": "Microservice refactor in banking app",
+    "description": "Old microservice need to be upgraded from JavaScript to TypeScript, also upgrade database library and write tests.",
+    "image": "https://picsum.photos/1920/1080",
+    "nda": true,
+    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js"]
+  },
+  {
+    "id": 1,
+    "category": "Media",
+    "title": "Microservice and code refactor in video streaming app",
+    "description": "New microservice for handling every file format preview, also refactor old codebase from JavaScript to TypeScript to be more readable and maintainable.",
+    "image": "https://picsum.photos/1920/1080",
+    "nda": true,
+    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js"]
+  },
+  {
+    "id": 2,
+    "category": "Finance",
+    "title": "Lambda function that tell if use is able to take credit",
+    "description": "Building lambda function based on excel formula that tell if user is able to take credit",
+    "image": "https://picsum.photos/1920/1080",
+    "nda": true,
+    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js", "Lambda"]
+  }
+]

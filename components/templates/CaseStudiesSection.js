@@ -1,24 +1,6 @@
 import { DiscoverMoreButton } from "../atom/Button";
 import ArticleCard from "../molecules/ArticleCard";
-
-const data = [
-  {
-    id: 0,
-    title: "Microservice refactor in banking app",
-    description:
-      "Old microservice need to be upgraded from JavaScript to TypeScript, also upgrade database library and write tests.",
-    image: "https://picsum.photos/1920/1080",
-    nda: true,
-  },
-  {
-    id: 1,
-    title: "Microservice and code refactor in video streaming app",
-    description:
-      "New microservice for handling every file format preview, also refactor old codebase from JavaScript to TypeScript to be more readable and maintainable.",
-    image: "https://picsum.photos/1920/1080",
-    nda: true,
-  },
-];
+import data from "../../data/case-studies.json";
 
 function CaseStudiesSection() {
   return (
@@ -32,11 +14,12 @@ function CaseStudiesSection() {
       <div className="flex justify-between items-center flex-col md:flex-row">
         <div className="flex md:flex-row flex-col md:max-w-6xl">
           <section className="mt-8 flex flex-wrap justify-center">
-            {data.map((item) => (
-              <div key={item.id} className="p-3">
-                <ArticleCard {...item} />
-              </div>
-            ))}
+            <div key={data[0].id} className="p-3">
+              <ArticleCard {...data[0]} />
+            </div>
+            <div key={data[1].id} className="p-3">
+              <ArticleCard {...data[1]} />
+            </div>
           </section>
         </div>
         <DiscoverMoreButton url="/case-studies" />

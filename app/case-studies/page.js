@@ -1,26 +1,8 @@
 import ArticleCard from "../../components/molecules/ArticleCard";
+import data from "../../data/case-studies.json";
 
 const { default: Footer } = require("../../components/templates/Footer");
 const { default: Navbar } = require("../../components/templates/Navbar");
-
-const data = [
-  {
-    id: 0,
-    title: "Microservice refactor in banking app",
-    description:
-      "Old microservice need to be upgraded from JavaScript to TypeScript, also upgrade database library and write tests.",
-    image: "https://picsum.photos/1920/1080",
-    nda: true,
-  },
-  {
-    id: 1,
-    title: "Microservice and code refactor in video streaming app",
-    description:
-      "New microservice for handling every file format preview, also refactor old codebase from JavaScript to TypeScript to be more readable and maintainable.",
-    image: "https://picsum.photos/1920/1080",
-    nda: true,
-  },
-];
 
 function CaseStudies() {
   return (
