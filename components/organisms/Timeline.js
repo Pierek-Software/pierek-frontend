@@ -1,30 +1,18 @@
-const timeline = [
-  {
-    id: 2,
-    name: "Chat GPT 4.0",
-    text: "Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.",
-    date: new Date("2022-01-01"),
-    button: {
-      link: "https://openai.com/gpt-4",
-    },
-  },
-  {
-    id: 1,
-    name: "Chat GPT 3.5",
-    text: "All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.",
-    date: new Date("2021-01-01"),
-    button: undefined,
-  },
-  {
-    id: 0,
-    name: "Chat GPT 3.0",
-    date: new Date("2020-01-01"),
-    text: "Get started with dozens of web components and interactive elements built on top of Tailwind CSS.",
-    button: {
-      link: "https://openai.com/blog/chatgpt",
-    },
-  },
-];
+import timeline from "../../data/timeline";
+
+const timelineSortedByDate = timeline.sort((a, b) => {
+  return new Date(b.date) - new Date(a.date);
+});
+
+const tagToColor = {
+  Frontend: "bg-green-100 text-green-800",
+  Backend: "bg-red-100 text-red-800",
+  "Software Development": "bg-slate-200 text-slate-800",
+  "Artificial Intelligence": "bg-purple-100 text-purple-800",
+  JavaScript: "bg-yellow-100 text-yellow-800",
+  TypeScript: "bg-blue-100 text-blue-800",
+  Design: "bg-orange-100 text-orange-800",
+};
 
 function TimelineNode(props) {
   return (
@@ -48,8 +36,17 @@ function TimelineNode(props) {
           </span>
         ) : null}
       </h3>
+      <section className="flex flex-wrap mb-2">
+        {props?.data.tags?.map((tag) => (
+          <span
+            className={`${tagToColor[tag]} mt-2 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded`}
+          >
+            {tag}
+          </span>
+        ))}
+      </section>
       <time class="block mb-2 text-sm font-normal leading-none text-gray-400">
-        Released on {props.data.date.toLocaleDateString()}
+        Released on {new Date(props.data.date).toLocaleDateString()}
       </time>
       <p
         className={`
@@ -92,7 +89,7 @@ function TimelineNode(props) {
 function Timeline() {
   return (
     <ol class="relative border-l mt-5 border-gray-200">
-      {timeline.map((timelineItem, index) => {
+      {timelineSortedByDate.map((timelineItem, index) => {
         return (
           <TimelineNode
             latest={index === 0 ? true : false}

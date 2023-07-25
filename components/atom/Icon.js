@@ -1,7 +1,7 @@
 export function TypeScriptIcon() {
   return (
     <svg
-      className="h-10 w-10"
+      className="h-10 w-10 m-auto"
       fill="none"
       height="512"
       viewBox="0 0 512 512"
@@ -23,7 +23,7 @@ export function TypeScriptIcon() {
 export function JavaScriptIcon() {
   return (
     <svg
-      className="h-10 w-10"
+      className="h-10 w-10 mx-auto"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 630 630"
     >

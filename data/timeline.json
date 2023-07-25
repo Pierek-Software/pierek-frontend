@@ -1,0 +1,91 @@
+[
+  {
+    "id": 2,
+    "name": "Chat GPT 4.0",
+    "text": "Third iteration of GPT is released",
+    "date": "March 14, 2023",
+    "button": {
+      "link": "https://openai.com/gpt-4"
+    },
+    "tags": [
+      "Artificial Intelligence",
+      "Software Development",
+      "Backend",
+      "JavaScript",
+      "TypeScript",
+      "Design"
+    ]
+  },
+  {
+    "id": 1,
+    "name": "Chat GPT 3.5",
+    "text": "Second iteration of GPT is released",
+    "date": "March 15, 2022",
+    "button": null,
+    "tags": [
+      "Artificial Intelligence",
+      "Software Development",
+      "Backend",
+      "JavaScript",
+      "TypeScript",
+      "Design"
+    ]
+  },
+  {
+    "id": 0,
+    "name": "Chat GPT 3.0",
+    "date": "June 11, 2020",
+    "text": "ChatGPT is released",
+    "button": {
+      "link": "https://openai.com/blog/chatgpt"
+    },
+    "tags": [
+      "Artificial Intelligence",
+      "Software Development",
+      "Backend",
+      "JavaScript",
+      "TypeScript",
+      "Design"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "React.js Released",
+    "date": "May 29, 2013",
+    "text": "React.js is released",
+    "button": {
+      "link": "https://react.dev/"
+    },
+    "tags": ["Software Development", "Frontend", "JavaScript", "TypeScript"]
+  },
+  {
+    "id": 4,
+    "name": "Node.js Released",
+    "date": "May 27, 2009",
+    "text": "Node.js is released",
+    "button": {
+      "link": "https://nodejs.org/en"
+    },
+    "tags": ["Software Development", "Backend", "JavaScript", "TypeScript"]
+  },
+  {
+    "id": 4,
+    "name": "Deno.js Released",
+    "date": "May 13, 2018",
+    "text": "Deno.js is released",
+    "button": {
+      "link": "https://deno.land/"
+    },
+    "tags": ["Software Development", "Backend", "JavaScript", "TypeScript"]
+  },
+  {
+    "id": 5,
+    "name": "Docker Released",
+    "date": "March 20, 2013",
+    "text": "Docker is released",
+    "button": {
+      "link": "https://hub.docker.com/"
+    },
+    "tags": ["Software Development", "Backend", "JavaScript", "TypeScript"]
+  }
+]

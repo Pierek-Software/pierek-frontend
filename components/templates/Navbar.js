@@ -40,6 +40,11 @@ export default function Navbar(props) {
               />
             </svg>
           </li>
+
+          <li className="hidden md:block px-5 text-white text-2xl font-bold hover:underline">
+            <a href="/technologies">Technologies</a>
+          </li>
+
           <li className="hidden md:block px-5 text-white text-2xl font-bold hover:underline">
             <a href="/case-studies">Case Studies</a>
           </li>
@@ -78,6 +83,13 @@ export default function Navbar(props) {
             <div className="flex mt-20 flex-col">
               <a href="/" className="m-auto mt-8 font-bold text-2xl">
                 Home Page
+              </a>
+
+              <a
+                href="/technologies"
+                className="m-auto mt-8 font-bold text-2xl"
+              >
+                Technologies
               </a>
 
               <a

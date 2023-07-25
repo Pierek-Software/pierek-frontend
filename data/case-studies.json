@@ -20,7 +20,7 @@
   {
     "id": 2,
     "category": "Finance",
-    "title": "Lambda function that tell if use is able to take credit",
+    "title": "Lambda function that tell if user is able to take credit",
     "description": "Building lambda function based on excel formula that tell if user is able to take credit",
     "image": "https://picsum.photos/1920/1080",
     "nda": true,
