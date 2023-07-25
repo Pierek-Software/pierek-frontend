@@ -38,6 +38,7 @@ function TimelineNode(props) {
       </h3>
       <section className="flex flex-wrap mb-2">
         {props?.data.tags?.map((tag) => (
+          // eslint-disable-next-line react/jsx-key
           <span
             className={`${tagToColor[tag]} mt-2 text-gray-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded`}
           >
