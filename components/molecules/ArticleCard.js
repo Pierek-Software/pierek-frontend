@@ -1,29 +1,31 @@
-function ArticleCard() {
+import { JavaScriptIcon, TypeScriptIcon } from "../atom/Icon";
+
+function ArticleCard({ nda, title, description, image }) {
   return (
-    <div class="max-w-sm rounded overflow-hidden shadow-lg">
-      <img
-        class="w-full"
-        src="https://picsum.photos/1920/1080"
-        alt="Sunset in the mountains"
-      />
-      <div class="px-6 py-4">
-        <div class="font-bold text-xl mb-2">The Coldest Sunset</div>
-        <p class="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-          quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-          nihil.
-        </p>
+    <div className="max-w-sm rounded overflow-hidden shadow-lg flex flex-col h-full">
+      {/* <img className="w-full" src={image} alt="Sunset in the mountains" /> */}
+      <div className="px-6 py-4 flex-1">
+        <div className="font-bold text-xl mb-2">{title}</div>
+
+        <div className="font-semibold text-lg mb-2">
+          {nda === true ? (
+            <>
+              <i className="fa-solid fa-lock"></i>
+              <span className="ml-2">NDA</span>
+            </>
+          ) : (
+            "Hello World"
+          )}
+        </div>
+        <p className="text-gray-700 text-base">{description}</p>
       </div>
-      <div class="px-6 pt-4 pb-2">
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #photography
-        </span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #travel
-        </span>
-        <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #winter
-        </span>
+      <div className="py-3 flex justify-center align-middle bg-slate-400">
+        <div className="px-3">
+          <TypeScriptIcon />
+        </div>
+        <div className="px-3">
+          <JavaScriptIcon />
+        </div>
       </div>
     </div>
   );

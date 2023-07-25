@@ -1,6 +1,6 @@
 import Navbar from "../components/templates/Navbar";
 import Technology from "../components/atom/Technology";
-import BlogSection from "../components/templates/BlogSection";
+import CaseStudiesSection from "../components/templates/CaseStudiesSection";
 import Footer from "../components/templates/Footer";
 
 export default function Home() {
@@ -113,7 +113,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      {/* <BlogSection /> */}
+      <CaseStudiesSection />
       <Footer />
     </>
   );
