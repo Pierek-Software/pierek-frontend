@@ -2,6 +2,7 @@ import Navbar from "../components/templates/Navbar";
 import Technology from "../components/atom/Technology";
 import CaseStudiesSection from "../components/templates/CaseStudiesSection";
 import Footer from "../components/templates/Footer";
+import { DiscoverMoreButton } from "../components/atom/Button";
 
 export default function Home() {
   return (
@@ -76,7 +77,7 @@ export default function Home() {
           <p className="text-2xl md:text-4xl font-light">
             Because choosing right tools is crucial
           </p>
-          <div className="flex justify-center items-center flex-col md:flex-row">
+          <div className="flex justify-between items-center flex-col md:flex-row">
             <div className="flex flex-col justify-between">
               <div className=" pt-4">
                 <Technology
@@ -109,7 +110,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            {/* <DiscoverMoreButton url="/technologies" /> */}
+            <DiscoverMoreButton url="/technologies" />
           </div>
         </div>
       </section>
