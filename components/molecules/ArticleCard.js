@@ -8,8 +8,8 @@ import {
 } from "../atom/Icon";
 
 const categoryToIcon = {
-  finance: <i class="pl-2 h-6 w-6 fa-solid fa-coins"></i>,
-  media: <i class="pl-2 h-6 w-6 fa-solid fa-photo-film"></i>,
+  finance: <i className="pl-2 h-6 w-6 fa-solid fa-coins"></i>,
+  media: <i className="pl-2 h-6 w-6 fa-solid fa-photo-film"></i>,
 };
 
 function ArticleCard({ nda, title, description, image, category, tags }) {

@@ -16,10 +16,10 @@ const tagToColor = {
 
 function TimelineNode(props) {
   return (
-    <li class={`mb-10 ml-6`}>
-      <span class="absolute flex items-center justify-center w-6 h-6 bg-slate-300 rounded-full -left-3 ring-8 ring-white ">
+    <li className={`mb-10 ml-6`}>
+      <span className="absolute flex items-center justify-center w-6 h-6 bg-slate-300 rounded-full -left-3 ring-8 ring-white ">
         <svg
-          class="w-2.5 h-2.5 text-slate-950"
+          className="w-2.5 h-2.5 text-slate-950"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="currentColor"
@@ -28,10 +28,10 @@ function TimelineNode(props) {
           <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
         </svg>
       </span>
-      <h3 class="mb-1 text-lg font-semibold text-gray-900">
+      <h3 className="mb-1 text-lg font-semibold text-gray-900">
         {props.data.name}
         {props.latest === true ? (
-          <span class="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
+          <span className="bg-blue-100 text-blue-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded ml-3">
             Latest
           </span>
         ) : null}
@@ -46,7 +46,7 @@ function TimelineNode(props) {
           </span>
         ))}
       </section>
-      <time class="block mb-2 text-sm font-normal leading-none text-gray-400">
+      <time className="block mb-2 text-sm font-normal leading-none text-gray-400">
         Released on {new Date(props.data.date).toLocaleDateString()}
       </time>
       <p
@@ -63,10 +63,10 @@ function TimelineNode(props) {
           rel="noopener noreferrer nofollow"
           target="_blank"
           href={props.data.button.link}
-          class="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700"
+          className="inline-flex items-center px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:outline-none focus:ring-gray-200 focus:text-blue-700"
         >
           <svg
-            class="w-3.5 h-3.5 mr-2.5"
+            className="w-3.5 h-3.5 mr-2.5"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -89,7 +89,7 @@ function TimelineNode(props) {
 
 function Timeline() {
   return (
-    <ol class="relative border-l mt-5 border-gray-200">
+    <ol className="relative border-l mt-5 border-gray-200">
       {timelineSortedByDate.map((timelineItem, index) => {
         return (
           <TimelineNode
