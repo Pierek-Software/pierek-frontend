@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {
   JavaScriptIcon,
   LambdaIcon,
@@ -45,8 +46,14 @@ function ArticleCard({ nda, title, description, image, category, tags }) {
                 return <JavaScriptIcon />;
               case "Microservice":
                 return <MicroserviceIcon />;
-              case "Lambda":
-                return <LambdaIcon />;
+              case "AWS":
+                return (
+                  <img
+                    className="h-10 w-10 m-auto"
+                    src={`/icons/aws.svg`}
+                    alt="AWS"
+                  />
+                );
               case "Node.js":
                 return <NodeJsIcon />;
               default:

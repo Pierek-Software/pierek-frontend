@@ -6,7 +6,7 @@
     "description": "Old microservice need to be upgraded from JavaScript to TypeScript, also upgrade database library and write tests.",
     "image": "https://picsum.photos/1920/1080",
     "nda": true,
-    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js"]
+    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js", "AWS"]
   },
   {
     "id": 1,
@@ -15,7 +15,7 @@
     "description": "New microservice for handling every file format preview, also refactor old codebase from JavaScript to TypeScript to be more readable and maintainable.",
     "image": "https://picsum.photos/1920/1080",
     "nda": true,
-    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js"]
+    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js", "AWS"]
   },
   {
     "id": 2,
@@ -24,6 +24,6 @@
     "description": "Building lambda function based on excel formula that tell if user is able to take credit",
     "image": "https://picsum.photos/1920/1080",
     "nda": true,
-    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js", "Lambda"]
+    "tags": ["Microservice", "TypeScript", "JavaScript", "Node.js", "AWS"]
   }
 ]
