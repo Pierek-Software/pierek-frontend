@@ -21,6 +21,23 @@ function Footer({ wave = true }: FooterProps) {
         </svg>
       ) : null}
 
+      <div className="bg-slate-950 text-white">
+        <div className="container flex justify-around">
+          <div className="flex flex-col">
+            <h3 className="text-md font-bold">Information</h3>
+            <a href="/technologies">Technologies</a>
+            <a href="/case-studies">Case Studies</a>
+            <a href="/futurology">Futurology</a>
+          </div>
+          <div>
+            <h3 className="text-md font-bold">Headquater</h3>
+            <div>ul. Gliwicka 82</div>
+            <div>Szczejkowice, 44-246</div>
+            <div>Poland</div>
+          </div>
+        </div>
+      </div>
+
       <div className="bg-slate-950 p-5 flex text-white justify-center">
         <div className="container">
           <div className="flex justify-center text-center">

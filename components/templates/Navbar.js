@@ -8,17 +8,17 @@ export default function Navbar(props) {
   return (
     <>
       <nav className={props.background === true ? "bg-slate-800" : ""}>
-        <ul className="flex justify-between md:justify-center align-middle items-center p-6 max-w-6xl mx-auto">
-          <li className="md:grow px-5 text-xl font-bold">
+        <ul className="container flex justify-between lg:justify-center align-middle items-center pt-6">
+          <li className="lg:grow px-5 text-xl font-bold">
             <a href="/">
               <img
-                className="h-6 md:h-9 "
-                src="https://sklep329135.shoparena.pl/skins/user/rwd_primary_1/images/user/logo_white.svg"
+                className="h-6 lg:h-9 "
+                src="/logo_white.svg"
                 alt="My Happy SVG"
               />
             </a>
           </li>
-          <li className="md:hidden">
+          <li className="lg:hidden">
             <svg
               onClick={() => {
                 setNavbarOpen(!navbarOpen);
@@ -40,17 +40,17 @@ export default function Navbar(props) {
             </svg>
           </li>
 
-          <li className="hidden md:block px-5 text-white text-2xl font-bold hover:underline">
+          <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
             <a href="/technologies">Technologies</a>
           </li>
 
-          <li className="hidden md:block px-5 text-white text-2xl font-bold hover:underline">
+          <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
             <a href="/case-studies">Case Studies</a>
           </li>
-          <li className="hidden md:block px-5 text-white text-2xl font-bold hover:underline">
+          <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
             <a href="/futurology">Futurology</a>
           </li>
-          <li className="hidden md:block px-5 text-white text-xl">
+          <li className="hidden lg:block px-5 text-white text-xl">
             <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full">
               <a href="/contact">Contact</a>
             </button>
@@ -58,7 +58,7 @@ export default function Navbar(props) {
         </ul>
         {navbarOpen === true ? (
           <section className="bg-slate-800 text-white absolute top-0 w-screen h-screen z-50 ">
-            <div className="flex flex-row justify-end pr-6 pt-6">
+            <div className="container flex flex-row justify-end pt-6">
               <svg
                 onClick={() => {
                   setNavbarOpen(!navbarOpen);
@@ -115,7 +115,7 @@ export default function Navbar(props) {
       </nav>
       {props.wave === true ? (
         <svg
-          className="-mb-10 md:-mb-40 -mt-1"
+          className="-mb-10 lg:-mb-40 -mt-1"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >
