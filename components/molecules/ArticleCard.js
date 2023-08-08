@@ -36,7 +36,7 @@ function ArticleCard({ nda, title, description, image, category, tags }) {
         </div>
         <p className="text-gray-700 text-base">{description}</p>
       </div>
-      <div className="py-3 flex justify-center align-middle border-t-2">
+      {/* <div className="py-3 flex justify-center align-middle border-t-2">
         {tags
           .map((tag) => {
             switch (tag) {
@@ -65,7 +65,7 @@ function ArticleCard({ nda, title, description, image, category, tags }) {
               {icon}
             </div>
           ))}
-      </div>
+      </div> */}
     </div>
   );
 }
