@@ -95,7 +95,7 @@ export default function Home() {
         ></path>
       </svg>
 
-      <section className="bg-white p-5 container mx-auto">
+      <section className="bg-white container mx-auto">
         <div className="">
           <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
             Technologies
