@@ -18,16 +18,27 @@ export default function Home() {
         <Navbar />
         <section className="container">
           <h2
-            className="font-extrabold mt-28 text-white text-center text-4xl leading-normal
-          md:text-8xl md:max-w-3xl md:mt-40 md:text-center md:leading-snug
-          lg:text-left lg:leading-tight
+            className="font-extrabold mt-28 text-white text-center leading-normal text-4xl
+          sm:text-4xl
+          md:text-7xl md:max-w-3xl md:mt-40 md:text-center md:leading-snug
+          lg:text-8xl lg:text-left lg:leading-tight
           2xl:text-9xl 2xl:max-w-7xl"
           >
             Problem solving oriented software house
           </h2>
         </section>
-        <div className="md:hidden flex justify-center mt-24">
-          <button className="md:hidden w-32 h-32 bg-slate-800 hover:bg-slate-900 text-white text-2xl font-bold py-2 px-4 rounded-full border">
+        <div
+          className="lg:hidden
+        flex justify-center mt-24"
+        >
+          <button
+            className="
+            w-32 h-32
+            md:w-64 md:h-64 md:text-5xl md:border-2
+            lg:hidden 
+          
+           bg-slate-800 hover:bg-slate-900 text-white text-2xl font-bold py-2 px-4 rounded-full border"
+          >
             <a href="/contact">Contact</a>
           </button>
         </div>
@@ -49,7 +60,11 @@ export default function Home() {
         </p>
       </section>
 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <svg
+        className="-mb-0.5"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
         <path
           fill="#020617"
           fillOpacity="1"
@@ -68,7 +83,11 @@ export default function Home() {
         </div>
       </section>
 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <svg
+        className="-mt-0.5"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
         <path
           fill="#020617"
           fillOpacity="1"
@@ -122,7 +141,11 @@ export default function Home() {
         </div>
       </section>
 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <svg
+        className="-mb-0.5"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
         <path
           fill="#020617"
           fillOpacity="1"
@@ -141,7 +164,11 @@ export default function Home() {
         </div>
       </section>
 
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <svg
+        className="-mt-0.5"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+      >
         <path
           fill="#020617"
           fillOpacity="1"

@@ -1,4 +1,6 @@
 import React from "react";
+import { DefaultLink, OriginalLink } from "../atom/Link";
+import Logo from "../atom/Logo";
 
 export interface FooterProps {
   wave?: boolean;
@@ -9,7 +11,7 @@ function Footer({ wave = true }: FooterProps) {
     <footer>
       {wave === true ? (
         <svg
-          className="mt-10"
+          className="mt-10 -mb-0.5"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >
@@ -21,27 +23,24 @@ function Footer({ wave = true }: FooterProps) {
         </svg>
       ) : null}
 
-      <div className="bg-slate-950 text-white">
-        <div className="container flex justify-around">
-          <div className="flex flex-col">
+      <div className="bg-slate-950 text-white pb-8">
+        <div
+          className="container flex flex-col md:flex-row md:justify-around
+        "
+        >
+          <Logo className="h-5 md:h-6 lg:h-7 w-auto mx-auto" />
+          <div className="flex flex-col mt-3 md:mt-0">
             <h3 className="text-md font-bold">Information</h3>
-            <a href="/technologies">Technologies</a>
-            <a href="/case-studies">Case Studies</a>
-            <a href="/futurology">Futurology</a>
+            <DefaultLink name="Technologies" href="/technologies" />
+            <DefaultLink name="Case Studies" href="/case-studies" />
+            <DefaultLink name="Futurology" href="/futurology" />
           </div>
-          <div>
+          <div className="mt-3 md:mt-0">
             <h3 className="text-md font-bold">Headquater</h3>
             <div>ul. Gliwicka 82</div>
             <div>Szczejkowice, 44-246</div>
             <div>Poland</div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-slate-950 p-5 flex text-white justify-center">
-        <div className="container">
-          <div className="flex justify-center text-center">
-            <p>contact@pierek.com ©2023</p>
+            <div>contact@pierek.com</div>
           </div>
         </div>
       </div>
