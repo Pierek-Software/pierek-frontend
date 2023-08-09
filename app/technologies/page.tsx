@@ -55,7 +55,7 @@ function Technologies() {
         <TechnologyNode category={1} />
         <TechnologyNode category={4} />
 
-        <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-500 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
+        <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
           <a href="/contact">
             <h2 className="text-2xl py-6 md:text-4xl font-bold text-white">
               Interested in offer? <span className="underline">Contact us</span>

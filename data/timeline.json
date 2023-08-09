@@ -87,5 +87,95 @@
       "link": "https://hub.docker.com/"
     },
     "tags": ["Software Development", "Backend", "JavaScript", "TypeScript"]
+  },
+  {
+    "id": 6,
+    "name": "HTTP/3 Released",
+    "date": "June 06, 2022",
+    "text": "3 version of HTTP protocol is released",
+    "tags": ["Software Development"],
+    "button": {
+      "link": "https://en.wikipedia.org/wiki/HTTP/3"
+    }
+  },
+  {
+    "id": 7,
+    "name": "HTTP/2 Released",
+    "date": "May 14, 2015",
+    "text": "2 version of HTTP protocol is released",
+    "tags": ["Software Development"],
+    "button": {
+      "link": "https://en.wikipedia.org/wiki/HTTP/2"
+    }
+  },
+  {
+    "id": 8,
+    "name": "HTTP/0.9 Released",
+    "date": "1991",
+    "text": "first version of HTTP protocol is released",
+    "tags": ["Software Development"],
+    "button": {
+      "link": "https://en.wikipedia.org/wiki/HTTP/0.9"
+    }
+  },
+  {
+    "id": 8,
+    "name": "HTTP/1.0 Released",
+    "date": "May 20, 1996",
+    "text": "1.0 version of HTTP protocol is released",
+    "tags": ["Software Development"],
+    "button": {
+      "link": "https://en.wikipedia.org/wiki/HTTP/1.0"
+    }
+  },
+  {
+    "id": 9,
+    "name": "Google Chrome Released",
+    "date": "September 2, 2008",
+    "text": "Google Chrome is released",
+    "tags": ["Software Development"],
+    "button": {
+      "link": "https://www.google.com/chrome/"
+    }
+  },
+  {
+    "id": 10,
+    "name": "Mozilla Firefox Released",
+    "date": "September 23, 2002",
+    "text": "Google Chrome is released",
+    "tags": ["Software Development"],
+    "button": {
+      "link": "https://www.mozilla.org/en/firefox/new/"
+    }
+  },
+  {
+    "id": 11,
+    "name": "Opera Released",
+    "date": "April 10, 1995",
+    "text": "Opera is released",
+    "tags": ["Software Development"],
+    "button": {
+      "link": "https://www.opera.com/"
+    }
+  },
+  {
+    "id": 12,
+    "name": "Microsoft Edge Released",
+    "date": "July 29, 2015",
+    "text": "Microsoft Edge is released",
+    "tags": ["Software Development"],
+    "button": {
+      "link": "https://www.microsoft.com/en-us/edge"
+    }
+  },
+  {
+    "id": 13,
+    "name": "CSS Flexbox Released",
+    "date": "July 23, 2009",
+    "text": "CSS Flexbox is released",
+    "tags": ["Software Development", "Frontend"],
+    "button": {
+      "link": "https://annairish.github.io/historicizing/history"
+    }
   }
 ]

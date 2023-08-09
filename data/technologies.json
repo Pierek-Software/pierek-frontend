@@ -95,5 +95,7 @@
     "title": "Kubernetes",
     "category": 6,
     "iconPath": "kubernetes.svg"
-  }
+  },
+  { "id": 24, "title": "Fastify", "category": 4, "iconPath": "fastify.svg" },
+  { "id": 25, "title": "Socket.io", "category": 4, "iconPath": "socket-io.svg" }
 ]
