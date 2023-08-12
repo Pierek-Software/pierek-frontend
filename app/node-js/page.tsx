@@ -19,7 +19,7 @@ export default function NodeJSPage() {
           </p>
         </section>
 
-        <p className="mt-5 text-xl text-justify leading-loose">
+        <p className="mt-5 text-justify text-md md:text-xl lg:text-2xl leading-loose lg:leading-loose xl:leading-loose">
           Node.js is a powerful open-source runtime environment that enables
           server-side execution of JavaScript. It's designed for building
           scalable and efficient network applications, making it a popular
@@ -111,7 +111,7 @@ export default function NodeJSPage() {
 
 function SingleStuff({ iconPath, name, description, pluses, minuses }) {
   return (
-    <div className="p-3 rounded border border-black">
+    <div className="p-3 rounded border border-black border-2">
       <img className="w-15 h-15 mx-auto" src={iconPath} alt={name} />
       <h2 className="text-center text-black text-xl font-bold">{name}</h2>
 
