@@ -29,6 +29,12 @@ function Footer({ wave = true }: FooterProps) {
         "
         >
           <Logo className="hidden md:block h-5 md:h-6 lg:h-7 w-auto mx-auto" />
+
+          <div className="flex flex-col mt-3 md:mt-0">
+            <h3 className="text-md font-bold">Services</h3>
+            <DefaultLink name="Node.js Development" href="/node-js" />
+          </div>
+
           <div className="flex flex-col mt-3 md:mt-0">
             <h3 className="text-md font-bold">Information</h3>
             <DefaultLink name="Technologies" href="/technologies" />
