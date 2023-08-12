@@ -4,32 +4,6 @@
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
-export interface TechnologyItemProps {
-  id: string;
-  name: string;
-  iconPath: string;
-}
-
-function TechnologyItem(props: TechnologyItemProps) {
-  return (
-    <div
-      className="px-5 py-2
-      min-w-full min-h-full
-      rounded border border-black
-     hover:bg-slate-200 hover:cursor-pointer"
-    >
-      <img
-        className="w-10 h-10 mx-auto"
-        src={`/icons/${props.iconPath}`}
-        alt={props.name}
-      />
-      <h2 className="text-center text-black text-lg font-semibold">
-        {props.name}
-      </h2>
-    </div>
-  );
-}
-
 export default function NodeJSPage() {
   return (
     <>
@@ -141,7 +115,7 @@ function SingleStuff({ iconPath, name, description, pluses, minuses }) {
       <img className="w-15 h-15 mx-auto" src={iconPath} alt={name} />
       <h2 className="text-center text-black text-xl font-bold">{name}</h2>
 
-      <p className="mt-3 text-lg text-justify lg:h-48">{description}</p>
+      <p className="mt-3 text-lg text-justify lg:h-64">{description}</p>
 
       <section className="mt-3 flex flex-col md:flex-row justify-between lg:h-64">
         <div className="md:w-1/2">
