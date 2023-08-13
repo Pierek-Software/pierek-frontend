@@ -10,7 +10,7 @@ export default function Home() {
       <section
         className="
       bg-gradient-to-b from-slate-800 to-slate-950
-      w-screen h-screen
+      h-screen
       flex
       flex-col
       "

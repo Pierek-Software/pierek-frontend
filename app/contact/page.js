@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-slate-800 to-slate-950 h-screen w-screen">
+      <section className="bg-gradient-to-b from-slate-800 to-slate-950 h-screen">
         <Navbar />
         <section className="flex md:flex-row flex-col justify-center items-center font-extrabold text-white text-center text-2xl md:text-8xl mt-28 md:mt-40">
           <h2 className="pr-3" id="email" ref={inputRef}>
