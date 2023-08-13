@@ -19,7 +19,7 @@ export default function NodeJSPage() {
           </p>
         </section>
 
-        <p className="mt-5 text-justify text-md md:text-xl lg:text-2xl leading-loose lg:leading-loose xl:leading-loose">
+        <p className="mt-5 text-justify text-md md:text-xl lg:text-2xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
           Node.js is a powerful open-source runtime environment that enables
           server-side execution of JavaScript. It's designed for building
           scalable and efficient network applications, making it a popular
