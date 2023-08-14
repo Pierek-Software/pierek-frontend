@@ -19,6 +19,14 @@ ChartJS.register(
   Legend
 );
 
+const values = [
+  { name: "Nest.js", rps: 30001 },
+  { name: "Fastify", rps: 49720 },
+  { name: "Koa", rps: 38819 },
+  { name: "Express", rps: 11244 },
+  { name: "Vanilla", rps: 70203 },
+];
+
 export const options = {
   responsive: true,
   plugins: {
@@ -28,14 +36,12 @@ export const options = {
   },
 };
 
-const labels = ["Nest.js", "Express", "Koa", "Fastify", "Vanilla"];
-
 export const data = {
-  labels,
+  labels: values.map((value) => value.name),
   datasets: [
     {
       label: "Requests per second",
-      data: labels.map(() => Math.floor(Math.random() * 100)),
+      data: values.map((value) => value.rps),
       backgroundColor: "rgba(30, 41, 59, 1)",
     },
   ],
