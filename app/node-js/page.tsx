@@ -10,15 +10,9 @@ export default function NodeJSPage() {
     <>
       <Navbar background wave />
       <main className="container">
-        <section>
-          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
-            Node.js Development
-          </h1>
-          <p className="text-2xl md:text-4xl font-light">
-            Efficient and fast building of microservices and backend
-            applications
-          </p>
-        </section>
+        <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          Node.js Development
+        </h1>
 
         <p className="mt-5 text-justify text-md md:text-xl lg:text-2xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
           Node.js is a powerful open-source runtime environment that enables
@@ -34,14 +28,9 @@ export default function NodeJSPage() {
           applications.
         </p>
 
-        <section>
-          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
-            Node.js Frameworks
-          </h1>
-          <p className="text-2xl md:text-4xl font-light">
-            Stable, enterprise grade tools used by our partners
-          </p>
-        </section>
+        <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          Node.js Frameworks
+        </h2>
 
         <section className="mt-5 flex flex-wrap flex-col lg:flex-row">
           <SingleStuff
@@ -112,6 +101,25 @@ export default function NodeJSPage() {
             <Chart />
           </div>
         </section>
+
+        <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          Node.js Frameworks - Perfomance less important than popularity
+        </h2>
+
+        <p className="mt-5 text-justify text-md md:text-xl lg:text-2xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+          In the realm of Node.js development, the traditional obsession with
+          performance is undergoing a transformation. This shift is
+          substantiated by the prevalence of stateless applications within the
+          ecosystem, which effortlessly lend themselves to clustering and
+          traffic distribution. While Node.js is celebrated for its adeptness at
+          handling concurrent connections, its true power emerges when harnessed
+          to create horizontally scalable, cluster-friendly architectures.
+          Stateless designs, unburdened by the complexities of managing shared
+          states across instances, seamlessly distribute incoming traffic and
+          enable dynamic scaling. In this context, performance takes a back seat
+          to the elegance of scalability, streamlining maintenance and heralding
+          a new era where Node.js proficiency extends beyond raw speed.
+        </p>
 
         <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
           <a href="/contact">
