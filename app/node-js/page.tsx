@@ -4,6 +4,21 @@
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 import Chart from "../../components/organisms/chart";
+import SyntaxHighlighter from "../../components/molecules/SyntaxHighlighter";
+
+const code = `
+const express = require('express')
+const app = express()
+const port = 3000
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(\`Example app listening on port \${port}\`)
+})
+`;
 
 export default function NodeJSPage() {
   return (
@@ -26,6 +41,49 @@ export default function NodeJSPage() {
           unified language across the entire stack, enhancing productivity and
           fostering rapid innovation in the world of web and networked
           applications.
+        </p>
+
+        <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          Why use Node.js for next application?
+        </h2>
+
+        <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
+          1. Simple
+        </h3>
+
+        <SyntaxHighlighter code={code} />
+
+        <p className="mt-3 text-justify text-xl leading-loose">
+          In just a few lines of code, we successfully instantiated a server
+          instance, complete with a rudimentary "hello world" endpoint.
+        </p>
+
+        <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
+          2. Microservice ready
+        </h3>
+
+        <p className="mt-3 text-justify text-xl leading-loose">
+          Due to the inherent ease of application development, the option to
+          bifurcate functionalities and isolate distinct business logic becomes
+          increasingly feasible. This strategic partitioning becomes
+          particularly valuable in scenarios where either a monorepo or a
+          monolithic codebase experiences significant growth, thereby ensuring
+          maintainability and scalability while upholding a structured and
+          modular code architecture.
+        </p>
+
+        <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
+          3. One language for frontend and backend
+        </h3>
+
+        <p className="mt-3 text-justify text-xl leading-loose">
+          Given that Node.js is developed as a JavaScript runtime environment
+          for backend applications, its seamless integration allows proficient
+          JavaScript developers to readily transition their expertise to
+          frontend frameworks such as Next.js, Nuxt.js, Vue.js, Angular, and
+          libraries like React.js. This proficiency in a shared programming
+          language facilitates a smooth and efficient transition between backend
+          and frontend development paradigms.
         </p>
 
         <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">

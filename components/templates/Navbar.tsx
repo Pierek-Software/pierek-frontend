@@ -2,13 +2,18 @@
 
 import { useState } from "react";
 
-export default function Navbar(props) {
+export interface NavbarProps {
+  background: boolean;
+  wave: boolean;
+}
+
+export default function Navbar(props: NavbarProps) {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
     <>
       <nav className={props.background === true ? "bg-slate-800" : ""}>
-        <ul className="container flex justify-between lg:justify-center align-middle items-center pt-6">
+        <ul className="container flex justify-between lg:justify-center align-middle items-center pt-3 pb-3">
           <li className="lg:grow px-5 text-xl font-bold">
             <a href="/">
               <img
