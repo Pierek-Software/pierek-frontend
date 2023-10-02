@@ -28,7 +28,20 @@ function Footer({ wave = true }: FooterProps) {
           className="container flex flex-col md:flex-row md:justify-around
         "
         >
-          <Logo className="hidden md:block h-5 w-auto mx-auto" />
+          <div className="">
+            <Logo className="mt-3 md:mt-0 h-5 w-auto mx-auto" />
+
+            <section className="mt-3">
+              <a
+                target="_blank"
+                rel="nofollow"
+                href="https://clutch.co/profile/pierek#highlights"
+                className="inline-block w-14"
+              >
+                <img alt="Clutch.co Icon" src="/icons/clutchco.svg" />
+              </a>
+            </section>
+          </div>
 
           <div className="flex flex-col mt-3 md:mt-0">
             <h3 className="text-md font-bold">Services</h3>
