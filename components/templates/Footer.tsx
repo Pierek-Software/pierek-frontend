@@ -30,15 +30,23 @@ function Footer({ wave = true }: FooterProps) {
         >
           <div className="">
             <Logo className="mt-3 md:mt-0 h-5 w-auto mx-auto" />
-
-            <section className="mt-3">
+            <section className="mt-3 flex justify-center md:justify-start self-center items-center">
               <a
                 target="_blank"
                 rel="nofollow"
                 href="https://clutch.co/profile/pierek#highlights"
-                className="inline-block w-14"
+                className="w-10 md:w-14"
               >
-                <img alt="Clutch.co Icon" src="/icons/clutchco.svg" />
+                <img alt="Linked.in Icon" src="/icons/clutchco.svg" />
+              </a>
+
+              <a
+                target="_blank"
+                rel="nofollow"
+                href="https://www.linkedin.com/company/pierek"
+                className="ml-5 md:ml-3 w-10 md:w-14"
+              >
+                <img alt="Clutch.co Icon" src="/icons/linkedin.svg" />
               </a>
             </section>
           </div>
