@@ -1,5 +1,5 @@
 import React from "react";
-import { DefaultLink, OriginalLink } from "../atom/Link";
+import { DefaultLink } from "../atom/Link";
 import Logo from "../atom/Logo";
 
 export interface FooterProps {
@@ -46,6 +46,7 @@ function Footer({ wave = true }: FooterProps) {
           <div className="flex flex-col mt-3 md:mt-0">
             <h3 className="text-md font-bold">Services</h3>
             <DefaultLink name="Node.js Development" href="/node-js" />
+            <DefaultLink name="Talent as a Service (TaaS)" href="/talents" />
           </div>
 
           <div className="flex flex-col mt-3 md:mt-0">
