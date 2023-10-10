@@ -8,7 +8,7 @@ export default function NodeJSPage() {
     <>
       <div
         className="min-h-screen min-w-screen
-        bg-gradient-to-b from-slate-800 from-0% via-slate-600 via-60% to-white to-95%
+        bg-gradient-to-b from-slate-950  to-slate-800
       
       flex flex-col justify-between"
       >
