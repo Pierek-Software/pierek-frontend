@@ -1,8 +1,11 @@
 {
   "rewrites": [
-    { "source": "/book/", "destination": "https://pierek-book.vercel.app/" },
     {
-      "source": "/book/:match*",
+      "source": "/knowledge/",
+      "destination": "https://pierek-book.vercel.app/"
+    },
+    {
+      "source": "/knowledge/:match*",
       "destination": "https://pierek-book.vercel.app/:match*"
     }
   ]
