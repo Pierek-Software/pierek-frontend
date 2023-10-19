@@ -64,6 +64,7 @@ function Footer({ wave = true }: FooterProps) {
             <h3 className="text-md font-bold">Services</h3>
             <DefaultLink name="Node.js Development" href="/node-js" />
             <DefaultLink name="Talent as a Service (TaaS)" href="/talents" />
+            <DefaultLink name="Search Engine Optimization (SEO)" href="/seo" />
           </div>
 
           <div className="flex flex-col mt-3 md:mt-0">
