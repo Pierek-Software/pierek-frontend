@@ -1,13 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import { buildMetadata } from "../../components/metadata";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
+import { Metadata } from "next";
+import { buildMetadata } from "../../components/metadata";
 
 //bg-[url('/talents-bg.webp')] bg-fill
 
-export const metadata = buildMetadata({
-  title: "Search Engine Optimization (SEO)",
-});
+export const metadata = buildMetadata({ title: "TypeScript Development" });
 
 export default function Page() {
   return (
@@ -21,15 +20,15 @@ export default function Page() {
         <Navbar background={false} wave={false} />
 
         <section className="container grow">
-          <h2
+          <h1
             className="font-extrabold mt-28 text-white text-center leading-normal text-4xl
           sm:text-4xl
           md:text-7xl md:max-w-3xl md:text-center md:leading-snug
           lg:text-8xl lg:text-left lg:leading-tight
           2xl:text-9xl 2xl:max-w-7xl"
           >
-            Search Engine Optimization (SEO)
-          </h2>
+            TypeScript Development
+          </h1>
         </section>
 
         <section className="container mb-7 flex justify-center">
@@ -61,41 +60,45 @@ export default function Page() {
         ></path>
       </svg>
       <main className="container mt-11">
-        <h1 className="text-4xl md:text-5xl font-bold  leading-relaxed text-black">
-          Search Engine Optimization
-        </h1>
+        <h2 className="text-4xl md:text-5xl font-bold  leading-relaxed text-black">
+          TypeScript's Error-Preventing Superpower
+        </h2>
         <p className="mt-3 text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          Our profound understanding of search engine algorithms empowers us to
-          strategize and implement methods for optimizing your project. Without
-          effective SEO, your application may struggle to secure a prominent
-          position, potentially providing your competition with a significant
-          advantage. Superior SEO entails the meticulous alignment of your web
-          pages with search engine regulations.
+          TypeScript is a statically typed superset of JavaScript that has
+          gained widespread adoption in the web development community. It brings
+          several advantages to the table, making it an attractive choice for
+          building modern applications. With TypeScript, developers can catch
+          errors during development, thanks to its strong typing system, which
+          helps identify and prevent many common coding mistakes before the code
+          even runs. This leads to more robust and reliable applications.
         </p>
 
-        <h1 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          From Content Development to Link Building
-        </h1>
+        <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
+          Enhancing Code Maintainability and Readability
+        </h2>
         <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          We prioritize the critical aspects of each project, proactively
-          resolving challenges with efficiency and precision. It's essential to
-          note that SEO transcends conventional marketing strategies; its
-          primary value lies in obtaining favorable endorsements from major
-          search engines.
+          One of TypeScript's key benefits is enhanced code maintainability and
+          readability. The use of static types enables developers to document
+          their code effectively, making it easier for team members to
+          understand and work with the codebase. TypeScript also provides
+          advanced tooling and editor support, offering features like
+          autocompletion, code navigation, and refactoring tools, which boost
+          developer productivity. Furthermore, TypeScript seamlessly integrates
+          with popular JavaScript libraries and frameworks, allowing developers
+          to leverage existing JavaScript code while enjoying the benefits of
+          strong typing.
         </p>
 
-        <h1 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          Unraveling the Complexities
-        </h1>
+        <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
+          Scalable and Collaborative Development with TypeScript
+        </h2>
         <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          While the inner workings of Google's search algorithms remain a
-          closely guarded secret, it is widely acknowledged that in-depth
-          knowledge is a rarity, and those who possess it seldom divulge their
-          insights. Nevertheless, extensive case studies have shed light on
-          certain techniques that yield positive results, while others prove
-          less effective. We can offer our professional insights and guide you
-          towards the most advantageous strategies to enhance your search engine
-          rankings.
+          TypeScript is especially valuable in larger codebases and
+          collaborative development environments. It enforces better coding
+          practices, enhances code quality, and reduces the chances of runtime
+          errors. Moreover, TypeScript is well-suited for building scalable and
+          maintainable applications, making it a preferred choice for modern web
+          and application development.
         </p>
 
         <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">

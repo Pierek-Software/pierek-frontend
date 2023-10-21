@@ -1,10 +1,9 @@
 /* eslint-disable react/no-unescaped-entities */
-"use client";
 
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
-import Chart from "../../components/organisms/chart";
-import SyntaxHighlighter from "../../components/molecules/SyntaxHighlighter";
+// import SyntaxHighlighter from "../../components/molecules/SyntaxHighlighter";
+import { buildMetadata } from "../../components/metadata";
 
 const code = `
 const express = require('express')
@@ -20,7 +19,9 @@ app.listen(port, () => {
 })
 `;
 
-export default function NodeJSPage() {
+export const metadata = buildMetadata({ title: "Node.js Development" });
+
+export default function Page() {
   return (
     <>
       <Navbar background wave />
@@ -47,19 +48,19 @@ export default function NodeJSPage() {
           Why use Node.js for next application?
         </h2>
 
-        <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
+        {/* <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
           1. Simple
-        </h3>
+        </h3> */}
 
-        <SyntaxHighlighter code={code} />
+        {/* <SyntaxHighlighter code={code} /> */}
 
-        <p className="mt-3 text-justify text-xl leading-loose">
+        {/* <p className="mt-3 text-justify text-xl leading-loose">
           In just a few lines of code, we successfully instantiated a server
           instance, complete with a rudimentary "hello world" endpoint.
-        </p>
+        </p> */}
 
         <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
-          2. Microservice ready
+          Microservice ready
         </h3>
 
         <p className="mt-3 text-justify text-xl leading-loose">
@@ -73,7 +74,7 @@ export default function NodeJSPage() {
         </p>
 
         <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
-          3. One language for frontend and backend
+          One language for frontend and backend
         </h3>
 
         <p className="mt-3 text-justify text-xl leading-loose">
@@ -154,11 +155,11 @@ export default function NodeJSPage() {
           />
         </section>
 
-        <section>
+        {/* <section>
           <div className="">
             <Chart />
           </div>
-        </section>
+        </section> */}
 
         <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
           Node.js Frameworks - Perfomance less important than popularity

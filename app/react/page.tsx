@@ -1,13 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
-import { buildMetadata } from "../../components/metadata";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
+import { Metadata } from "next";
+import { buildMetadata } from "../../components/metadata";
 
 //bg-[url('/talents-bg.webp')] bg-fill
 
-export const metadata = buildMetadata({
-  title: "Search Engine Optimization (SEO)",
-});
+export const metadata = buildMetadata({ title: "React.js Development" });
 
 export default function Page() {
   return (
@@ -28,7 +27,7 @@ export default function Page() {
           lg:text-8xl lg:text-left lg:leading-tight
           2xl:text-9xl 2xl:max-w-7xl"
           >
-            Search Engine Optimization (SEO)
+            React.js Development
           </h2>
         </section>
 
@@ -62,40 +61,47 @@ export default function Page() {
       </svg>
       <main className="container mt-11">
         <h1 className="text-4xl md:text-5xl font-bold  leading-relaxed text-black">
-          Search Engine Optimization
+          Introduction to React.js
         </h1>
         <p className="mt-3 text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          Our profound understanding of search engine algorithms empowers us to
-          strategize and implement methods for optimizing your project. Without
-          effective SEO, your application may struggle to secure a prominent
-          position, potentially providing your competition with a significant
-          advantage. Superior SEO entails the meticulous alignment of your web
-          pages with search engine regulations.
+          React is an open-source JavaScript library for building user
+          interfaces, primarily used for creating interactive and dynamic web
+          applications. Developed and maintained by Facebook, React has gained
+          immense popularity within the web development community due to its
+          efficiency, flexibility, and performance. One of its core principles
+          is the concept of a virtual DOM (Document Object Model), which allows
+          React to update only the parts of a web page that have changed,
+          minimizing the need for re-rendering the entire page. This results in
+          faster and more responsive user interfaces.
         </p>
 
         <h1 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          From Content Development to Link Building
+          Component-Based Development with React
         </h1>
         <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          We prioritize the critical aspects of each project, proactively
-          resolving challenges with efficiency and precision. It's essential to
-          note that SEO transcends conventional marketing strategies; its
-          primary value lies in obtaining favorable endorsements from major
-          search engines.
+          React follows a component-based architecture, where the user interface
+          is broken down into smaller, reusable components. These components can
+          be created independently and combined to build complex applications.
+          React's declarative syntax enables developers to describe how the UI
+          should look at any given time, and React takes care of updating the
+          actual DOM to match this desired state. This makes the code easier to
+          understand, maintain, and test. React also encourages the use of a
+          one-way data flow, which helps in maintaining the predictability of an
+          application, as data changes are easy to track and debug.
         </p>
 
         <h1 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          Unraveling the Complexities
+          React's Ecosystem and Versatility
         </h1>
         <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          While the inner workings of Google's search algorithms remain a
-          closely guarded secret, it is widely acknowledged that in-depth
-          knowledge is a rarity, and those who possess it seldom divulge their
-          insights. Nevertheless, extensive case studies have shed light on
-          certain techniques that yield positive results, while others prove
-          less effective. We can offer our professional insights and guide you
-          towards the most advantageous strategies to enhance your search engine
-          rankings.
+          React's ecosystem is rich and supported by a vast community of
+          developers. There are numerous libraries and tools, such as React
+          Router for handling client-side routing and Redux for state
+          management, that can be seamlessly integrated with React to extend its
+          capabilities. React Native, an extension of React, allows developers
+          to build mobile applications for both iOS and Android using the same
+          React principles, making it a versatile choice for cross-platform
+          development.
         </p>
 
         <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
