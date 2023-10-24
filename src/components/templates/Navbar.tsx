@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 
 export interface NavbarProps {
@@ -13,7 +11,13 @@ export default function Navbar(props: NavbarProps) {
   return (
     <>
       <nav className={props.background === true ? "bg-slate-800" : ""}>
-        <ul className="container flex justify-between lg:justify-center align-middle items-center pt-6 pb-3">
+        <ul
+          className="
+        container 
+        flex justify-between align-middle items-center py-6
+        lg:justify-center 
+        "
+        >
           <li className="lg:grow px-5 text-xl font-bold">
             <a href="/">
               <img

@@ -15,7 +15,7 @@ export default function Home() {
       flex-col
       "
       >
-        <Navbar />
+        <Navbar background={false} wave={false} />
         <section className="container">
           <h2
             className="font-extrabold mt-28 text-white text-center leading-normal text-4xl
