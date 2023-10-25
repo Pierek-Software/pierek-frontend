@@ -6,45 +6,44 @@ import path from "path";
 import { GetServerSideProps } from "next";
 import matter from "gray-matter";
 
-function BlogPostCard() {
+function BlogPostCard({ title, description, slug, id }) {
   return (
     <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <img
-        src="https://picsum.photos/id/1/1920/1080" // Replace with your image source
-        alt="Blog Post Image"
-        className="w-full"
-      />
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">Blog Post Title</div>
-        <p className="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-      </div>
-      <div className="px-6 py-4">
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-          Category 1
-        </span>
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-          Category 2
-        </span>
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">
-          Category 3
-        </span>
-      </div>
+      <a href={"/blog" + "/" + slug}>
+        <img
+          src={"/posts" + "/" + id + "/" + "cover.jpeg"}
+          alt="Blog Post Image"
+          className="w-full"
+        />
+        <div className="px-6 py-4">
+          <div className="font-bold text-xl mb-2">{title}</div>
+          <p className="text-gray-700 text-base">{description}</p>
+        </div>
+      </a>
     </div>
   );
 }
 
-export default function RemoteMdxPage({ data }) {
+export default function RemoteMdxPage({ posts }) {
   return (
     <>
       <Head>
         <title>Blog</title>
       </Head>
       <Navbar background={true} wave={false} />
-      <main>{JSON.stringify(data)}</main>
-      <BlogPostCard />
+      <main className="container mt-5">
+        {posts.map((post) => {
+          return (
+            <BlogPostCard
+              id={post.id}
+              slug={post.slug}
+              key={post.id}
+              title={post.title}
+              description={post.description}
+            />
+          );
+        })}
+      </main>
 
       <Footer />
     </>
@@ -54,7 +53,7 @@ export default function RemoteMdxPage({ data }) {
 export const getServerSideProps: GetServerSideProps = async () => {
   const fileNamesWithExtensions = readdirSync(path.resolve("./src/posts"));
 
-  const files = fileNamesWithExtensions.map((fileNameWithExtension) => {
+  const posts = fileNamesWithExtensions.map((fileNameWithExtension) => {
     const filePath = path.resolve("./src/posts", fileNameWithExtension);
 
     const file = readFileSync(filePath);
@@ -67,10 +66,11 @@ export const getServerSideProps: GetServerSideProps = async () => {
       title: parsed.data.title,
       createdAt: new Date(parsed.data.createdAt).toISOString(),
       updatedAt: new Date(parsed.data.updatedAt).toISOString(),
+      description: parsed.data.description,
     };
 
     return data;
   });
 
-  return { props: { data: files } };
+  return { props: { posts } };
 };

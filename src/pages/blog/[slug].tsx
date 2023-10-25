@@ -78,6 +78,7 @@ export default function RemoteMdxPage({
           </div>
         </section>
         <section className="mt-5 sm:mt-8">
+          <p className="text-xl leading-loose my-2">{metadata.description}</p>
           <MDXRemote {...mdxSource} components={components} />
         </section>
       </main>
