@@ -14,7 +14,7 @@ export default function Navbar(props: NavbarProps) {
         <ul
           className="
         container 
-        flex justify-between align-middle items-center py-6
+        flex justify-between align-middle items-center py-3
         lg:justify-center 
         "
         >
@@ -67,7 +67,7 @@ export default function Navbar(props: NavbarProps) {
         </ul>
         {navbarOpen === true ? (
           <section className="bg-slate-800 text-white absolute top-0 w-screen h-screen z-50 ">
-            <div className="container flex flex-row justify-end pt-6">
+            <div className="container flex flex-row justify-end pt-3">
               <svg
                 onClick={() => {
                   setNavbarOpen(!navbarOpen);

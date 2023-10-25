@@ -3,11 +3,13 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Head from "next/head";
 import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
-import { readFileSync, readdir, readdirSync } from "fs";
+import { readFileSync, readdirSync } from "fs";
 import path from "path";
 import { GetStaticProps } from "next";
 import matter from "gray-matter";
 import { MDXComponents } from "mdx/types";
+// import { marked } from "marked";
+import { slugify } from "../../utils";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -22,10 +24,17 @@ export default function RemoteMdxPage({
 }: Props) {
   const components: MDXComponents = {
     p: ({ children }) => (
-      <p className="text-lg leading-loose mt-3">{children}</p>
+      <p className="text-lg leading-loose my-2">{children}</p>
     ),
     h2: ({ children }) => (
-      <h2 className="text-4xl leading-normal">{children}</h2>
+      <a href={"#" + slugify(children)}>
+        <span className="flex items-center">
+          <h2 id={slugify(children)} className="text-4xl leading-normal">
+            {children}
+          </h2>
+          <span className="ml-2 text-xl">🔗</span>
+        </span>
+      </a>
     ),
     h3: ({ children }) => <h3 className="text-3xl">{children}</h3>,
     h4: ({ children }) => <h4 className="text-2xl">{children}</h4>,
@@ -49,11 +58,13 @@ export default function RemoteMdxPage({
       <Navbar background={true} wave={false} />
       <main
         className="
-      container 
+      ml-5 mr-5
+      md:ml-16 md:mr-16
+      lg:max-w-screen-lg lg:mx-auto
       mt-3 sm:mt-10"
       >
-        <section className="xl:flex xl:items-center">
-          <div className="xl:w-1/2">
+        <section className="">
+          <div className="">
             <h2
               className="
             font-extrabold leading-normal
@@ -62,7 +73,7 @@ export default function RemoteMdxPage({
               {metadata.title}
             </h2>
           </div>
-          <div className="xl:w-1/2 mt-3 sm:mt-10 xl:mt-0">
+          <div className="mt-3 sm:mt-10">
             <img src="https://picsum.photos/id/1/1920/1080" />
           </div>
         </section>
@@ -92,7 +103,16 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const mdxSource = await serialize(parsed.content);
 
-  return { props: { mdxSource, metadata: parsed.data, dynamicData } };
+  // const markdownJson = marked.lexer(parsed.content);
+
+  return {
+    props: {
+      mdxSource,
+      markdownContent: parsed.content,
+      metadata: parsed.data,
+      dynamicData,
+    },
+  };
 };
 
 export async function getStaticPaths() {
@@ -102,7 +122,6 @@ export async function getStaticPaths() {
   const clean = files
     .map((file) => file.replace(".md", ""))
     .map((name) => `/blog/${name}`);
-  console.log("files", clean);
 
   return {
     paths: clean,
