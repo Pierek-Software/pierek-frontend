@@ -24,7 +24,7 @@ export default function Home() {
           lg:text-8xl lg:text-left lg:leading-tight
           2xl:text-9xl 2xl:max-w-7xl"
           >
-            Problem solving oriented software house
+            Problem solving oriented company
           </h2>
         </section>
         <div
