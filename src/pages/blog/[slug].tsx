@@ -10,6 +10,7 @@ import matter from "gray-matter";
 import { MDXComponents } from "mdx/types";
 // import { marked } from "marked";
 import { slugify } from "../../utils";
+import Breadcrumbs from "../../components/atom/Breadcrumbs";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -29,17 +30,17 @@ export default function RemoteMdxPage({
     h2: ({ children }) => (
       <a href={"#" + slugify(children)}>
         <span className="flex items-center">
-          <h2 id={slugify(children)} className="text-4xl leading-normal">
+          <h2 id={slugify(children)} className="text-4xl my-2 leading-normal">
             {children}
           </h2>
           <span className="ml-2 text-xl">🔗</span>
         </span>
       </a>
     ),
-    h3: ({ children }) => <h3 className="text-3xl">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-2xl">{children}</h4>,
-    h5: ({ children }) => <h5 className="text-xl">{children}</h5>,
-    h6: ({ children }) => <h6 className="text-lg">{children}</h6>,
+    h3: ({ children }) => <h3 className="text-3xl my-2">{children}</h3>,
+    h4: ({ children }) => <h4 className="text-2xl my-2">{children}</h4>,
+    h5: ({ children }) => <h5 className="text-xl my-2">{children}</h5>,
+    h6: ({ children }) => <h6 className="text-lg my-2">{children}</h6>,
     Test: (props) => <h1>{JSON.stringify(dynamicData)}</h1>,
     img: (props) => (
       <img
@@ -63,7 +64,15 @@ export default function RemoteMdxPage({
       lg:max-w-screen-lg lg:mx-auto
       mt-3 sm:mt-10"
       >
-        <section className="">
+        <Breadcrumbs
+          breadcrumbs={[
+            { name: "Home Page", link: "/" },
+            { name: "Blog", link: "/blog" },
+            { name: metadata.title, link: "#" },
+          ]}
+        />
+
+        <section className="mt-5">
           <div className="">
             <h2
               className="
