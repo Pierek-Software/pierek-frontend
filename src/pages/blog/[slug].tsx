@@ -16,9 +16,11 @@ interface Props {
   mdxSource: MDXRemoteSerializeResult;
   metadata: any;
   dynamicData: any;
+  slug: string;
 }
 
 export default function RemoteMdxPage({
+  slug,
   mdxSource,
   metadata,
   dynamicData,
@@ -55,6 +57,16 @@ export default function RemoteMdxPage({
     <>
       <Head>
         <title>{metadata.title}</title>
+        <meta
+          name="description"
+          content={metadata.description}
+          key="description"
+        />
+        <meta name="keywords" content="node.js,web development,javascript" />
+        <meta name="author" content="Kamil Wilim" />
+        <meta name="publisher" content="Pierek" />
+
+        <link href={`/blog/${slug}`} rel="canonical" />
       </Head>
       <Navbar background={true} wave={false} />
       <main
@@ -74,13 +86,13 @@ export default function RemoteMdxPage({
 
         <section className="mt-5">
           <div className="">
-            <h2
+            <h1
               className="
             font-extrabold leading-normal
             text-4xl sm:text-6xl"
             >
               {metadata.title}
-            </h2>
+            </h1>
           </div>
           <div className="mt-3 sm:mt-10">
             <img src="https://picsum.photos/id/1/1920/1080" />
@@ -117,6 +129,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
+      slug,
       mdxSource,
       markdownContent: parsed.content,
       metadata: parsed.data,
