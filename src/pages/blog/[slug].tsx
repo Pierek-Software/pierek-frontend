@@ -11,15 +11,18 @@ import { MDXComponents } from "mdx/types";
 // import { marked } from "marked";
 import { slugify } from "../../utils";
 import Breadcrumbs from "../../components/atom/Breadcrumbs";
+import AuthorSection from "../../components/atom/AuthorSection";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
   metadata: any;
   dynamicData: any;
   slug: string;
+  id: number;
 }
 
 export default function RemoteMdxPage({
+  id,
   slug,
   mdxSource,
   metadata,
@@ -95,13 +98,28 @@ export default function RemoteMdxPage({
             </h1>
           </div>
           <div className="mt-3 sm:mt-10">
-            <img src="https://picsum.photos/id/1/1920/1080" />
+            <img
+              title={metadata.title}
+              alt={`${metadata.title} post image cover`}
+              src={`/posts/${id}/cover.jpeg`}
+            />
           </div>
         </section>
+
         <section className="mt-5 sm:mt-8">
           <p className="text-xl leading-loose my-2">{metadata.description}</p>
           <MDXRemote {...mdxSource} components={components} />
         </section>
+
+        <div className="mt-3">
+          <AuthorSection
+            firstName="Kamil"
+            lastName="Wilim"
+            avatar="/authors/kamil-wilim.jpeg"
+            createdDate={metadata.createdAt}
+            updatedDate={metadata.updatedAt}
+          />
+        </div>
       </main>
       <Footer />
     </>
@@ -129,6 +147,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
+      id: parsed.data.id,
       slug,
       mdxSource,
       markdownContent: parsed.content,
