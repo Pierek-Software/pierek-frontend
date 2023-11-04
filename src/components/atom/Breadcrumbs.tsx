@@ -9,7 +9,7 @@ export interface IBreadcrumbsProps {
 
 const Breadcrumbs = ({ breadcrumbs }: IBreadcrumbsProps) => {
   return (
-    <nav>
+    <nav className="container my-5">
       <ol className="list-none p-0 inline-flex">
         {breadcrumbs.map((breadcrumb, index) => {
           if (index === breadcrumbs.length - 1) {

@@ -8,7 +8,6 @@ import path from "path";
 import { GetStaticProps } from "next";
 import matter from "gray-matter";
 import { MDXComponents } from "mdx/types";
-// import { marked } from "marked";
 import { slugify } from "../../utils";
 import Breadcrumbs from "../../components/atom/Breadcrumbs";
 import AuthorSection from "../../components/atom/AuthorSection";
@@ -47,6 +46,16 @@ export default function RemoteMdxPage({
     h5: ({ children }) => <h5 className="text-xl my-2">{children}</h5>,
     h6: ({ children }) => <h6 className="text-lg my-2">{children}</h6>,
     Test: (props) => <h1>{JSON.stringify(dynamicData)}</h1>,
+    Youtube: (props: { videoId: string }) => (
+      <iframe
+        className="my-5 w-full"
+        height="590"
+        src={`https://www.youtube.com/embed/${props.videoId}`}
+        title="YouTube video player"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen={true}
+      ></iframe>
+    ),
     img: (props) => (
       <img
         className="m-auto my-3"
@@ -72,6 +81,13 @@ export default function RemoteMdxPage({
         <link href={`/blog/${slug}`} rel="canonical" />
       </Head>
       <Navbar background={true} wave={false} />
+      <Breadcrumbs
+        breadcrumbs={[
+          { name: "Home Page", link: "/" },
+          { name: "Blog", link: "/blog" },
+          { name: metadata.title, link: "#" },
+        ]}
+      />
       <main
         className="
       ml-5 mr-5
@@ -79,14 +95,6 @@ export default function RemoteMdxPage({
       lg:max-w-screen-lg lg:mx-auto
       mt-3 sm:mt-10"
       >
-        <Breadcrumbs
-          breadcrumbs={[
-            { name: "Home Page", link: "/" },
-            { name: "Blog", link: "/blog" },
-            { name: metadata.title, link: "#" },
-          ]}
-        />
-
         <section className="mt-5">
           <div className="">
             <h1
