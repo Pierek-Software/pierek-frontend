@@ -9,6 +9,7 @@ import Breadcrumbs from "../../components/atom/Breadcrumbs";
 import BlogPostCard, {
   IBlogPostCardProps,
 } from "../../components/atom/BlogPostCard";
+import HeadComponent from "../../components/atom/Head";
 
 export interface IBlogPageProps {
   posts: IBlogPostCardProps[];
@@ -23,9 +24,12 @@ export default function Page({
 }: IBlogPageProps) {
   return (
     <>
-      <Head>
-        <title>Blog</title>
-      </Head>
+      <HeadComponent
+        title={"Blog"}
+        description={"Pierek blog section"}
+        keywords={["Blog", "Articles", "Posts"]}
+        author="Kamil Wilim"
+      />
       <Navbar background={true} wave={false} />
 
       <main className="container mt-3 lg:mt-5">

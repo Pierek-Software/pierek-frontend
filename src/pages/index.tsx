@@ -3,10 +3,18 @@ import Technology from "../components/atom/Technology";
 import CaseStudiesSection from "../components/templates/CaseStudiesSection";
 import Footer from "../components/templates/Footer";
 import { DiscoverMoreButton } from "../components/atom/Button";
+import HeadComponent from "../components/atom/Head";
 
 export default function Home() {
   return (
     <>
+      <HeadComponent
+        title={"Home Page"}
+        description={
+          "Pierek is problems solving oriented company, focused on TaaS, outsourcing and consulting"
+        }
+        keywords={["Home Page", "TaaS", "Consulting", "Outsourcing"]}
+      />
       <section
         className="
       bg-gradient-to-b from-slate-800 to-slate-950

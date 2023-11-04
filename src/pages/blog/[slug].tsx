@@ -11,6 +11,7 @@ import { MDXComponents } from "mdx/types";
 import { slugify } from "../../utils";
 import Breadcrumbs from "../../components/atom/Breadcrumbs";
 import AuthorSection from "../../components/atom/AuthorSection";
+import HeadComponent from "../../components/atom/Head";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -67,19 +68,12 @@ export default function RemoteMdxPage({
 
   return (
     <>
-      <Head>
-        <title>{metadata.title}</title>
-        <meta
-          name="description"
-          content={metadata.description}
-          key="description"
-        />
-        <meta name="keywords" content="node.js,web development,javascript" />
-        <meta name="author" content="Kamil Wilim" />
-        <meta name="publisher" content="Pierek" />
-
-        <link href={`/blog/${slug}`} rel="canonical" />
-      </Head>
+      <HeadComponent
+        title={metadata.title}
+        description={metadata.description}
+        keywords={["Article", "Path of Exile"]}
+        author={"Kamil Wilim"}
+      />
       <Navbar background={true} wave={false} />
       <Breadcrumbs
         breadcrumbs={[
