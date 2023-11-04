@@ -56,9 +56,9 @@ export default function Navbar(props: NavbarProps) {
           <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
             <a href="/case-studies">Case Studies</a>
           </li>
-          <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
+          {/* <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
             <a href="/futurology">Futurology</a>
-          </li>
+          </li> */}
           <li className="hidden lg:block px-5 text-white text-xl">
             <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full">
               <a href="/contact">Contact</a>
@@ -107,12 +107,12 @@ export default function Navbar(props: NavbarProps) {
                 Case Studies
               </a>
 
-              <a
+              {/* <a
                 href="/futurology"
                 className="m-auto mt-8 hover:underline font-bold text-2xl"
               >
                 Futurology
-              </a>
+              </a> */}
               <p className="m-auto mt-8">
                 <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full text-3xl">
                   <a href="/contact">Contact</a>

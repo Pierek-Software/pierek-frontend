@@ -1,13 +1,16 @@
 /* eslint-disable react/no-unescaped-entities */
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
-import { buildMetadata } from "../../components/metadata";
-
-export const metadata = buildMetadata({ title: "Teaching & Schooling" });
+import HeadComponent from "../../components/atom/Head";
 
 export default function Page() {
   return (
     <>
+      <HeadComponent
+        title="Teaching & Schooling"
+        description="Hire Kamil Wilim as your programming, abstract thinking teacher. I can teach people any age who understand English and are willing to improve their programming skills"
+        keywords={["Teacher", "Schooling", "Node.js", "Web Development"]}
+      />
       <div
         className="
         min-h-screen min-w-screen
@@ -26,6 +29,15 @@ export default function Page() {
           >
             Teaching & Schooling
           </h1>
+          <p
+            className="font-extrabold mt-5 text-white text-center leading-normal text-2xl
+          sm:text-2xl
+          md:text-3xl md:max-w-3xl md:text-center md:leading-snug
+          lg:text-4xl lg:text-left lg:leading-tight
+          2xl:text-5xl 2xl:max-w-7xl"
+          >
+            Starting from 100$ / hour
+          </p>
         </section>
 
         <section className="container mb-7 flex justify-center">
@@ -58,45 +70,51 @@ export default function Page() {
       </svg>
       <main className="container mt-11">
         <h2 className="text-4xl md:text-5xl font-bold  leading-relaxed text-black">
-          Unlocking Abstract Thinking: Meet Kamil Wilim
+          My name is Kamil Wilim
         </h2>
         <p className="mt-3 text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          Kamil Wilim, the visionary owner of pierek.com, possesses an
-          exceptional talent for cultivating abstract thinking and guiding
-          individuals through the intricate landscape of problem-solving and
-          programming.
+          I am Software Engineer, focused on backend development, using
+          JavaScript programming language. I am 25 years old with 7 years
+          experience in Web Development. I am traveller who try to understand
+          different cultures, 31 countries, 30 in Europe, 1 Asia
         </p>
 
         <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          Tailored Education for All Ages
+          I share my knowledge
         </h2>
         <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          Mr. Wilim's expertise extends to learners of all ages, including those
-          as young as elementary school, who seek to grasp the depths of
-          programming and problem-solving. He artfully harnesses students'
-          hobbies to create a rapid and engaging journey through the world of
-          programming knowledge.
+          No matter what is your age, if you or your kids understand english i
+          can improve abilities of abstract thinking, understanding how problems
+          are solved
         </p>
 
         <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          Learning at Your Fingertips: On-Demand Individual Lessons
+          Lesson on demand
         </h2>
         <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          At the heart of his teaching philosophy is the principle of on-demand,
-          personalized instruction. The focus is on fostering a swift and
-          efficient learning process, prioritizing practicality and efficacy
-          over rigid time constraints.
+          1 hour for test, no problem. Daily learning to success as Software
+          Developer or improve programming thinking, no problem.
         </p>
 
         <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          The Art of Self-Reliance: Navigating the Information Age
+          How to search information ?
         </h2>
         <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          Central to his approach is the cultivation of an indispensable skill -
-          the ability to independently locate and utilize credible information.
-          Students are equipped with the tools and techniques to adeptly
-          navigate online resources, leveraging the vast expanse of the internet
-          and comprehensive documentation to overcome complex challenges.
+          Today there is internet, the amount of already existing knowledge is
+          bigger than any human can consume, this mean understanding how search
+          engines work and how to find needed information is one of the most
+          important skills in current age of information. I can teach you how to
+          find it faster, safer, easier.
+        </p>
+
+        <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
+          Working in 6k+ members startups, top Europe technologies
+        </h2>
+        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+          I can give you the knowledge behind this companies, how they approach
+          to problems, how they solve them. We can learn basic programming,
+          going next to depth of architecture. It all depends what is needed to
+          learn.
         </p>
 
         <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">

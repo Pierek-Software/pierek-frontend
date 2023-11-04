@@ -75,7 +75,7 @@ function Footer({ wave = true }: FooterProps) {
             <DefaultLink name="Technologies" href="/technologies" />
             <DefaultLink name="Blog" href="/blog" />
             <DefaultLink name="Case Studies" href="/case-studies" />
-            <DefaultLink name="Futurology" href="/futurology" />
+            {/* <DefaultLink name="Futurology" href="/futurology" /> */}
           </div>
           <div className="mt-3 md:mt-0">
             <h3 className="text-md font-bold">Headquater</h3>
