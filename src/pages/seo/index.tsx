@@ -1,13 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-import { buildMetadata } from "../../components/metadata";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
 //bg-[url('/talents-bg.webp')] bg-fill
-
-export const metadata = buildMetadata({
-  title: "Search Engine Optimization (SEO)",
-});
 
 export default function Page() {
   return (

@@ -3,7 +3,6 @@
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 // import SyntaxHighlighter from "../../components/molecules/SyntaxHighlighter";
-import { buildMetadata } from "../../components/metadata";
 
 const code = `
 const express = require('express')
@@ -18,8 +17,6 @@ app.listen(port, () => {
   console.log(\`Example app listening on port \${port}\`)
 })
 `;
-
-export const metadata = buildMetadata({ title: "Node.js Development" });
 
 export default function Page() {
   return (

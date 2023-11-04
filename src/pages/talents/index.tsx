@@ -1,10 +1,7 @@
-import { buildMetadata } from "../../components/metadata";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
 //bg-[url('/talents-bg.webp')] bg-fill
-
-export const metadata = buildMetadata({ title: "Talents as a Service (TaaS)" });
 
 export default function Page() {
   return (

@@ -1,12 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
-import { Metadata } from "next";
-import { buildMetadata } from "../../components/metadata";
 
 //bg-[url('/talents-bg.webp')] bg-fill
-
-export const metadata = buildMetadata({ title: "TypeScript Development" });
 
 export default function Page() {
   return (
