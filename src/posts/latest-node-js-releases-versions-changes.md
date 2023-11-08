@@ -46,6 +46,10 @@ In conclusion, Node.js versions play a significant role in the performance, secu
 
 ## Node.js Changelogs
 
+### Node 21
+
+Node.js 21 is here with exciting updates, including V8 JavaScript engine version 11.8, stable fetch and WebStreams, an experimental module defaults flag, a built-in WebSocket client, enhanced test runner with glob support, and more. Node.js 21 becomes the 'Current' release for the next 6 months, replacing Node.js 20 as Node.js 20 enters LTS. Notable changes include stable fetch and WebStreams, a built-in WebSocket client, V8 11.8 with performance improvements, glob support in the test runner, an experimental module flag for changing defaults, and more. Performance enhancements have been made in URL, fetch, streams, node:fs, and HTTP. Additionally, strict mode enforcement, navigator object integration, and deprecations are part of this release. Node.js 16 is End-of-Life, so consider upgrading to Node.js 18 or Node.js 20 for continued support and compatibility with the latest features. Test your applications with Node.js 21 to ensure smooth integration.
+
 ### Node 20
 
 Node.js 20 introduces the experimental Permission Model, enabling resource access restrictions. Developers can control file system, child_process, and worker_threads access using flags. Custom ESM loader hooks run in dedicated threads, and `import.meta.resolve()` is synchronous. V8 11.3 enhances performance and adds new features. The stable Test Runner module is included. Node.js 20 focuses on performance improvements, including the `URL`, `fetch()`, and `EventTarget`. ARM64 Windows support, Web Crypto API updates, and progress on Web Assembly System Interface (WASI) are notable. Node.js 14 reaches End-of-Life in April 2023, so consider upgrading to Node.js 18 or Node.js 20 (soon to be LTS).
