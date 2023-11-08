@@ -13,15 +13,19 @@ export default function Navbar(props: NavbarProps) {
       <nav className={props.background === true ? "bg-slate-800" : ""}>
         <ul
           className="
-        container 
-        flex justify-between align-middle items-center py-3
+        container flex justify-between align-middle items-center py-5
+        md:py-10
+        lg:py-5
         lg:justify-center 
         "
         >
           <li className="lg:grow px-5 text-xl font-bold">
             <a href="/">
               <img
-                className="h-6 lg:h-9 "
+                className="
+                h-6
+                md:h-9
+                "
                 src="/logo_white.svg"
                 alt="My Happy SVG"
               />
@@ -33,7 +37,10 @@ export default function Navbar(props: NavbarProps) {
                 setNavbarOpen(!navbarOpen);
                 document.body.style.overflow = "hidden";
               }}
-              className="w-6 h-6 text-white"
+              className="
+              w-6 h-6 text-white
+              md:h-9 md:w-9
+              "
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -56,9 +63,7 @@ export default function Navbar(props: NavbarProps) {
           <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
             <a href="/case-studies">Case Studies</a>
           </li>
-          {/* <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
-            <a href="/futurology">Futurology</a>
-          </li> */}
+
           <li className="hidden lg:block px-5 text-white text-xl">
             <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full">
               <a href="/contact">Contact</a>
@@ -66,14 +71,22 @@ export default function Navbar(props: NavbarProps) {
           </li>
         </ul>
         {navbarOpen === true ? (
-          <section className="bg-slate-800 text-white absolute top-0 w-screen h-screen z-50 ">
-            <div className="container flex flex-row justify-end pt-3">
+          <section className="bg-slate-900 text-white absolute top-0 w-screen h-screen">
+            <div
+              className="
+            container flex flex-row justify-end py-5
+            md:py-10
+            "
+            >
               <svg
                 onClick={() => {
                   setNavbarOpen(!navbarOpen);
                   document.body.style.overflow = "auto";
                 }}
-                className="w-6 h-6 text-white"
+                className="
+                w-6 h-6 text-white
+                md:h-9 md:w-9
+                "
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

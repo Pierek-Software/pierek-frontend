@@ -3,6 +3,34 @@ import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 import HeadComponent from "../../components/atom/Head";
 
+export const Header = ({ text }: { text: string }) => {
+  return (
+    <h2
+      className="
+      my-1 text-3xl font-bold leading-normal text-black
+      md:text-4xl md:my-3
+      lg:text-5xl lg:my-5
+      "
+    >
+      {text}
+    </h2>
+  );
+};
+
+export const Paragraph = ({ text }: { text: string }) => {
+  return (
+    <p
+      className="
+      my-2 text-justify text-md leading-loose
+      md:text-xl md:my-3
+      lg:text-2xl lg:my-5
+      "
+    >
+      {text}
+    </p>
+  );
+};
+
 export default function Page() {
   return (
     <>
@@ -15,29 +43,35 @@ export default function Page() {
         className="
         min-h-screen min-w-screen
         bg-gradient-to-b from-slate-950 to-slate-800
-        flex flex-col justify-between"
+        flex flex-col justify-between
+        "
       >
         <Navbar background={false} wave={false} />
 
         <section className="container grow">
           <h1
-            className="font-extrabold mt-28 text-white text-center leading-normal text-4xl
-          sm:text-4xl
-          md:text-7xl md:max-w-3xl md:text-center md:leading-snug
-          lg:text-8xl lg:text-left lg:leading-tight
-          2xl:text-9xl 2xl:max-w-7xl"
+            className="
+            font-extrabold mt-28 text-white text-center leading-normal text-4xl
+            sm:text-4xl
+            md:text-9xl md:text-left
+            lg:text-8xl
+            "
           >
             Teaching & Schooling
           </h1>
-          <p
-            className="font-extrabold mt-5 text-white text-center leading-normal text-2xl
-          sm:text-2xl
-          md:text-3xl md:max-w-3xl md:text-center md:leading-snug
-          lg:text-4xl lg:text-left lg:leading-tight
-          2xl:text-5xl 2xl:max-w-7xl"
+          <div
+            className="
+            font-bold text-white text-center leading-normal text-xl mt-8
+            md:text-4xl md:text-left md:mt-10
+            lg:text-5xl lg:mt-14
+            "
           >
-            Starting from 100$ / hour
-          </p>
+            <p className="my-1 md:my-8 lg:my-5">Starting from 100$ / hour</p>
+            <p className="my-1 md:my-8 lg:my-5">Remote: Globally 🌎</p>
+            <p className="my-1 md:my-8 lg:my-5">
+              On-site: Bangkok, Thailand 🇹🇭
+            </p>
+          </div>
         </section>
 
         <section className="container mb-7 flex justify-center">
@@ -68,59 +102,26 @@ export default function Page() {
           d="M0,30L48,25C96,20,192,10,288,13.3C384,17,480,33,576,38.3C672,43,768,37,864,38.3C960,40,1056,50,1152,60C1248,70,1344,80,1440,85C1536,90,1632,90,1728,75C1824,60,1920,30,2016,16.7C2112,3,2208,7,2304,13.3C2400,20,2496,30,2592,31.7C2688,33,2784,27,2880,25C2976,23,3072,27,3168,23.3C3264,20,3360,10,3456,13.3C3552,17,3648,33,3744,46.7C3840,60,3936,70,4032,73.3C4128,77,4224,73,4320,73.3C4416,73,4512,77,4608,71.7C4704,67,4800,53,4896,55C4992,57,5088,73,5184,78.3C5280,83,5376,77,5472,71.7C5568,67,5664,63,5760,51.7C5856,40,5952,20,6048,13.3C6144,7,6240,13,6336,20C6432,27,6528,33,6624,36.7C6720,40,6816,40,6864,40L6912,40L6912,100L6864,100C6816,100,6720,100,6624,100C6528,100,6432,100,6336,100C6240,100,6144,100,6048,100C5952,100,5856,100,5760,100C5664,100,5568,100,5472,100C5376,100,5280,100,5184,100C5088,100,4992,100,4896,100C4800,100,4704,100,4608,100C4512,100,4416,100,4320,100C4224,100,4128,100,4032,100C3936,100,3840,100,3744,100C3648,100,3552,100,3456,100C3360,100,3264,100,3168,100C3072,100,2976,100,2880,100C2784,100,2688,100,2592,100C2496,100,2400,100,2304,100C2208,100,2112,100,2016,100C1920,100,1824,100,1728,100C1632,100,1536,100,1440,100C1344,100,1248,100,1152,100C1056,100,960,100,864,100C768,100,672,100,576,100C480,100,384,100,288,100C192,100,96,100,48,100L0,100Z"
         ></path>
       </svg>
-      <main className="container mt-11">
-        <h2 className="text-4xl md:text-5xl font-bold  leading-relaxed text-black">
-          My name is Kamil Wilim
-        </h2>
-        <p className="mt-3 text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          I am Software Engineer, focused on backend development, using
-          JavaScript programming language. I am 25 years old with 7 years
-          experience in Web Development. I am traveller who try to understand
-          different cultures, 31 countries, 30 in Europe, 1 Asia
-        </p>
+      <main className="container">
+        <Header text="Introduction" />
+        <Paragraph text="Greetings, I am Kamil Wilim, a seasoned Software Engineer specializing in backend development, primarily utilizing the JavaScript programming language. With 7 years of professional experience in the field, I am dedicated to web development. Additionally, I am an avid traveler, having explored 31 countries, 30 of which are in Europe, and one in Asia." />
 
-        <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          I share my knowledge
-        </h2>
-        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          No matter what is your age, if you or your kids understand english i
-          can improve abilities of abstract thinking, understanding how problems
-          are solved
-        </p>
+        <Header text="Knowledge Sharing" />
+        <Paragraph text="Irrespective of age, I offer my expertise in enhancing abstract thinking and problem-solving skills through the medium of English. Whether you or your children seek to improve their cognitive abilities, I am here to assist." />
 
-        <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          Lesson on demand
-        </h2>
-        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          1 hour for test, no problem. Daily learning to success as Software
-          Developer or improve programming thinking, no problem.
-        </p>
+        <Header text="Tailored Lessons" />
+        <Paragraph text="My teaching style is adaptable to your specific needs. Whether it's a one-hour test preparation session or a comprehensive daily program to excel as a Software Developer and enhance your programming mindset, I am ready to provide tailored support." />
 
-        <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          How to search information ?
-        </h2>
-        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          Today there is internet, the amount of already existing knowledge is
-          bigger than any human can consume, this mean understanding how search
-          engines work and how to find needed information is one of the most
-          important skills in current age of information. I can teach you how to
-          find it faster, safer, easier.
-        </p>
+        <Header text="Effective Information Retrieval" />
+        <Paragraph text="In today's era of information abundance, mastering the art of efficient information retrieval is paramount. I can empower you with the skills needed to navigate the vast digital landscape, ensuring you find the information you seek swiftly, securely, and effortlessly." />
 
-        <h2 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
-          Working in 6k+ members startups, top Europe technologies
-        </h2>
-        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
-          I can give you the knowledge behind this companies, how they approach
-          to problems, how they solve them. We can learn basic programming,
-          going next to depth of architecture. It all depends what is needed to
-          learn.
-        </p>
+        <Header text="Experience in High-Tech Startups" />
+        <Paragraph text="Having worked in startups with over 6,000 members and employing cutting-edge European technologies, I can offer valuable insights into their problem-solving approaches and architectural strategies. Together, we can cover the essentials of programming and delve deeper into the intricacies, depending on your specific learning requirements." />
 
         <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
           <a href="/contact">
             <h3 className="text-2xl py-6 md:text-4xl font-bold text-white">
-              Interested in offer? <span className="underline">Contact us</span>
+              Interested in offer? <span className="underline">Contact me</span>
             </h3>
           </a>
         </section>
