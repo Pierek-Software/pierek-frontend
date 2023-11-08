@@ -38,6 +38,7 @@ export default function Page() {
         title="Teaching & Schooling"
         description="Hire Kamil Wilim as your programming, abstract thinking teacher. I can teach people any age who understand English and are willing to improve their programming skills"
         keywords={["Teacher", "Schooling", "Node.js", "Web Development"]}
+        imageSource="/pages/teaching.jpeg"
       />
       <div
         className="
