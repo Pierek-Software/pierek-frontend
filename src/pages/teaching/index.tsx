@@ -119,6 +119,15 @@ export default function Page() {
         <Header text="Experience in High-Tech Startups" />
         <Paragraph text="Having worked in startups with over 6,000 members and employing cutting-edge European technologies, I can offer valuable insights into their problem-solving approaches and architectural strategies. Together, we can cover the essentials of programming and delve deeper into the intricacies, depending on your specific learning requirements." />
 
+        <Header text="Understanding Internet Social Engineering" />
+        <Paragraph text="In today's digitally connected world, knowledge of social engineering methods is crucial to safeguarding your online presence. Whether you are an individual or a business, recognizing and mitigating the risks associated with social engineering is paramount. I can guide you through the nuances of these deceptive tactics, helping you identify and defend against online threats. By understanding the psychology behind social engineering, you can better protect your personal information and digital assets." />
+
+        <Header text="Enhancing Online Privacy and Understanding Fingerprints" />
+        <Paragraph text="Privacy is a fundamental concern in the digital age. Protecting your personal information and online identity is essential. Moreover, understanding how websites and services create 'fingerprints' of your online activities can help you maintain your anonymity. Your user-agent, a crucial part of your online identity, can reveal information about your device and browsing habits. I can provide insights and strategies to enhance your online privacy, minimize fingerprinting risks, and make informed decisions about your user-agent settings." />
+
+        <Header text="Navigating the Landscape of Misinformation, Bots, and Emotional Content" />
+        <Paragraph text="In today's information-saturated environment, discerning fact from fiction is becoming increasingly challenging. The prevalence of fake information, automated bots, and emotionally driven content is a significant concern. I can help you develop the critical thinking skills needed to spot false information and recognize the influence of automated bots in online discourse. Moreover, we can delve into the emotional aspect of information, understanding how content is designed to evoke specific feelings and the implications this has on our digital interactions. By equipping yourself with these insights, you can make more informed decisions and contribute to a more informed online community." />
+
         <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
           <a href="/contact">
             <h3 className="text-2xl py-6 md:text-4xl font-bold text-white">
