@@ -1,17 +1,15 @@
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import Head from "next/head";
 import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
 import { readFileSync, readdirSync } from "fs";
 import path from "path";
 import { GetStaticProps } from "next";
 import matter from "gray-matter";
-import { MDXComponents } from "mdx/types";
-import { slugify } from "../../utils";
 import Breadcrumbs from "../../components/atom/Breadcrumbs";
 import AuthorSection from "../../components/atom/AuthorSection";
 import HeadComponent from "../../components/atom/Head";
+import MarkdownComponents from "../../mappers/MarkdownComponents";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -21,51 +19,7 @@ interface Props {
   id: number;
 }
 
-export default function RemoteMdxPage({
-  id,
-  slug,
-  mdxSource,
-  metadata,
-  dynamicData,
-}: Props) {
-  const components: MDXComponents = {
-    p: ({ children }) => (
-      <p className="text-lg leading-loose my-2">{children}</p>
-    ),
-    h2: ({ children }) => (
-      <a href={"#" + slugify(children)}>
-        <span className="flex items-center">
-          <h2 id={slugify(children)} className="text-4xl my-2 leading-normal">
-            {children}
-          </h2>
-          <span className="ml-2 text-xl">🔗</span>
-        </span>
-      </a>
-    ),
-    h3: ({ children }) => <h3 className="text-3xl my-2">{children}</h3>,
-    h4: ({ children }) => <h4 className="text-2xl my-2">{children}</h4>,
-    h5: ({ children }) => <h5 className="text-xl my-2">{children}</h5>,
-    h6: ({ children }) => <h6 className="text-lg my-2">{children}</h6>,
-    Test: (props) => <h1>{JSON.stringify(dynamicData)}</h1>,
-    Youtube: (props: { videoId: string }) => (
-      <iframe
-        className="my-5 w-full"
-        height="590"
-        src={`https://www.youtube.com/embed/${props.videoId}`}
-        title="YouTube video player"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen={true}
-      ></iframe>
-    ),
-    img: (props) => (
-      <img
-        className="m-auto my-3"
-        alt={props.alt}
-        src={props.src.replace("../../public", "")}
-      />
-    ),
-  };
-
+export default function RemoteMdxPage({ id, mdxSource, metadata }: Props) {
   return (
     <>
       <HeadComponent
@@ -110,7 +64,7 @@ export default function RemoteMdxPage({
 
         <section className="mt-5 sm:mt-8">
           <p className="text-xl leading-loose my-2">{metadata.description}</p>
-          <MDXRemote {...mdxSource} components={components} />
+          <MDXRemote {...mdxSource} components={MarkdownComponents} />
         </section>
 
         <div className="mt-3">

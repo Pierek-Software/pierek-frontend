@@ -26,5 +26,4 @@ const AuthorSection = ({
     </div>
   );
 };
-
 export default AuthorSection;

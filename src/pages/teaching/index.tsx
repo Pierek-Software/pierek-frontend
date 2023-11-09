@@ -2,34 +2,35 @@
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 import HeadComponent from "../../components/atom/Head";
+import { Paragraph, Header } from "../../components/Typography";
 
-export const Header = ({ text }: { text: string }) => {
-  return (
-    <h2
-      className="
-      my-1 text-3xl font-bold leading-normal text-black
-      md:text-4xl md:my-3
-      lg:text-5xl lg:my-5
-      "
-    >
-      {text}
-    </h2>
-  );
-};
+// export const Header = ({ text }: { text: string }) => {
+//   return (
+//     <h2
+//       className="
+//       my-1 text-3xl font-bold leading-normal text-black
+//       md:text-4xl md:my-3
+//       lg:text-5xl lg:my-5
+//       "
+//     >
+//       {text}
+//     </h2>
+//   );
+// };
 
-export const Paragraph = ({ text }: { text: string }) => {
-  return (
-    <p
-      className="
-      my-2 text-justify text-md leading-loose
-      md:text-xl md:my-3
-      lg:text-2xl lg:my-5
-      "
-    >
-      {text}
-    </p>
-  );
-};
+// export const Paragraph = ({ text }: { text: string }) => {
+//   return (
+//     <p
+//       className="
+//       my-2 text-justify text-md leading-loose
+//       md:text-xl md:my-3
+//       lg:text-2xl lg:my-5
+//       "
+//     >
+//       {text}
+//     </p>
+//   );
+// };
 
 export default function Page() {
   return (
@@ -104,29 +105,87 @@ export default function Page() {
         ></path>
       </svg>
       <main className="container">
-        <Header text="Introduction" />
-        <Paragraph text="Greetings, I am Kamil Wilim, a seasoned Software Engineer specializing in backend development, primarily utilizing the JavaScript programming language. With 7 years of professional experience in the field, I am dedicated to web development. Additionally, I am an avid traveler, having explored 31 countries, 30 of which are in Europe, and one in Asia." />
-
-        <Header text="Knowledge Sharing" />
-        <Paragraph text="Irrespective of age, I offer my expertise in enhancing abstract thinking and problem-solving skills through the medium of English. Whether you or your children seek to improve their cognitive abilities, I am here to assist." />
-
-        <Header text="Tailored Lessons" />
-        <Paragraph text="My teaching style is adaptable to your specific needs. Whether it's a one-hour test preparation session or a comprehensive daily program to excel as a Software Developer and enhance your programming mindset, I am ready to provide tailored support." />
-
-        <Header text="Effective Information Retrieval" />
-        <Paragraph text="In today's era of information abundance, mastering the art of efficient information retrieval is paramount. I can empower you with the skills needed to navigate the vast digital landscape, ensuring you find the information you seek swiftly, securely, and effortlessly." />
-
-        <Header text="Experience in High-Tech Startups" />
-        <Paragraph text="Having worked in startups with over 6,000 members and employing cutting-edge European technologies, I can offer valuable insights into their problem-solving approaches and architectural strategies. Together, we can cover the essentials of programming and delve deeper into the intricacies, depending on your specific learning requirements." />
-
-        <Header text="Understanding Internet Social Engineering" />
-        <Paragraph text="In today's digitally connected world, knowledge of social engineering methods is crucial to safeguarding your online presence. Whether you are an individual or a business, recognizing and mitigating the risks associated with social engineering is paramount. I can guide you through the nuances of these deceptive tactics, helping you identify and defend against online threats. By understanding the psychology behind social engineering, you can better protect your personal information and digital assets." />
-
-        <Header text="Enhancing Online Privacy and Understanding Fingerprints" />
-        <Paragraph text="Privacy is a fundamental concern in the digital age. Protecting your personal information and online identity is essential. Moreover, understanding how websites and services create 'fingerprints' of your online activities can help you maintain your anonymity. Your user-agent, a crucial part of your online identity, can reveal information about your device and browsing habits. I can provide insights and strategies to enhance your online privacy, minimize fingerprinting risks, and make informed decisions about your user-agent settings." />
-
-        <Header text="Navigating the Landscape of Misinformation, Bots, and Emotional Content" />
-        <Paragraph text="In today's information-saturated environment, discerning fact from fiction is becoming increasingly challenging. The prevalence of fake information, automated bots, and emotionally driven content is a significant concern. I can help you develop the critical thinking skills needed to spot false information and recognize the influence of automated bots in online discourse. Moreover, we can delve into the emotional aspect of information, understanding how content is designed to evoke specific feelings and the implications this has on our digital interactions. By equipping yourself with these insights, you can make more informed decisions and contribute to a more informed online community." />
+        <Header level={2}>Introduction</Header>
+        <Paragraph>
+          Greetings, I am Kamil Wilim, a seasoned Software Engineer specializing
+          in backend development, primarily utilizing the JavaScript programming
+          language. With 7 years of professional experience in the field, I am
+          dedicated to web development. Additionally, I am an avid traveler,
+          having explored 31 countries, 30 of which are in Europe, and one in
+          Asia.
+        </Paragraph>
+        <Header level={2}>Knowledge Sharing</Header>
+        <Paragraph>
+          Irrespective of age, I offer my expertise in enhancing abstract
+          thinking and problem-solving skills through the medium of English.
+          Whether you or your children seek to improve their cognitive
+          abilities, I am here to assist.
+        </Paragraph>
+        <Header level={2}>Tailored Lessons</Header>
+        <Paragraph>
+          My teaching style is adaptable to your specific needs. Whether it's a
+          one-hour test preparation session or a comprehensive daily program to
+          excel as a Software Developer and enhance your programming mindset, I
+          am ready to provide tailored support.
+        </Paragraph>
+        <Header level={2}>Effective Information Retrieval</Header>
+        <Paragraph>
+          In today's era of information abundance, mastering the art of
+          efficient information retrieval is paramount. I can empower you with
+          the skills needed to navigate the vast digital landscape, ensuring you
+          find the information you seek swiftly, securely, and effortlessly.
+        </Paragraph>
+        <Header level={2}>Experience in High-Tech Startups</Header>
+        <Paragraph>
+          Having worked in startups with over 6,000 members and employing
+          cutting-edge European technologies, I can offer valuable insights into
+          their problem-solving approaches and architectural strategies.
+          Together, we can cover the essentials of programming and delve deeper
+          into the intricacies, depending on your specific learning
+          requirements.
+        </Paragraph>
+        <Header level={2}>Understanding Internet Social Engineering</Header>
+        <Paragraph>
+          In today's digitally connected world, knowledge of social engineering
+          methods is crucial to safeguarding your online presence. Whether you
+          are an individual or a business, recognizing and mitigating the risks
+          associated with social engineering is paramount. I can guide you
+          through the nuances of these deceptive tactics, helping you identify
+          and defend against online threats. By understanding the psychology
+          behind social engineering, you can better protect your personal
+          information and digital assets.
+        </Paragraph>
+        <Header level={2}>
+          Enhancing Online Privacy and Understanding Fingerprints
+        </Header>
+        <Paragraph>
+          Privacy is a fundamental concern in the digital age. Protecting your
+          personal information and online identity is essential. Moreover,
+          understanding how websites and services create 'fingerprints' of your
+          online activities can help you maintain your anonymity. Your
+          user-agent, a crucial part of your online identity, can reveal
+          information about your device and browsing habits. I can provide
+          insights and strategies to enhance your online privacy, minimize
+          fingerprinting risks, and make informed decisions about your
+          user-agent settings.
+        </Paragraph>
+        <Header level={2}>
+          Navigating the Landscape of Misinformation, Bots, and Emotional
+          Content
+        </Header>
+        <Paragraph>
+          In today's information-saturated environment, discerning fact from
+          fiction is becoming increasingly challenging. The prevalence of fake
+          information, automated bots, and emotionally driven content is a
+          significant concern. I can help you develop the critical thinking
+          skills needed to spot false information and recognize the influence of
+          automated bots in online discourse. Moreover, we can delve into the
+          emotional aspect of information, understanding how content is designed
+          to evoke specific feelings and the implications this has on our
+          digital interactions. By equipping yourself with these insights, you
+          can make more informed decisions and contribute to a more informed
+          online community.
+        </Paragraph>
 
         <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
           <a href="/contact">
