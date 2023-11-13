@@ -16,7 +16,7 @@ export const Header = ({
   level,
   linkable = true,
 }: {
-  children: string | React.ReactNode;
+  children: string;
   level: number;
   linkable?: boolean;
 }) => {
@@ -35,7 +35,7 @@ export const Header = ({
     return BasicHeader;
   } else {
     return (
-      <a href={"#" + slugify(children as string)}>
+      <a title={children as string} href={"#" + slugify(children as string)}>
         <span className="flex items-center">
           {BasicHeader}
           <span className="ml-2 text-xl">🔗</span>

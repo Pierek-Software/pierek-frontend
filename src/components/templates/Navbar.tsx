@@ -20,14 +20,15 @@ export default function Navbar(props: NavbarProps) {
         "
         >
           <li className="lg:grow px-5 text-xl font-bold">
-            <a href="/">
+            <a title="Home Page" href="/">
               <img
                 className="
                 h-6
                 md:h-9
                 "
                 src="/logo_white.svg"
-                alt="My Happy SVG"
+                alt="Pierek Logo"
+                title="Pierek Logo"
               />
             </a>
           </li>
@@ -57,16 +58,22 @@ export default function Navbar(props: NavbarProps) {
           </li>
 
           <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
-            <a href="/technologies">Technologies</a>
+            <a title="Technologies" href="/technologies">
+              Technologies
+            </a>
           </li>
 
           <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
-            <a href="/case-studies">Case Studies</a>
+            <a title="Case Studies" href="/case-studies">
+              Case Studies
+            </a>
           </li>
 
           <li className="hidden lg:block px-5 text-white text-xl">
             <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full">
-              <a href="/contact">Contact</a>
+              <a title="Contact" href="/contact">
+                Contact
+              </a>
             </button>
           </li>
         </ul>
@@ -102,7 +109,11 @@ export default function Navbar(props: NavbarProps) {
               </svg>
             </div>
             <div className="flex mt-20 flex-col">
-              <a href="/" className="m-auto mt-8 font-bold text-2xl">
+              <a
+                title="Home Page"
+                href="/"
+                className="m-auto mt-8 font-bold text-2xl"
+              >
                 Home Page
               </a>
 
@@ -128,7 +139,9 @@ export default function Navbar(props: NavbarProps) {
               </a> */}
               <p className="m-auto mt-8">
                 <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full text-3xl">
-                  <a href="/contact">Contact</a>
+                  <a title="Contact" href="/contact">
+                    Contact
+                  </a>
                 </button>
               </p>
             </div>

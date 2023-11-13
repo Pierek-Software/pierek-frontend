@@ -8,6 +8,7 @@ import {
   technologiesGroupedByCategory,
 } from "../../mappers";
 import TechnologyItem from "../../components/molecules/TechnologyItem";
+import { Header } from "../../components/Typography";
 
 function TechnologyNode({ category }) {
   return (
@@ -43,7 +44,7 @@ function Technologies() {
             Technologies
           </h1>
           <p className="text-2xl md:text-4xl font-light">
-            Because choosing right tools is crucial
+            Because choosing technology is crucial
           </p>
         </section>
 
@@ -54,6 +55,29 @@ function Technologies() {
         <TechnologyNode category={5} />
         <TechnologyNode category={1} />
         <TechnologyNode category={4} />
+
+        <section>
+          <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+            Tools & Quality of Life
+          </h2>
+          <p className="text-2xl md:text-4xl font-light">
+            Fast, Efficient, Gamebreaking
+          </p>
+        </section>
+
+        <Header level={3}>Browser Addons</Header>
+
+        <ul className="text-xl">
+          <li>uBlock - block ads</li>
+          <li>
+            SponsorBlock - skip YouTube non interested part of video, skip
+            sponsors, intro, outro
+          </li>
+          <li>JSON Formatter - nice looking JSON</li>
+          <li>Bookmarks clean up - remove bookmarks duplication</li>
+          <li>SEO META in 1 CLICK - All SEO information in one extension</li>
+          <li>Poper Blocker - block pop ups, cookie consent</li>
+        </ul>
 
         <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
           <a href="/contact">

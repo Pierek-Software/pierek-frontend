@@ -1,5 +1,5 @@
-"use client";
-
+import Breadcrumbs from "../../components/atom/Breadcrumbs";
+import HeadComponent from "../../components/atom/Head";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 import React, { useRef, useState } from "react";
@@ -24,28 +24,43 @@ export default function Home() {
 
   return (
     <>
-      <section className="bg-gradient-to-b from-slate-800 to-slate-950 h-screen">
+      <HeadComponent
+        title="Contact Page"
+        description="Pierek contact page"
+        keywords={["contact, information"]}
+      />
+
+      <main className="bg-slate-950 h-screen">
         <Navbar background={false} wave={false} />
-        <section className="flex md:flex-row flex-col justify-center items-center font-extrabold text-white text-center text-2xl md:text-8xl mt-28 md:mt-40">
-          <h2 className="pr-3" id="email" ref={inputRef}>
-            contact@pierek.com
+        <div className="container">
+          <Breadcrumbs
+            theme="dark"
+            breadcrumbs={[
+              { name: "Home Page", link: "/" },
+              { name: "Contact", link: "#" },
+            ]}
+          />
+          <section className="flex md:flex-row flex-col justify-center items-center font-extrabold text-white text-center text-2xl md:text-8xl mt-28 md:mt-40">
+            <h1 className="pr-3" id="email" ref={inputRef}>
+              contact@pierek.com
+            </h1>
+
+            <button
+              onClick={() => {
+                handleCopyToClipboard();
+              }}
+              id="copyEmailButton"
+              className=" bg-slate-700 mt-4 hover:bg-slate-950 text-xl md:text-2xl text-white font-bold py-2 px-4 rounded-full"
+            >
+              {copy === true ? "Copied" : "Copy"}
+            </button>
+          </section>
+
+          <h2 className="text-sm pt-5 text-white text-center md:text-4xl font-light">
+            Because contact should be easy
           </h2>
-
-          <button
-            onClick={() => {
-              handleCopyToClipboard();
-            }}
-            id="copyEmailButton"
-            className=" bg-slate-700 mt-4 hover:bg-slate-950 text-xl md:text-2xl text-white font-bold py-2 px-4 rounded-full"
-          >
-            {copy === true ? "Copied" : "Copy"}
-          </button>
-        </section>
-
-        <p className="text-sm pt-5 text-white text-center md:text-4xl font-light">
-          Because contact should be easy
-        </p>
-      </section>
+        </div>
+      </main>
 
       <Footer wave={false} />
     </>

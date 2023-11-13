@@ -32,37 +32,51 @@ function Footer({ wave = true }: FooterProps) {
             <Logo className="mt-3 md:mt-0 h-6 w-auto mx-auto" />
             <section className="mt-3 flex justify-center md:justify-start self-center items-center">
               <a
+                title="Pierek Clutch.co"
                 target="_blank"
                 rel="nofollow"
                 href="https://clutch.co/profile/pierek#highlights"
                 className="w-16 md:w-20"
               >
-                <img alt="Linked.in Icon" src="/icons/clutchco.svg" />
+                <img
+                  title="Clutch.co Icon"
+                  alt="Linked.in Icon"
+                  src="/icons/clutchco.svg"
+                />
               </a>
 
               <a
+                title="Pierek LinkedIn"
                 target="_blank"
                 rel="nofollow"
                 href="https://www.linkedin.com/company/pierek"
                 className="ml-5 md:ml-3 w-10 md:w-14"
               >
-                <img alt="Clutch.co Icon" src="/icons/linkedin.svg" />
+                <img
+                  title="LinkedIn Icon"
+                  alt="LinkedIn Icon"
+                  src="/icons/linkedin.svg"
+                />
               </a>
 
               <a
+                title="Pierek Twitter"
                 target="_blank"
                 rel="nofollow"
                 href="https://twitter.com/Pierek_com"
                 className="ml-5 md:ml-3 w-7 md:w-9"
               >
-                <img alt="Twitterp Icon" src="/icons/twitter.svg" />
+                <img
+                  title="Twitter Icon"
+                  alt="Twitter Icon"
+                  src="/icons/twitter.svg"
+                />
               </a>
             </section>
           </div>
 
           <div className="flex flex-col mt-3 md:mt-0">
             <h3 className="text-md font-bold">Services</h3>
-            {/* <DefaultLink name="Teaching & Schooling" href="/teaching" /> */}
             <DefaultLink name="TypeScript Development " href="/typescript" />
             <DefaultLink name="Node.js Development" href="/node-js" />
             <DefaultLink name="React.js Development " href="/react" />

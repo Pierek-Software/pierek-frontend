@@ -80,7 +80,8 @@ export default function Page() {
           <img
             className="text-white m-auto text-2xl h-9 w-9"
             src="/icons/arrow-down.svg"
-            alt="Background"
+            alt="Arrow Down Icon"
+            title="Arrow Down Icon"
           />
         </section>
       </div>

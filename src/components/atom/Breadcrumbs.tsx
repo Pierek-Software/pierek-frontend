@@ -3,11 +3,12 @@ interface IBreadcrumb {
   link: string;
 }
 
-export interface IBreadcrumbsProps {
+export type IBreadcrumbsProps = {
   breadcrumbs: IBreadcrumb[];
-}
+  theme?: "default" | "dark";
+};
 
-const Breadcrumbs = ({ breadcrumbs }: IBreadcrumbsProps) => {
+const Breadcrumbs = ({ breadcrumbs, theme = "default" }: IBreadcrumbsProps) => {
   return (
     <nav className="container my-5">
       <ol className="list-none p-0 inline-flex">
@@ -15,7 +16,11 @@ const Breadcrumbs = ({ breadcrumbs }: IBreadcrumbsProps) => {
           if (index === breadcrumbs.length - 1) {
             return (
               <li key={index} className="flex items-center">
-                <span className="text-sm md:text-lg text-slate-950">
+                <span
+                  className={`text-sm md:text-lg ${
+                    theme === "default" ? "text-slate-950" : "text-white"
+                  }`}
+                >
                   {breadcrumb.name}
                 </span>
               </li>
@@ -25,13 +30,15 @@ const Breadcrumbs = ({ breadcrumbs }: IBreadcrumbsProps) => {
             <li key={index} className="flex items-center">
               <a
                 href={breadcrumb.link}
-                className="text-sm md:text-lg text-slate-500"
+                className={`text-sm md:text-lg ${
+                  theme === "default" ? "text-slate-500" : "text-slate-200"
+                }`}
               >
                 {breadcrumb.name}
               </a>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                fill="none"
+                fill={theme === "default" ? "black" : "white"}
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 className="w-4 h-4 mx-2"
@@ -50,5 +57,4 @@ const Breadcrumbs = ({ breadcrumbs }: IBreadcrumbsProps) => {
     </nav>
   );
 };
-
 export default Breadcrumbs;

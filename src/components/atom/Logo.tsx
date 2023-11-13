@@ -5,7 +5,12 @@ export default function Logo({ className }) {
     <OriginalLink
       href="/"
       name={
-        <img alt="Pierek Logo" className={className} src="/logo_white.svg" />
+        <img
+          title="Pierek Logo"
+          alt="Pierek Logo"
+          className={className}
+          src="/logo_white.svg"
+        />
       }
     ></OriginalLink>
   );

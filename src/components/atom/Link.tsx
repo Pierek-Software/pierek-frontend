@@ -8,7 +8,7 @@ export interface OriginalLinkProps {
 
 export function OriginalLink({ className, name, href }: OriginalLinkProps) {
   return (
-    <Link className={className} href={href}>
+    <Link title={name} className={className} href={href}>
       {name}
     </Link>
   );
