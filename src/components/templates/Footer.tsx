@@ -86,6 +86,7 @@ function Footer({ wave = true }: FooterProps) {
 
           <div className="flex flex-col mt-3 md:mt-0">
             <h3 className="text-md font-bold">Information</h3>
+            <DefaultLink name="Contact" href="/contact" />
             <DefaultLink name="Technologies" href="/technologies" />
             <DefaultLink name="Blog" href="/blog" />
             <DefaultLink name="Case Studies" href="/case-studies" />
