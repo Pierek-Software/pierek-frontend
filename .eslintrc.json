@@ -1,8 +1,9 @@
 {
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
   ],
   "plugins": ["prettier", "@typescript-eslint"],
   "parser": "@typescript-eslint/parser",
@@ -22,6 +23,9 @@
     ],
     "no-console": "error",
     "no-await-in-loop": "error",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/no-unescaped-entities": "off",
     "no-constructor-return": "error",
     "no-duplicate-imports": "error",
     "no-new-native-nonconstructor": "error",
@@ -30,9 +34,15 @@
     "no-unmodified-loop-condition": "error",
     "no-unreachable-loop": "error",
     "no-unused-private-class-members": "error",
-    "no-use-before-define": "error",
+    "react/no-unknown-property": "off",
+    "@next/next/no-img-element": "off",
+    "react/jsx-no-target-blank": "off",
+    "@typescript-eslint/no-unused-vars": "off",
+    "@typescript-eslint/no-var-requires": "off",
+    "no-use-before-define": "off",
     "curly": "error",
     "eqeqeq": "error",
-    "no-prototype-builtins": "off"
+    "no-prototype-builtins": "off",
+    "@typescript-eslint/no-explicit-any": "off"
   }
 }
