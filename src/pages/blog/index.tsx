@@ -120,7 +120,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     });
 
   posts.sort(
-    (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
+    (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
   );
 
   const totalPages = Math.ceil(fileNamesWithExtensions.length / itemsPerPage);

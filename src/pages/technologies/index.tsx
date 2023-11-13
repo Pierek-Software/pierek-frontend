@@ -17,7 +17,7 @@ function TechnologyNode({ category }) {
       </h3>
       <div className="flex flex-wrap justify-center border-black border-4">
         {Object.values(
-          technologiesGroupedByCategory(technologies)[category]
+          technologiesGroupedByCategory(technologies)[category],
         ).map((technology: { id: string; title: string; iconPath: string }) => {
           return (
             <TechnologyItem
