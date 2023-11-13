@@ -30,7 +30,7 @@ function Footer({ wave = true }: FooterProps) {
         >
           <div className="">
             <Logo className="mt-3 md:mt-0 h-6 w-auto mx-auto" />
-            <section className="mt-3 flex justify-center md:justify-start self-center items-center">
+            <section className="mt-5 flex justify-center md:justify-start self-center items-center">
               <a
                 title="Pierek Clutch.co"
                 target="_blank"
@@ -76,7 +76,7 @@ function Footer({ wave = true }: FooterProps) {
           </div>
 
           <div className="flex flex-col mt-3 md:mt-0">
-            <h3 className="text-md font-bold">Services</h3>
+            <h3 className="text-lg font-bold my-1 md:my-0">Services</h3>
             <DefaultLink name="TypeScript Development " href="/typescript" />
             <DefaultLink name="Node.js Development" href="/node-js" />
             <DefaultLink name="React.js Development " href="/react" />
@@ -85,14 +85,14 @@ function Footer({ wave = true }: FooterProps) {
           </div>
 
           <div className="flex flex-col mt-3 md:mt-0">
-            <h3 className="text-md font-bold">Information</h3>
+            <h3 className="text-lg font-bold my-1 md:my-0">Information</h3>
             <DefaultLink name="Contact" href="/contact" />
             <DefaultLink name="Technologies" href="/technologies" />
             <DefaultLink name="Blog" href="/blog" />
             <DefaultLink name="Case Studies" href="/case-studies" />
           </div>
           <div className="mt-3 md:mt-0">
-            <h3 className="text-md font-bold">Headquater</h3>
+            <h3 className="text-lg my-1 md:my-0 font-bold">Headquater</h3>
             <div>ul. Gliwicka 82</div>
             <div>Szczejkowice, 44-246</div>
             <div>Poland</div>

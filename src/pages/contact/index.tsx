@@ -40,7 +40,7 @@ export default function Home() {
               { name: "Contact", link: "#" },
             ]}
           />
-          <section className="flex md:flex-row flex-col justify-center items-center font-extrabold text-white text-center text-2xl md:text-8xl mt-28 md:mt-40">
+          <section className="flex md:flex-row flex-col justify-center items-center font-extrabold text-white text-center text-2xl md:text-6xl lg:text-8xl mt-28 md:mt-40">
             <h1 className="pr-3" id="email" ref={inputRef}>
               contact@pierek.com
             </h1>

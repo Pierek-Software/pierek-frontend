@@ -20,5 +20,15 @@ export interface IDefaultLinkProps {
 }
 
 export function DefaultLink({ name, href }: IDefaultLinkProps) {
-  return <OriginalLink name={name} href={href} className="hover:underline" />;
+  return (
+    <OriginalLink
+      name={name}
+      href={href}
+      className="
+      hover:underline
+      my-1 
+      md:my-0
+      "
+    />
+  );
 }
