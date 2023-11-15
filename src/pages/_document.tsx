@@ -12,6 +12,19 @@ export default function Document() {
           referrerPolicy="no-referrer"
         />
         <link rel="icon" href="/favicon.svg" sizes="any" />
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-T6SZ6V6W66"
+        ></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-T6SZ6V6W66');
+          `}
+        </script>
       </Head>
       <body>
         <Main />
