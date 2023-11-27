@@ -25,6 +25,19 @@ export default function Document() {
             gtag('config', 'G-T6SZ6V6W66');
           `}
         </script>
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-11408627347"
+        ></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-11408627347');
+          `}
+        </script>
       </Head>
       <body>
         <Main />
