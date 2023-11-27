@@ -107,14 +107,26 @@ export default function Page() {
       </svg>
       <main className="container">
         <Header level={2}>Introduction</Header>
-        <Paragraph>
-          Greetings, I am Kamil Wilim, a seasoned Software Engineer specializing
-          in backend development, primarily utilizing the JavaScript programming
-          language. With 7 years of professional experience in the field, I am
-          dedicated to web development. Additionally, I am an avid traveler,
-          having explored 31 countries, 30 of which are in Europe, and one in
-          Asia.
-        </Paragraph>
+        <section
+          className="
+          flex flex-col-reverse align-middle items-center
+          md:flex-row
+          "
+        >
+          <Paragraph>
+            Greetings, I am Kamil Wilim, a seasoned Software Engineer
+            specializing in backend development, primarily utilizing the
+            JavaScript programming language. I am working for biggest europe
+            Fintech company Klarna. With 7 years of professional experience in
+            the field, I am dedicated to web development. Additionally, I am an
+            avid traveler, having explored 31 countries, 30 of which are in
+            Europe, and one in Asia.
+          </Paragraph>
+          <img
+            className="rounded-full m-auto max-h-40"
+            src="/authors/kamil-wilim.jpeg"
+          />
+        </section>
         <Header level={2}>Knowledge Sharing</Header>
         <Paragraph>
           Irrespective of age, I offer my expertise in enhancing abstract
