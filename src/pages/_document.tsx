@@ -38,6 +38,19 @@ export default function Document() {
             gtag('config', 'AW-11408627347');
           `}
         </script>
+
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-819170558"
+        ></script>
+        <script>
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'AW-819170558');
+        `}
+        </script>
       </Head>
       <body>
         <Main />
