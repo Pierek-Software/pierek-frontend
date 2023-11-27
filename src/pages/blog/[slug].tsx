@@ -10,6 +10,21 @@ import Breadcrumbs from "../../components/atom/Breadcrumbs";
 import AuthorSection from "../../components/atom/AuthorSection";
 import HeadComponent from "../../components/atom/Head";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
+import SyntaxHighlighter from "react-syntax-highlighter";
+
+function code({ className, ...props }) {
+  const match = /language-(\w+)/.exec(className || "");
+  return match ? (
+    <SyntaxHighlighter
+      className="my-5"
+      language={match[1]}
+      PreTag="div"
+      {...props}
+    />
+  ) : (
+    <code className={...className} {...props} />
+  );
+}
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -25,7 +40,7 @@ export default function RemoteMdxPage({ id, mdxSource, metadata }: Props) {
       <HeadComponent
         title={metadata.title}
         description={metadata.description}
-        keywords={["Article", "Path of Exile"]}
+        keywords={metadata.keywords}
         author={"Kamil Wilim"}
       />
       <Navbar background={true} wave={false} />
@@ -64,7 +79,10 @@ export default function RemoteMdxPage({ id, mdxSource, metadata }: Props) {
 
         <section className="mt-5 sm:mt-8">
           <p className="text-xl leading-loose my-2">{metadata.description}</p>
-          <MDXRemote {...mdxSource} components={MarkdownComponents} />
+          <MDXRemote
+            {...mdxSource}
+            components={{ ...MarkdownComponents, code }}
+          />
         </section>
 
         <div className="mt-3">

@@ -4,7 +4,7 @@ export interface HeadComponentProps {
   title: string;
   author?: string;
   description: string;
-  keywords: string[];
+  keywords?: string[];
   imageSource?: string;
 }
 
@@ -14,7 +14,7 @@ const HeadComponent = (props: HeadComponentProps) => {
     <Head>
       <title>{title}</title>
       <meta name="description" content={props.description} />
-      <meta name="keywords" content={props.keywords.toString()} />
+      <meta name="keywords" content={props?.keywords?.toString() || ""} />
       <meta name="author" content={props?.author ? props.author : "Pierek"} />
       <meta name="publisher" content="Pierek" />
       <meta property="og:title" content={title} />
