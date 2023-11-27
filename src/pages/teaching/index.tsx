@@ -68,7 +68,7 @@ export default function Page() {
             lg:text-5xl lg:mt-14
             "
           >
-            <p className="my-1 md:my-8 lg:my-5">Starting from 100$ / hour</p>
+            <p className="my-1 md:my-8 lg:my-5">Starting from 50$ / hour</p>
             <p className="my-1 md:my-8 lg:my-5">Remote: Globally 🌎</p>
             <p className="my-1 md:my-8 lg:my-5">
               On-site: Bangkok, Thailand 🇹🇭
