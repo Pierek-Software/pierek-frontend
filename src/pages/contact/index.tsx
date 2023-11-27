@@ -59,6 +59,15 @@ export default function Home() {
           <h2 className="text-sm pt-5 text-white text-center md:text-4xl font-light">
             Because contact should be easy
           </h2>
+
+          <section
+            className="
+          font-extrabold text-white text-center text-xl mt-3
+          md:text-3xl md:mt-8
+          "
+          >
+            <h1>Line: pierek</h1>
+          </section>
         </div>
       </main>
 
