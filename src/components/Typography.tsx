@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { slugify } from "../utils";
 
 const headerTagToSize = {
@@ -16,7 +16,7 @@ export const Header = ({
   level,
   linkable = true,
 }: {
-  children: string;
+  children: ReactNode;
   level: number;
   linkable?: boolean;
 }) => {

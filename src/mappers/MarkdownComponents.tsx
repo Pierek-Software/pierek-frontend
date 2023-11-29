@@ -1,6 +1,5 @@
 import { MDXComponents } from "mdx/types";
 import { Header, Paragraph, YoutubeComponent } from "../components/Typography";
-import { slugify } from "../utils";
 
 const MarkdownComponents: MDXComponents = {
   p: ({ children }) => <Paragraph>{children}</Paragraph>,
