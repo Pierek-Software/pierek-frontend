@@ -11,6 +11,7 @@ import AuthorSection from "../../components/atom/AuthorSection";
 import HeadComponent from "../../components/atom/Head";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
 import SyntaxHighlighter from "react-syntax-highlighter";
+import { DictionaryLink, Header } from "../../components/Typography";
 
 function code({ className, ...props }) {
   const match = /language-(\w+)/.exec(className || "");
@@ -30,11 +31,36 @@ interface Props {
   mdxSource: MDXRemoteSerializeResult;
   metadata: any;
   dynamicData: any;
+  dictionary: string;
   slug: string;
   id: number;
 }
 
-export default function RemoteMdxPage({ id, mdxSource, metadata }: Props) {
+const Dictionary = (props) => {
+  return (
+    <nav className="flex flex-col">
+      <Header linkable={false} level={2}>
+        Dictionary 📖
+      </Header>
+      {props.dictionary.map((header, index) => {
+        if (header.level === 2) {
+          return (
+            <DictionaryLink className="my-1 hover:underline" key={index}>
+              {header.text}
+            </DictionaryLink>
+          );
+        }
+      })}
+    </nav>
+  );
+};
+
+export default function RemoteMdxPage({
+  id,
+  mdxSource,
+  metadata,
+  dictionary,
+}: Props) {
   return (
     <>
       <HeadComponent
@@ -78,6 +104,7 @@ export default function RemoteMdxPage({ id, mdxSource, metadata }: Props) {
         </section>
 
         <section className="mt-5 sm:mt-8">
+          <Dictionary dictionary={dictionary} />
           <p className="text-xl leading-loose my-2">{metadata.description}</p>
           <MDXRemote
             {...mdxSource}
@@ -117,6 +144,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const mdxSource = await serialize(parsed.content);
 
+  const dictionary = extractHeaders(parsed.content);
+
   // const markdownJson = marked.lexer(parsed.content);
 
   return {
@@ -124,6 +153,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       id: parsed.data.id,
       slug,
       mdxSource,
+      dictionary,
       markdownContent: parsed.content,
       metadata: parsed.data,
       dynamicData,
@@ -143,4 +173,21 @@ export async function getStaticPaths() {
     paths: clean,
     fallback: false,
   };
+}
+
+function extractHeaders(
+  markdownText: string,
+): { level: number; text: string }[] {
+  const regex = /^(#{1,6})\s+(.+)$/gm;
+  const matches = markdownText.matchAll(regex);
+
+  const headers: { level: number; text: string }[] = [];
+
+  for (const match of matches) {
+    const level = match[1].length;
+    const text = match[2].trim();
+    headers.push({ level, text });
+  }
+
+  return headers;
 }

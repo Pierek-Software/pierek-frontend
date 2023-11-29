@@ -45,6 +45,18 @@ export const Header = ({
   }
 };
 
+export const DictionaryLink = ({ children, className }) => {
+  return (
+    <a
+      className={className}
+      title={children as string}
+      href={"#" + slugify(children as string)}
+    >
+      {children}
+    </a>
+  );
+};
+
 export const YoutubeComponent = (props: { videoId: string }) => {
   return (
     <iframe
