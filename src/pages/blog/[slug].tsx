@@ -98,7 +98,7 @@ export default function RemoteMdxPage({
             <img
               title={metadata.title}
               alt={`${metadata.title} post image cover`}
-              src={`/posts/${id}/cover.jpeg`}
+              src={`/posts/${id}/cover.jpg`}
             />
           </div>
         </section>

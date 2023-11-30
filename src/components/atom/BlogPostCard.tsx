@@ -19,7 +19,7 @@ function BlogPostCard({
     <div className="lg:max-w-xl">
       <a href={"/blog" + "/" + slug}>
         <img
-          src={"/posts" + "/" + id + "/" + "cover.jpeg"}
+          src={"/posts" + "/" + id + "/" + "cover.jpg"}
           alt="Blog Post Image"
           className="w-full rounded"
         />
