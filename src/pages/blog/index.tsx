@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
 import { readFileSync, readdirSync } from "fs";
@@ -11,17 +10,19 @@ import BlogPostCard, {
 } from "../../components/atom/BlogPostCard";
 import HeadComponent from "../../components/atom/Head";
 
-export interface IBlogPageProps {
-  posts: IBlogPostCardProps[];
-  currentPage: number;
-  totalPages: number;
+export interface PaginationProps {
+  page: number;
+  perPage: number;
+  pages: number;
+  total: number;
 }
 
-export default function Page({
-  posts,
-  currentPage,
-  totalPages,
-}: IBlogPageProps) {
+export interface IBlogPageProps {
+  posts: IBlogPostCardProps[];
+  pagination: PaginationProps;
+}
+
+export default function Page({ posts, pagination }: IBlogPageProps) {
   return (
     <>
       <HeadComponent
@@ -67,12 +68,12 @@ export default function Page({
 
         <div className="mt-5 flex justify-center">
           <nav className="flex space-x-2">
-            {Array.from({ length: totalPages }, (_, index) => (
+            {Array.from({ length: pagination.pages }, (_, index) => (
               <a
                 href={`/blog?page=${index + 1}`}
                 key={index}
                 className={`px-3 py-2 ${
-                  currentPage === index + 1
+                  pagination.page === index + 1
                     ? "bg-slate-950 text-white"
                     : "text-gray-600"
                 }`}
@@ -91,15 +92,14 @@ export default function Page({
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const page = query.page ? parseInt(query.page as string, 10) : 1;
-  const itemsPerPage = 3;
+  const perPage = 3;
 
   const fileNamesWithExtensions = readdirSync(path.resolve("./src/posts"));
 
-  const startIndex = (page - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
+  const startIndex = (page - 1) * perPage;
+  const endIndex = startIndex + perPage;
 
   const posts: IBlogPostCardProps[] = fileNamesWithExtensions
-    .slice(startIndex, endIndex)
     .map((fileNameWithExtension) => {
       const filePath = path.resolve("./src/posts", fileNameWithExtension);
 
@@ -114,16 +114,28 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         createdAt: new Date(parsed.data.createdAt).toISOString(),
         updatedAt: new Date(parsed.data.updatedAt).toISOString(),
         description: parsed.data.description,
+        visible: parsed?.data?.visible === false ? false : true,
       };
 
       return data;
-    });
+    })
+    .filter((test) => test.visible === true)
+    .sort(
+      (a, b) =>
+        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+    );
 
-  posts.sort(
-    (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
-  );
+  const postsPaginated = posts.slice(startIndex, endIndex);
 
-  const totalPages = Math.ceil(fileNamesWithExtensions.length / itemsPerPage);
-
-  return { props: { posts, currentPage: page, totalPages } };
+  return {
+    props: {
+      posts: postsPaginated,
+      pagination: {
+        page,
+        perPage,
+        pages: Math.ceil(posts.length / perPage),
+        total: posts.length,
+      },
+    },
+  };
 };
