@@ -6,7 +6,7 @@ createdAt: "2023-12-05"
 updatedAt: "2023-12-05"
 keywords: ["JavaScript", "D3.js"]
 authorId: 1
-visible: false
+visible: true
 ---
 
 Data visualization plays a quintessential role in the interpretation of data. It helps to tell stories by curating data into a form easier to understand, highlighting the trends and outliers. A well-designed chart or graph can make a huge difference in communicating complex data. That's where D3.js, or simply D3, comes into the spotlight. Short for Data-Driven Documents, D3.js is a powerful JavaScript library that enables developers to create dynamic, interactive data visualizations in the web browser.

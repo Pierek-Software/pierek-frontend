@@ -6,7 +6,7 @@ createdAt: "2023-12-06"
 updatedAt: "2023-12-06"
 keywords: ["JavaScript"]
 authorId: 1
-visible: false
+visible: true
 ---
 
 Web animation has become an integral part of the modern user interface experience. It's not merely ornamental; it guides users, improves user engagement, and can even contribute to your site's storytelling. When it comes to web animation, one of the powerful libraries that stand out is GreenSock Animation Platform, or GSAP. GSAP is a robust tool for creating performant and professional-grade animations in your web projects. In this blog post, we'll dive into the world of GSAP, exploring its capabilities and how to leverage them to bring your web designs to life.
