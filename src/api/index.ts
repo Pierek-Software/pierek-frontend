@@ -22,6 +22,15 @@ class ApiClient {
     return data;
   }
 
+  async getSitemap() {
+    const url = this.baseUrl + "/sitemap.xml";
+    const response = await fetch(url);
+
+    const xml = await response.text();
+
+    return xml;
+  }
+
   async getPost(slug: string) {
     const url = this.baseUrl + "/posts/" + slug;
     const response = await fetch(url);
