@@ -5,7 +5,7 @@ export interface IBlogPostCardProps {
   description: string;
   slug: string;
   id: number;
-  updatedAt: string;
+  createdAt: string;
 }
 
 function BlogPostCard({
@@ -13,7 +13,7 @@ function BlogPostCard({
   description,
   slug,
   id,
-  updatedAt,
+  createdAt,
 }: IBlogPostCardProps) {
   return (
     <div className="lg:max-w-xl">
@@ -28,7 +28,7 @@ function BlogPostCard({
           <p className="text-gray-700 text-base text-justify">{description}</p>
         </div>
         <div className="py-4 flex justify-end">
-          <p className=" font-thin ">{isoDateToRRRRMMDD(updatedAt)}</p>
+          <p className=" font-thin ">{isoDateToRRRRMMDD(createdAt)}</p>
         </div>
       </a>
     </div>

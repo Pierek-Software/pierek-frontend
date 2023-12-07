@@ -2,16 +2,15 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
-import { readFileSync, readdirSync } from "fs";
-import path from "path";
-import { GetStaticProps } from "next";
-import matter from "gray-matter";
+
+import { GetServerSideProps, GetStaticProps } from "next";
 import Breadcrumbs from "../../components/atom/Breadcrumbs";
 import AuthorSection from "../../components/atom/AuthorSection";
 import HeadComponent from "../../components/atom/Head";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { DictionaryLink, Header } from "../../components/Typography";
+import ApiClient from "../../api";
 
 function code({ className, ...props }) {
   const match = /language-(\w+)/.exec(className || "");
@@ -29,11 +28,8 @@ function code({ className, ...props }) {
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
-  metadata: any;
-  dynamicData: any;
   dictionary: string;
-  slug: string;
-  id: number;
+  post: any;
 }
 
 const Dictionary = (props) => {
@@ -55,26 +51,21 @@ const Dictionary = (props) => {
   );
 };
 
-export default function RemoteMdxPage({
-  id,
-  mdxSource,
-  metadata,
-  dictionary,
-}: Props) {
+export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
   return (
     <>
       <HeadComponent
-        title={metadata.title}
-        description={metadata.description}
-        keywords={metadata.keywords}
-        author={"Kamil Wilim"}
+        title={post.title}
+        description={post.description}
+        keywords={post.categories}
+        author={post.author.first_name + post.author.last_name}
       />
       <Navbar background={true} wave={false} />
       <Breadcrumbs
         breadcrumbs={[
           { name: "Home Page", link: "/" },
           { name: "Blog", link: "/blog" },
-          { name: metadata.title, link: "#" },
+          { name: post.title, link: "#" },
         ]}
       />
       <main
@@ -91,89 +82,77 @@ export default function RemoteMdxPage({
             font-extrabold leading-normal
             text-4xl sm:text-6xl"
             >
-              {metadata.title}
+              {post.title}
             </h1>
           </div>
           <div className="mt-3 sm:mt-10">
             <img
-              title={metadata.title}
-              alt={`${metadata.title} post image cover`}
-              src={`/posts/${id}/cover.jpg`}
+              title={post.title}
+              alt={`${post.title} post image cover`}
+              src={`/posts/${post.id}/cover.jpg`}
             />
           </div>
         </section>
 
         <section className="mt-5 sm:mt-8">
-          <Dictionary dictionary={dictionary} />
-          <p className="text-xl leading-loose my-2">{metadata.description}</p>
+          <section className="md:flex md:justify-between md:items-stretch">
+            <div className="my-3 md:w-2/5 lg:w-1/4 md:mx-3">
+              <Dictionary dictionary={dictionary} />
+            </div>
+            <div className="my-3 md:w-2/5 lg:w-1/4 md:mx-3">
+              <AuthorSection
+                firstName={post.author.first_name}
+                lastName={post.author.last_name}
+                avatar={post.author.avatar}
+                description={post.author.description}
+                createdDate={post.created_at}
+                updatedDate={post.updated_at}
+              />
+            </div>
+            <div className="my-3 md:my-0 md:w-1/5 lg:w-2/4">
+              <a href="/contact">
+                <section className=" w-full h-full items-center  flex justify-center text-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
+                  <h3 className="text-2xl md:text-xl lg:text-4xl font-bold text-white">
+                    Get best Node.js Developers{" "}
+                    <span className="underline">Contact us</span>
+                  </h3>
+                </section>
+              </a>
+            </div>
+          </section>
+          <p className="text-xl leading-loose my-2">{post.description}</p>
           <MDXRemote
             {...mdxSource}
             components={{ ...MarkdownComponents, code }}
           />
         </section>
-
-        <div className="mt-3">
-          <AuthorSection
-            firstName="Kamil"
-            lastName="Wilim"
-            avatar="/authors/kamil-wilim.jpeg"
-            createdDate={metadata.createdAt}
-            updatedDate={metadata.updatedAt}
-          />
-        </div>
       </main>
       <Footer />
     </>
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   if (!params?.slug || typeof params?.slug !== "string") {
     throw new Error("No slug");
   }
 
-  const dynamicData = { key: "value" };
+  const apiClient = new ApiClient();
 
-  const { slug } = params;
+  const post = await apiClient.getPost(params.slug);
 
-  const filePath = path.resolve("./src/posts", `${slug}.md`);
+  const mdxSource = await serialize(post.markdown);
 
-  const file = readFileSync(filePath);
-
-  const parsed = matter(file);
-
-  const mdxSource = await serialize(parsed.content);
-
-  const dictionary = extractHeaders(parsed.content);
-
-  // const markdownJson = marked.lexer(parsed.content);
+  const dictionary = extractHeaders(post.markdown);
 
   return {
     props: {
-      id: parsed.data.id,
-      slug,
+      post,
       mdxSource,
       dictionary,
-      markdownContent: parsed.content,
-      metadata: parsed.data,
-      dynamicData,
     },
   };
 };
-
-export async function getStaticPaths() {
-  const folderPath = path.resolve("./src/posts");
-
-  const files = readdirSync(folderPath);
-  const clean = files
-    .map((file) => file.replace(".md", ""))
-    .map((name) => `/blog/${name}`);
-
-  return {
-    paths: clean,
-    fallback: false,
-  };
-}
 
 function extractHeaders(
   markdownText: string,

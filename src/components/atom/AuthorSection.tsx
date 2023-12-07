@@ -1,12 +1,19 @@
+import { isoDateToRRRRMMDD } from "../../utils";
+import { Header } from "../Typography";
+
 const AuthorSection = ({
   avatar,
   firstName,
   lastName,
+  description,
   createdDate,
   updatedDate,
 }) => {
   return (
-    <div className="bg-white p-5 rounded-lg shadow-md">
+    <div className="">
+      <Header level={2} linkable={false}>
+        Author ✍️
+      </Header>
       <div className="flex items-center">
         <img
           src={avatar}
@@ -20,8 +27,15 @@ const AuthorSection = ({
       </div>
 
       <div className="mt-4">
-        <p className="text-gray-600 text-sm">Created: {createdDate}</p>
-        <p className="text-gray-600 text-sm">Updated: {updatedDate}</p>
+        <div className="my-3">
+          <p>{description}</p>
+        </div>
+        <p className="text-gray-600 my-1 text-sm">
+          Created: {isoDateToRRRRMMDD(createdDate)}
+        </p>
+        <p className="text-gray-600 my-1 text-sm">
+          Updated: {isoDateToRRRRMMDD(updatedDate)}
+        </p>
       </div>
     </div>
   );

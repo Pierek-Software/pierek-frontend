@@ -1,14 +1,10 @@
 import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
-import { readFileSync, readdirSync } from "fs";
-import path from "path";
 import { GetServerSideProps } from "next";
-import matter from "gray-matter";
 import Breadcrumbs from "../../components/atom/Breadcrumbs";
-import BlogPostCard, {
-  IBlogPostCardProps,
-} from "../../components/atom/BlogPostCard";
+import BlogPostCard from "../../components/atom/BlogPostCard";
 import HeadComponent from "../../components/atom/Head";
+import ApiClient from "../../api";
 
 export interface PaginationProps {
   page: number;
@@ -18,7 +14,7 @@ export interface PaginationProps {
 }
 
 export interface IBlogPageProps {
-  posts: IBlogPostCardProps[];
+  posts: any[];
   pagination: PaginationProps;
 }
 
@@ -59,7 +55,7 @@ export default function Page({ posts, pagination }: IBlogPageProps) {
                   slug={post.slug}
                   title={post.title}
                   description={post.description}
-                  updatedAt={post.updatedAt}
+                  createdAt={post.created_at}
                 />
               );
             })}
@@ -91,51 +87,16 @@ export default function Page({ posts, pagination }: IBlogPageProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+  const apiClient = new ApiClient();
   const page = query.page ? parseInt(query.page as string, 10) : 1;
-  const perPage = 3;
+  const perPage = 6;
 
-  const fileNamesWithExtensions = readdirSync(path.resolve("./src/posts"));
-
-  const startIndex = (page - 1) * perPage;
-  const endIndex = startIndex + perPage;
-
-  const posts: IBlogPostCardProps[] = fileNamesWithExtensions
-    .map((fileNameWithExtension) => {
-      const filePath = path.resolve("./src/posts", fileNameWithExtension);
-
-      const file = readFileSync(filePath);
-
-      const parsed = matter(file);
-
-      const data = {
-        id: parsed.data.id,
-        slug: fileNameWithExtension.replace(".md", ""),
-        title: parsed.data.title,
-        createdAt: new Date(parsed.data.createdAt).toISOString(),
-        updatedAt: new Date(parsed.data.updatedAt).toISOString(),
-        description: parsed.data.description,
-        visible: parsed?.data?.visible === false ? false : true,
-      };
-
-      return data;
-    })
-    .filter((test) => test.visible === true)
-    .sort(
-      (a, b) =>
-        new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
-    );
-
-  const postsPaginated = posts.slice(startIndex, endIndex);
+  const response = await apiClient.getPosts({ pagination: { page, perPage } });
 
   return {
     props: {
-      posts: postsPaginated,
-      pagination: {
-        page,
-        perPage,
-        pages: Math.ceil(posts.length / perPage),
-        total: posts.length,
-      },
+      posts: response.data,
+      pagination: response.pagination,
     },
   };
 };
