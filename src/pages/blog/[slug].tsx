@@ -22,7 +22,7 @@ function code({ className, ...props }) {
       {...props}
     />
   ) : (
-    <code className={...className} {...props} />
+    <code className={className} {...props} />
   );
 }
 
