@@ -25,21 +25,21 @@ export default function Home() {
         <section className="container">
           <div
             className="
-            mt-20 
-            sm:mt-28 
-            md:mt-40 
+            mt-16
+            sm:mt-24
+            md:mt-20
             lg:mt-20 lg:flex lg:items-center lg:align-middle
             "
           >
             <div className="lg:w-2/3">
               <h2
                 className="
-            text-center text-4xl font-extrabold leading-normal text-white
-            sm:text-4xl
-            md:max-w-3xl md:text-center md:text-7xl md:leading-snug
-            lg:text-left lg:text-8xl lg:leading-tight
-            2xl:max-w-7xl 2xl:text-9xl
-          "
+                text-center text-5xl font-bold leading-snug text-white
+                sm:text-4xl
+                md:text-7xl md:leading-relaxed
+                lg:text-left lg:text-8xl lg:leading-tight
+                2xl:max-w-7xl 2xl:text-9xl
+                "
               >
                 Problem solving oriented company
               </h2>
@@ -50,19 +50,24 @@ export default function Home() {
           </div>
         </section>
         <div
-          className="mt-24
-        flex justify-center lg:hidden"
+          className="
+          mt-14 flex justify-center
+          md:mt-48
+          lg:mt-24
+          lg:hidden
+          "
         >
-          <button
-            className="
-            h-40 w-40
-            rounded-full border bg-slate-800 px-4
-            py-2 
-          
-           text-2xl font-bold text-white hover:bg-slate-900 md:h-64 md:w-64 md:border-2 md:text-5xl lg:hidden"
-          >
-            <a href="/contact">Contact</a>
-          </button>
+          <a href="/contact">
+            <button
+              className="
+            h-52 w-52 rounded-full border-2 bg-slate-800  text-3xl font-bold text-white hover:bg-slate-900
+            md:h-80 md:w-80 md:border-4 md:text-5xl
+            lg:hidden
+            "
+            >
+              Contact
+            </button>
+          </a>
         </div>
       </section>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
