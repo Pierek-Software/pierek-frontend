@@ -1,8 +1,6 @@
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
-//bg-[url('/talents-bg.webp')] bg-fill
-
 export default function Page() {
   return (
     <>
