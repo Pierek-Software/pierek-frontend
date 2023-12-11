@@ -37,16 +37,16 @@ export default function Page({ posts, pagination }: IBlogPageProps) {
           ]}
         />
         <section>
-          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
             Blog
           </h1>
-          <p className="text-2xl md:text-4xl font-light">
+          <p className="text-2xl font-light md:text-4xl">
             Because learning is key to knowledge
           </p>
         </section>
 
         <section className="mt-5">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
             {posts.map((post) => {
               return (
                 <BlogPostCard

@@ -1,7 +1,7 @@
 export function TypeScriptIcon() {
   return (
     <svg
-      className="h-10 w-10 m-auto"
+      className="m-auto h-10 w-10"
       fill="none"
       height="512"
       viewBox="0 0 512 512"
@@ -23,7 +23,7 @@ export function TypeScriptIcon() {
 export function JavaScriptIcon() {
   return (
     <svg
-      className="h-10 w-10 mx-auto"
+      className="mx-auto h-10 w-10"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 630 630"
     >
@@ -53,7 +53,7 @@ export function MicroserviceIcon() {
 export function LambdaIcon() {
   return (
     <svg
-      className="w-10 h-10"
+      className="h-10 w-10"
       height="40"
       width="40"
       xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ export function LambdaIcon() {
 export function NodeJsIcon() {
   return (
     <svg
-      className="w-10 h-10"
+      className="h-10 w-10"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"
     >

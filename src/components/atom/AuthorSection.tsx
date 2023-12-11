@@ -18,11 +18,11 @@ const AuthorSection = ({
         <img
           src={avatar}
           alt={`${firstName} ${lastName}`}
-          className="w-12 h-12 rounded-full"
+          className="h-12 w-12 rounded-full"
         />
         <div className="ml-4">
           <h2 className="text-xl font-semibold">{`${firstName} ${lastName}`}</h2>
-          <p className="text-gray-500 text-sm">Author</p>
+          <p className="text-sm text-gray-500">Author</p>
         </div>
       </div>
 
@@ -30,10 +30,10 @@ const AuthorSection = ({
         <div className="my-3">
           <p>{description}</p>
         </div>
-        <p className="text-gray-600 my-1 text-sm">
+        <p className="my-1 text-sm text-gray-600">
           Created: {isoDateToRRRRMMDD(createdDate)}
         </p>
-        <p className="text-gray-600 my-1 text-sm">
+        <p className="my-1 text-sm text-gray-600">
           Updated: {isoDateToRRRRMMDD(updatedDate)}
         </p>
       </div>

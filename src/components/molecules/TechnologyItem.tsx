@@ -9,16 +9,16 @@ export interface TechnologyItemProps {
 function TechnologyItem(props: TechnologyItemProps) {
   return (
     <div
-      className="px-5 py-2 m-4 
-      rounded border border-black
-     hover:bg-slate-200 hover:cursor-pointer"
+      className="m-4 rounded border 
+      border-black px-5 py-2
+     hover:cursor-pointer hover:bg-slate-200"
     >
       <img
-        className="h-10 w-10 m-auto"
+        className="m-auto h-10 w-10"
         src={`/icons/${props.iconPath}`}
         alt={props.name}
       />
-      <h2 className="text-center text-black text-lg font-semibold">
+      <h2 className="text-center text-lg font-semibold text-black">
         {props.name}
       </h2>
     </div>

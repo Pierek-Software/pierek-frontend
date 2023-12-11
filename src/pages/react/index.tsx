@@ -8,20 +8,20 @@ export default function Page() {
   return (
     <>
       <div
-        className="min-h-screen min-w-screen
-        bg-gradient-to-b from-slate-950  to-slate-800
+        className="min-w-screen flex
+        min-h-screen flex-col  justify-between
       
-      flex flex-col justify-between"
+      bg-gradient-to-b from-slate-950 to-slate-800"
       >
         <Navbar background={false} wave={false} />
 
         <section className="container grow">
           <h2
-            className="font-extrabold mt-28 text-white text-center leading-normal text-4xl
+            className="mt-28 text-center text-4xl font-extrabold leading-normal text-white
           sm:text-4xl
-          md:text-7xl md:max-w-3xl md:text-center md:leading-snug
-          lg:text-8xl lg:text-left lg:leading-tight
-          2xl:text-9xl 2xl:max-w-7xl"
+          md:max-w-3xl md:text-center md:text-7xl md:leading-snug
+          lg:text-left lg:text-8xl lg:leading-tight
+          2xl:max-w-7xl 2xl:text-9xl"
           >
             React.js Development
           </h2>
@@ -29,7 +29,7 @@ export default function Page() {
 
         <section className="container mb-7 flex justify-center">
           <img
-            className="text-white m-auto text-2xl h-9 w-9"
+            className="m-auto h-9 w-9 text-2xl text-white"
             src="/icons/arrow-down.svg"
             alt="Background"
           />
@@ -56,10 +56,10 @@ export default function Page() {
         ></path>
       </svg>
       <main className="container mt-11">
-        <h1 className="text-4xl md:text-5xl font-bold  leading-relaxed text-black">
+        <h1 className="text-4xl font-bold leading-relaxed  text-black md:text-5xl">
           Introduction to React.js
         </h1>
-        <p className="mt-3 text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+        <p className="text-md mt-3 text-justify leading-loose md:text-lg md:leading-loose lg:text-xl lg:leading-loose xl:leading-loose">
           React is an open-source JavaScript library for building user
           interfaces, primarily used for creating interactive and dynamic web
           applications. Developed and maintained by Facebook, React has gained
@@ -71,10 +71,10 @@ export default function Page() {
           faster and more responsive user interfaces.
         </p>
 
-        <h1 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
+        <h1 className="py-1 text-4xl font-bold leading-relaxed text-black md:py-5 md:text-5xl">
           Component-Based Development with React
         </h1>
-        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+        <p className="text-md text-justify leading-loose md:text-lg md:leading-loose lg:text-xl lg:leading-loose xl:leading-loose">
           React follows a component-based architecture, where the user interface
           is broken down into smaller, reusable components. These components can
           be created independently and combined to build complex applications.
@@ -86,10 +86,10 @@ export default function Page() {
           application, as data changes are easy to track and debug.
         </p>
 
-        <h1 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
+        <h1 className="py-1 text-4xl font-bold leading-relaxed text-black md:py-5 md:text-5xl">
           React's Ecosystem and Versatility
         </h1>
-        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+        <p className="text-md text-justify leading-loose md:text-lg md:leading-loose lg:text-xl lg:leading-loose xl:leading-loose">
           React's ecosystem is rich and supported by a vast community of
           developers. There are numerous libraries and tools, such as React
           Router for handling client-side routing and Redux for state
@@ -100,9 +100,9 @@ export default function Page() {
           development.
         </p>
 
-        <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
+        <section className="mt-8 flex justify-center rounded bg-gradient-to-b from-slate-700 to-slate-950 p-5 hover:cursor-pointer hover:from-slate-600 hover:to-slate-950">
           <a href="/contact">
-            <h2 className="text-2xl py-6 md:text-4xl font-bold text-white">
+            <h2 className="py-6 text-2xl font-bold text-white md:text-4xl">
               Interested in offer? <span className="underline">Contact us</span>
             </h2>
           </a>

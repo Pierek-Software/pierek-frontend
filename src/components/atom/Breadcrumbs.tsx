@@ -11,7 +11,7 @@ export type IBreadcrumbsProps = {
 const Breadcrumbs = ({ breadcrumbs, theme = "default" }: IBreadcrumbsProps) => {
   return (
     <nav className="container my-5">
-      <ol className="list-none p-0 inline-flex">
+      <ol className="inline-flex list-none p-0">
         {breadcrumbs.map((breadcrumb, index) => {
           if (index === breadcrumbs.length - 1) {
             return (
@@ -41,7 +41,7 @@ const Breadcrumbs = ({ breadcrumbs, theme = "default" }: IBreadcrumbsProps) => {
                 fill={theme === "default" ? "black" : "white"}
                 viewBox="0 0 24 24"
                 stroke="currentColor"
-                className="w-4 h-4 mx-2"
+                className="mx-2 h-4 w-4"
               >
                 <path
                   strokeLinecap="round"

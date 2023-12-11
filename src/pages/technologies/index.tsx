@@ -16,7 +16,7 @@ function TechnologyNode({ category }) {
       <h3 className="text-lg font-extrabold">
         {categoryToCategoryName[category]}
       </h3>
-      <div className="flex flex-wrap justify-center border-black border-4">
+      <div className="flex flex-wrap justify-center border-4 border-black">
         {Object.values(
           technologiesGroupedByCategory(technologies)[category],
         ).map((technology: { id: string; title: string; iconPath: string }) => {
@@ -38,12 +38,12 @@ function Technologies() {
   return (
     <>
       <Navbar background wave />
-      <main className="mx-auto container">
+      <main className="container mx-auto">
         <section>
-          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
             Technologies
           </h1>
-          <p className="text-2xl md:text-4xl font-light">
+          <p className="text-2xl font-light md:text-4xl">
             Because choosing technology is crucial
           </p>
         </section>
@@ -57,10 +57,10 @@ function Technologies() {
         <TechnologyNode category={4} />
 
         <section>
-          <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
             Tools & Quality of Life
           </h2>
-          <p className="text-2xl md:text-4xl font-light">
+          <p className="text-2xl font-light md:text-4xl">
             Fast, Efficient, Gamebreaking
           </p>
         </section>
@@ -79,9 +79,9 @@ function Technologies() {
           <li>Poper Blocker - block pop ups, cookie consent</li>
         </ul>
 
-        <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
+        <section className="mt-8 flex justify-center rounded bg-gradient-to-b from-slate-700 to-slate-950 p-5 hover:cursor-pointer hover:from-slate-600 hover:to-slate-950">
           <a href="/contact">
-            <h2 className="text-2xl py-6 md:text-4xl font-bold text-white">
+            <h2 className="py-6 text-2xl font-bold text-white md:text-4xl">
               Interested in offer? <span className="underline">Contact us</span>
             </h2>
           </a>

@@ -8,7 +8,7 @@ const headerTagToSize = {
 };
 
 export const Paragraph = ({ children }) => {
-  return <p className="text-lg leading-loose my-2">{children}</p>;
+  return <p className="my-2 text-lg leading-loose">{children}</p>;
 };
 
 export const Header = ({

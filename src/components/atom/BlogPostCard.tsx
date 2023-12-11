@@ -24,10 +24,10 @@ function BlogPostCard({
           className="w-full rounded"
         />
         <div className="py-4">
-          <div className="font-bold text-xl mb-2">{title}</div>
-          <p className="text-gray-700 text-base text-justify">{description}</p>
+          <div className="mb-2 text-xl font-bold">{title}</div>
+          <p className="text-justify text-base text-gray-700">{description}</p>
         </div>
-        <div className="py-4 flex justify-end">
+        <div className="flex justify-end py-4">
           <p className=" font-thin ">{isoDateToRRRRMMDD(createdAt)}</p>
         </div>
       </a>

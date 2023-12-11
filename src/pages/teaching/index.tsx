@@ -43,9 +43,9 @@ export default function Page() {
       />
       <div
         className="
-        min-h-screen min-w-screen
+        min-w-screen flex
+        min-h-screen flex-col justify-between
         bg-gradient-to-b from-slate-950 to-slate-800
-        flex flex-col justify-between
         "
       >
         <Navbar background={false} wave={false} />
@@ -53,9 +53,9 @@ export default function Page() {
         <section className="container grow">
           <h1
             className="
-            font-extrabold mt-28 text-white text-center leading-normal text-4xl
+            mt-28 text-center text-4xl font-extrabold leading-normal text-white
             sm:text-4xl
-            md:text-9xl md:text-left
+            md:text-left md:text-9xl
             lg:text-8xl
             "
           >
@@ -63,9 +63,9 @@ export default function Page() {
           </h1>
           <div
             className="
-            font-bold text-white text-center leading-normal text-xl mt-8
-            md:text-4xl md:text-left md:mt-10
-            lg:text-5xl lg:mt-14
+            mt-8 text-center text-xl font-bold leading-normal text-white
+            md:mt-10 md:text-left md:text-4xl
+            lg:mt-14 lg:text-5xl
             "
           >
             <p className="my-1 md:my-8 lg:my-5">Starting from 50$ / hour</p>
@@ -78,7 +78,7 @@ export default function Page() {
 
         <section className="container mb-7 flex justify-center">
           <img
-            className="text-white m-auto text-2xl h-9 w-9"
+            className="m-auto h-9 w-9 text-2xl text-white"
             src="/icons/arrow-down.svg"
             alt="Arrow Down Icon"
             title="Arrow Down Icon"
@@ -109,7 +109,7 @@ export default function Page() {
         <Header level={2}>Introduction</Header>
         <section
           className="
-          flex flex-col-reverse align-middle items-center
+          flex flex-col-reverse items-center align-middle
           md:flex-row
           "
         >
@@ -123,7 +123,7 @@ export default function Page() {
             Europe, and one in Asia.
           </Paragraph>
           <img
-            className="rounded-full m-auto max-h-40"
+            className="m-auto max-h-40 rounded-full"
             src="/authors/kamil-wilim.jpeg"
           />
         </section>
@@ -200,9 +200,9 @@ export default function Page() {
           online community.
         </Paragraph>
 
-        <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
+        <section className="mt-8 flex justify-center rounded bg-gradient-to-b from-slate-700 to-slate-950 p-5 hover:cursor-pointer hover:from-slate-600 hover:to-slate-950">
           <a href="/contact">
-            <h3 className="text-2xl py-6 md:text-4xl font-bold text-white">
+            <h3 className="py-6 text-2xl font-bold text-white md:text-4xl">
               Interested in offer? <span className="underline">Contact me</span>
             </h3>
           </a>

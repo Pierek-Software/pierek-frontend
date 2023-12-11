@@ -11,7 +11,7 @@ function Footer({ wave = true }: FooterProps) {
     <footer>
       {wave === true ? (
         <svg
-          className="mt-10 -mb-0.5"
+          className="-mb-0.5 mt-10"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >
@@ -23,14 +23,14 @@ function Footer({ wave = true }: FooterProps) {
         </svg>
       ) : null}
 
-      <div className="bg-slate-950 text-white pb-8">
+      <div className="bg-slate-950 pb-8 text-white">
         <div
           className="container flex flex-col md:flex-row md:justify-around
         "
         >
           <div className="">
-            <Logo className="mt-3 md:mt-0 h-6 w-auto mx-auto" />
-            <section className="mt-5 flex justify-center md:justify-start self-center items-center">
+            <Logo className="mx-auto mt-3 h-6 w-auto md:mt-0" />
+            <section className="mt-5 flex items-center justify-center self-center md:justify-start">
               <a
                 title="Pierek Clutch.co"
                 target="_blank"
@@ -50,7 +50,7 @@ function Footer({ wave = true }: FooterProps) {
                 target="_blank"
                 rel="nofollow"
                 href="https://www.linkedin.com/company/pierek"
-                className="ml-5 md:ml-3 w-10 md:w-14"
+                className="ml-5 w-10 md:ml-3 md:w-14"
               >
                 <img
                   title="LinkedIn Icon"
@@ -64,7 +64,7 @@ function Footer({ wave = true }: FooterProps) {
                 target="_blank"
                 rel="nofollow"
                 href="https://twitter.com/Pierek_com"
-                className="ml-5 md:ml-3 w-7 md:w-9"
+                className="ml-5 w-7 md:ml-3 md:w-9"
               >
                 <img
                   title="Twitter Icon"
@@ -75,8 +75,8 @@ function Footer({ wave = true }: FooterProps) {
             </section>
           </div>
 
-          <div className="flex flex-col mt-3 md:mt-0">
-            <h3 className="text-lg font-bold my-1 md:my-0">Services</h3>
+          <div className="mt-3 flex flex-col md:mt-0">
+            <h3 className="my-1 text-lg font-bold md:my-0">Services</h3>
             <DefaultLink name="TypeScript Development " href="/typescript" />
             <DefaultLink name="Node.js Development" href="/node-js" />
             <DefaultLink name="React.js Development " href="/react" />
@@ -84,15 +84,15 @@ function Footer({ wave = true }: FooterProps) {
             <DefaultLink name="Search Engine Optimization (SEO)" href="/seo" />
           </div>
 
-          <div className="flex flex-col mt-3 md:mt-0">
-            <h3 className="text-lg font-bold my-1 md:my-0">Information</h3>
+          <div className="mt-3 flex flex-col md:mt-0">
+            <h3 className="my-1 text-lg font-bold md:my-0">Information</h3>
             <DefaultLink name="Contact" href="/contact" />
             <DefaultLink name="Technologies" href="/technologies" />
             <DefaultLink name="Blog" href="/blog" />
             <DefaultLink name="Case Studies" href="/case-studies" />
           </div>
           <div className="mt-3 md:mt-0">
-            <h3 className="text-lg my-1 md:my-0 font-bold">Headquater</h3>
+            <h3 className="my-1 text-lg font-bold md:my-0">Headquater</h3>
             <div>ul. Gliwicka 82</div>
             <div>Szczejkowice, 44-246</div>
             <div>Poland</div>

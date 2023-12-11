@@ -71,16 +71,16 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
       <main
         className="
       ml-5 mr-5
+      mt-3 sm:mt-10
       md:ml-16 md:mr-16
-      lg:max-w-screen-lg lg:mx-auto
-      mt-3 sm:mt-10"
+      lg:mx-auto lg:max-w-screen-lg"
       >
         <section className="mt-5">
           <div className="">
             <h1
               className="
-            font-extrabold leading-normal
-            text-4xl sm:text-6xl"
+            text-4xl font-extrabold
+            leading-normal sm:text-6xl"
             >
               {post.title}
             </h1>
@@ -95,11 +95,11 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
         </section>
 
         <section className="mt-5 sm:mt-8">
-          <section className="md:flex md:justify-between md:items-stretch">
-            <div className="my-3 md:w-2/5 lg:w-1/4 md:mx-3">
+          <section className="md:flex md:items-stretch md:justify-between">
+            <div className="my-3 md:mx-3 md:w-2/5 lg:w-1/4">
               <Dictionary dictionary={dictionary} />
             </div>
-            <div className="my-3 md:w-2/5 lg:w-1/4 md:mx-3">
+            <div className="my-3 md:mx-3 md:w-2/5 lg:w-1/4">
               <AuthorSection
                 firstName={post.author.first_name}
                 lastName={post.author.last_name}
@@ -111,8 +111,8 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
             </div>
             <div className="my-3 md:my-0 md:w-1/5 lg:w-2/4">
               <a href="/contact">
-                <section className=" w-full h-full items-center  flex justify-center text-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
-                  <h3 className="text-2xl md:text-xl lg:text-4xl font-bold text-white">
+                <section className=" flex h-full w-full  items-center justify-center rounded bg-gradient-to-b from-slate-700 to-slate-950 p-5 text-center hover:cursor-pointer hover:from-slate-600 hover:to-slate-950">
+                  <h3 className="text-2xl font-bold text-white md:text-xl lg:text-4xl">
                     Get best Node.js Developers{" "}
                     <span className="underline">Contact us</span>
                   </h3>
@@ -120,7 +120,7 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
               </a>
             </div>
           </section>
-          <p className="text-xl leading-loose my-2">{post.description}</p>
+          <p className="my-2 text-xl leading-loose">{post.description}</p>
           <MDXRemote
             {...mdxSource}
             components={{ ...MarkdownComponents, code }}

@@ -7,10 +7,10 @@ function Futurology() {
     <>
       <Navbar background wave />
       <div className="container mx-auto">
-        <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+        <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
           Futurology
         </h1>
-        <p className="text-2xl md:text-4xl font-light">
+        <p className="text-2xl font-light md:text-4xl">
           Because timeline of milestones should be marked
         </p>
         <Timeline />

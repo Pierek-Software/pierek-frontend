@@ -23,11 +23,11 @@ export default function Page() {
     <>
       <Navbar background wave />
       <main className="container">
-        <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+        <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
           Node.js Development
         </h1>
 
-        <p className="mt-5 text-justify text-md md:text-xl lg:text-2xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+        <p className="text-md mt-5 text-justify leading-loose md:text-xl md:leading-loose lg:text-2xl lg:leading-loose xl:leading-loose">
           Node.js is a powerful open-source runtime environment that enables
           server-side execution of JavaScript. It's designed for building
           scalable and efficient network applications, making it a popular
@@ -41,7 +41,7 @@ export default function Page() {
           applications.
         </p>
 
-        <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+        <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
           Why use Node.js for next application?
         </h2>
 
@@ -56,7 +56,7 @@ export default function Page() {
           instance, complete with a rudimentary "hello world" endpoint.
         </p> */}
 
-        <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
+        <h3 className="py-2 text-3xl font-bold text-black md:py-5 md:text-7xl">
           Microservice ready
         </h3>
 
@@ -70,7 +70,7 @@ export default function Page() {
           modular code architecture.
         </p>
 
-        <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
+        <h3 className="py-2 text-3xl font-bold text-black md:py-5 md:text-7xl">
           One language for frontend and backend
         </h3>
 
@@ -84,11 +84,11 @@ export default function Page() {
           and frontend development paradigms.
         </p>
 
-        <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+        <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
           Node.js Frameworks
         </h2>
 
-        <section className="mt-5 flex flex-wrap flex-col lg:flex-row">
+        <section className="mt-5 flex flex-col flex-wrap lg:flex-row">
           <SingleStuff
             name="Express"
             description="Express is a minimal, flexible Node.js framework for building web applications and APIs. It simplifies server-side code with its robust routing and middleware features, allowing developers to create scalable and efficient web solutions."
@@ -158,11 +158,11 @@ export default function Page() {
           </div>
         </section> */}
 
-        <h2 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+        <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
           Node.js Frameworks - Perfomance less important than popularity
         </h2>
 
-        <p className="mt-5 text-justify text-md md:text-xl lg:text-2xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+        <p className="text-md mt-5 text-justify leading-loose md:text-xl md:leading-loose lg:text-2xl lg:leading-loose xl:leading-loose">
           In the realm of Node.js development, the traditional obsession with
           performance is undergoing a transformation. This shift is
           substantiated by the prevalence of stateless applications within the
@@ -177,9 +177,9 @@ export default function Page() {
           a new era where Node.js proficiency extends beyond raw speed.
         </p>
 
-        <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
+        <section className="mt-8 flex justify-center rounded bg-gradient-to-b from-slate-700 to-slate-950 p-5 hover:cursor-pointer hover:from-slate-600 hover:to-slate-950">
           <a href="/contact">
-            <h2 className="text-2xl py-6 md:text-4xl font-bold text-white">
+            <h2 className="py-6 text-2xl font-bold text-white md:text-4xl">
               Interested in offer? <span className="underline">Contact us</span>
             </h2>
           </a>
@@ -192,20 +192,20 @@ export default function Page() {
 
 function SingleStuff({ iconPath, name, description, pluses, minuses }) {
   return (
-    <div className="py-3 lg:px-3 lg:w-1/2">
-      <div className="rounded p-3 border-black border-2">
-        <img className="w-15 h-11 mx-auto" src={iconPath} alt={name} />
-        <h2 className="text-center text-black text-xl font-bold">{name}</h2>
+    <div className="py-3 lg:w-1/2 lg:px-3">
+      <div className="rounded border-2 border-black p-3">
+        <img className="w-15 mx-auto h-11" src={iconPath} alt={name} />
+        <h2 className="text-center text-xl font-bold text-black">{name}</h2>
 
-        <p className="mt-3 text-lg text-justify lg:h-64">{description}</p>
+        <p className="mt-3 text-justify text-lg lg:h-64">{description}</p>
 
-        <section className="mt-3 flex flex-col md:flex-row justify-between lg:h-64">
+        <section className="mt-3 flex flex-col justify-between md:flex-row lg:h-64">
           <div className="md:w-1/2">
             {pluses.map((plus, index) => {
               return (
                 <div key={index} className="mt-2 flex items-center">
                   <img alt="plus" className="h-5 w-5" src="/icons/plus.svg" />
-                  <span className="ml-3 text-md">{plus}</span>
+                  <span className="text-md ml-3">{plus}</span>
                 </div>
               );
             })}
@@ -216,7 +216,7 @@ function SingleStuff({ iconPath, name, description, pluses, minuses }) {
               return (
                 <div key={index} className="mt-2 flex items-center">
                   <img alt="minus" className="h-5 w-5" src="/icons/minus.svg" />
-                  <span className="ml-3 text-md">{minus}</span>
+                  <span className="text-md ml-3">{minus}</span>
                 </div>
               );
             })}

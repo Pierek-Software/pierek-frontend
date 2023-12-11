@@ -30,7 +30,7 @@ export default function Home() {
         keywords={["contact, information"]}
       />
 
-      <main className="bg-slate-950 h-screen">
+      <main className="h-screen bg-slate-950">
         <Navbar background={false} wave={false} />
         <div className="container">
           <Breadcrumbs
@@ -40,7 +40,7 @@ export default function Home() {
               { name: "Contact", link: "#" },
             ]}
           />
-          <section className="flex md:flex-row flex-col justify-center items-center font-extrabold text-white text-center text-2xl md:text-6xl lg:text-8xl mt-28 md:mt-40">
+          <section className="mt-28 flex flex-col items-center justify-center text-center text-2xl font-extrabold text-white md:mt-40 md:flex-row md:text-6xl lg:text-8xl">
             <h1 className="pr-3" id="email" ref={inputRef}>
               contact@pierek.com
             </h1>
@@ -50,20 +50,20 @@ export default function Home() {
                 handleCopyToClipboard();
               }}
               id="copyEmailButton"
-              className=" bg-slate-700 mt-4 hover:bg-slate-950 text-xl md:text-2xl text-white font-bold py-2 px-4 rounded-full"
+              className=" mt-4 rounded-full bg-slate-700 px-4 py-2 text-xl font-bold text-white hover:bg-slate-950 md:text-2xl"
             >
               {copy === true ? "Copied" : "Copy"}
             </button>
           </section>
 
-          <h2 className="text-sm pt-5 text-white text-center md:text-4xl font-light">
+          <h2 className="pt-5 text-center text-sm font-light text-white md:text-4xl">
             Because contact should be easy
           </h2>
 
           <section
             className="
-          font-extrabold text-white text-center text-xl mt-3
-          md:text-3xl md:mt-8
+          mt-3 text-center text-xl font-extrabold text-white
+          md:mt-8 md:text-3xl
           "
           >
             <h1>Line: pierek</h1>

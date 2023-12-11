@@ -25,8 +25,8 @@ export function DefaultLink({ name, href }: IDefaultLinkProps) {
       name={name}
       href={href}
       className="
-      hover:underline
-      my-1 
+      my-1
+      hover:underline 
       md:my-0
       "
     />

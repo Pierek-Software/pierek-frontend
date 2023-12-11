@@ -8,20 +8,20 @@ export default function Page() {
   return (
     <>
       <div
-        className="min-h-screen min-w-screen
-        bg-gradient-to-b from-slate-950  to-slate-800
+        className="min-w-screen flex
+        min-h-screen flex-col  justify-between
       
-      flex flex-col justify-between"
+      bg-gradient-to-b from-slate-950 to-slate-800"
       >
         <Navbar background={false} wave={false} />
 
         <section className="container grow">
           <h2
-            className="font-extrabold mt-28 text-white text-center leading-normal text-4xl
+            className="mt-28 text-center text-4xl font-extrabold leading-normal text-white
           sm:text-4xl
-          md:text-7xl md:max-w-3xl md:text-center md:leading-snug
-          lg:text-8xl lg:text-left lg:leading-tight
-          2xl:text-9xl 2xl:max-w-7xl"
+          md:max-w-3xl md:text-center md:text-7xl md:leading-snug
+          lg:text-left lg:text-8xl lg:leading-tight
+          2xl:max-w-7xl 2xl:text-9xl"
           >
             Search Engine Optimization (SEO)
           </h2>
@@ -29,7 +29,7 @@ export default function Page() {
 
         <section className="container mb-7 flex justify-center">
           <img
-            className="text-white m-auto text-2xl h-9 w-9"
+            className="m-auto h-9 w-9 text-2xl text-white"
             src="/icons/arrow-down.svg"
             alt="Background"
           />
@@ -56,10 +56,10 @@ export default function Page() {
         ></path>
       </svg>
       <main className="container mt-11">
-        <h1 className="text-4xl md:text-5xl font-bold  leading-relaxed text-black">
+        <h1 className="text-4xl font-bold leading-relaxed  text-black md:text-5xl">
           Search Engine Optimization
         </h1>
-        <p className="mt-3 text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+        <p className="text-md mt-3 text-justify leading-loose md:text-lg md:leading-loose lg:text-xl lg:leading-loose xl:leading-loose">
           Our profound understanding of search engine algorithms empowers us to
           strategize and implement methods for optimizing your project. Without
           effective SEO, your application may struggle to secure a prominent
@@ -68,10 +68,10 @@ export default function Page() {
           pages with search engine regulations.
         </p>
 
-        <h1 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
+        <h1 className="py-1 text-4xl font-bold leading-relaxed text-black md:py-5 md:text-5xl">
           From Content Development to Link Building
         </h1>
-        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+        <p className="text-md text-justify leading-loose md:text-lg md:leading-loose lg:text-xl lg:leading-loose xl:leading-loose">
           We prioritize the critical aspects of each project, proactively
           resolving challenges with efficiency and precision. It's essential to
           note that SEO transcends conventional marketing strategies; its
@@ -79,10 +79,10 @@ export default function Page() {
           search engines.
         </p>
 
-        <h1 className="text-4xl md:text-5xl py-1 md:py-5 font-bold text-black leading-relaxed">
+        <h1 className="py-1 text-4xl font-bold leading-relaxed text-black md:py-5 md:text-5xl">
           Unraveling the Complexities
         </h1>
-        <p className="text-justify text-md md:text-lg lg:text-xl leading-loose md:leading-loose lg:leading-loose xl:leading-loose">
+        <p className="text-md text-justify leading-loose md:text-lg md:leading-loose lg:text-xl lg:leading-loose xl:leading-loose">
           While the inner workings of Google's search algorithms remain a
           closely guarded secret, it is widely acknowledged that in-depth
           knowledge is a rarity, and those who possess it seldom divulge their
@@ -93,9 +93,9 @@ export default function Page() {
           rankings.
         </p>
 
-        <section className="mt-8 flex justify-center bg-gradient-to-b from-slate-700 to-slate-950 hover:from-slate-600 hover:to-slate-950 hover:cursor-pointer p-5 rounded">
+        <section className="mt-8 flex justify-center rounded bg-gradient-to-b from-slate-700 to-slate-950 p-5 hover:cursor-pointer hover:from-slate-600 hover:to-slate-950">
           <a href="/contact">
-            <h2 className="text-2xl py-6 md:text-4xl font-bold text-white">
+            <h2 className="py-6 text-2xl font-bold text-white md:text-4xl">
               Interested in offer? <span className="underline">Contact us</span>
             </h2>
           </a>

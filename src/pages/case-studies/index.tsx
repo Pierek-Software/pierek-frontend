@@ -9,13 +9,13 @@ function CaseStudies() {
     <main>
       <Navbar background wave />
 
-      <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black container mx-auto">
+      <h1 className="container mx-auto py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
         Case Studies
       </h1>
-      <p className="text-2xl md:text-4xl font-light container mx-auto">
+      <p className="container mx-auto text-2xl font-light md:text-4xl">
         Because proof of work is interesting
       </p>
-      <section className="container mt-8 mx-auto flex flex-wrap justify-center">
+      <section className="container mx-auto mt-8 flex flex-wrap justify-center">
         {data.map((item) => (
           <div key={item.id} className="p-3">
             <ArticleCard {...item} />

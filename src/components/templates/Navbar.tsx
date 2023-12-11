@@ -13,13 +13,13 @@ export default function Navbar(props: NavbarProps) {
       <nav className={props.background === true ? "bg-slate-800" : ""}>
         <ul
           className="
-        container flex justify-between align-middle items-center py-5
+        container flex items-center justify-between py-5 align-middle
         md:py-10
-        lg:py-5
-        lg:justify-center 
+        lg:justify-center
+        lg:py-5 
         "
         >
-          <li className="lg:grow px-5 text-xl font-bold">
+          <li className="px-5 text-xl font-bold lg:grow">
             <a title="Home Page" href="/">
               <img
                 className="
@@ -39,7 +39,7 @@ export default function Navbar(props: NavbarProps) {
                 document.body.style.overflow = "hidden";
               }}
               className="
-              w-6 h-6 text-white
+              h-6 w-6 text-white
               md:h-9 md:w-9
               "
               aria-hidden="true"
@@ -57,20 +57,20 @@ export default function Navbar(props: NavbarProps) {
             </svg>
           </li>
 
-          <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
+          <li className="hidden px-5 text-2xl font-bold text-white hover:underline lg:block">
             <a title="Technologies" href="/technologies">
               Technologies
             </a>
           </li>
 
-          <li className="hidden lg:block px-5 text-white text-2xl font-bold hover:underline">
+          <li className="hidden px-5 text-2xl font-bold text-white hover:underline lg:block">
             <a title="Case Studies" href="/case-studies">
               Case Studies
             </a>
           </li>
 
-          <li className="hidden lg:block px-5 text-white text-xl">
-            <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full">
+          <li className="hidden px-5 text-xl text-white lg:block">
+            <button className="rounded-full bg-slate-700 px-4 py-2 font-bold text-white hover:bg-slate-950">
               <a title="Contact" href="/contact">
                 Contact
               </a>
@@ -78,7 +78,7 @@ export default function Navbar(props: NavbarProps) {
           </li>
         </ul>
         {navbarOpen === true ? (
-          <section className="bg-slate-900 text-white absolute top-0 w-screen h-screen">
+          <section className="absolute top-0 h-screen w-screen bg-slate-900 text-white">
             <div
               className="
             container flex flex-row justify-end py-5
@@ -91,7 +91,7 @@ export default function Navbar(props: NavbarProps) {
                   document.body.style.overflow = "auto";
                 }}
                 className="
-                w-6 h-6 text-white
+                h-6 w-6 text-white
                 md:h-9 md:w-9
                 "
                 aria-hidden="true"
@@ -108,25 +108,25 @@ export default function Navbar(props: NavbarProps) {
                 />
               </svg>
             </div>
-            <div className="flex mt-20 flex-col">
+            <div className="mt-20 flex flex-col">
               <a
                 title="Home Page"
                 href="/"
-                className="m-auto mt-8 font-bold text-2xl"
+                className="m-auto mt-8 text-2xl font-bold"
               >
                 Home Page
               </a>
 
               <a
                 href="/technologies"
-                className="m-auto mt-8 font-bold text-2xl"
+                className="m-auto mt-8 text-2xl font-bold"
               >
                 Technologies
               </a>
 
               <a
                 href="/case-studies"
-                className="m-auto mt-8 font-bold text-2xl"
+                className="m-auto mt-8 text-2xl font-bold"
               >
                 Case Studies
               </a>
@@ -138,7 +138,7 @@ export default function Navbar(props: NavbarProps) {
                 Futurology
               </a> */}
               <p className="m-auto mt-8">
-                <button className="bg-slate-700 hover:bg-slate-950 text-white font-bold py-2 px-4 rounded-full text-3xl">
+                <button className="rounded-full bg-slate-700 px-4 py-2 text-3xl font-bold text-white hover:bg-slate-950">
                   <a title="Contact" href="/contact">
                     Contact
                   </a>
@@ -150,7 +150,7 @@ export default function Navbar(props: NavbarProps) {
       </nav>
       {props.wave === true ? (
         <svg
-          className="-mb-10 lg:-mb-40 -mt-0.5"
+          className="-mb-10 -mt-0.5 lg:-mb-40"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >

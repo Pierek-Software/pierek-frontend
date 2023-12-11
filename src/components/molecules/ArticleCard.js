@@ -7,21 +7,21 @@ import {
 } from "../atom/Icon";
 
 const categoryToIcon = {
-  finance: <i className="pl-2 h-6 w-6 fa-solid fa-coins"></i>,
-  media: <i className="pl-2 h-6 w-6 fa-solid fa-photo-film"></i>,
+  finance: <i className="fa-solid fa-coins h-6 w-6 pl-2"></i>,
+  media: <i className="fa-solid fa-photo-film h-6 w-6 pl-2"></i>,
 };
 
 function ArticleCard({ nda, title, description, image, category, tags }) {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg flex flex-col h-full">
+    <div className="flex h-full max-w-sm flex-col overflow-hidden rounded shadow-lg">
       {/* <img className="w-full" src={image} alt="Sunset in the mountains" /> */}
-      <div className="p-6 flex-1">
-        <div className="font-bold text-xl mb-2">{title}</div>
-        <div className="font-semibold text-lg mb-2">
+      <div className="flex-1 p-6">
+        <div className="mb-2 text-xl font-bold">{title}</div>
+        <div className="mb-2 text-lg font-semibold">
           {nda === true ? (
             <>
               <span> Client: NDA</span>
-              <i className="pl-2 fa-solid fa-lock"></i>
+              <i className="fa-solid fa-lock pl-2"></i>
             </>
           ) : (
             "Hello World"
@@ -33,7 +33,7 @@ function ArticleCard({ nda, title, description, image, category, tags }) {
             {categoryToIcon[category.toLowerCase()]}
           </>
         </div>
-        <p className="text-gray-700 text-base">{description}</p>
+        <p className="text-base text-gray-700">{description}</p>
       </div>
       {/* <div className="py-3 flex justify-center align-middle border-t-2">
         {tags

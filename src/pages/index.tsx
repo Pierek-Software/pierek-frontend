@@ -17,35 +17,35 @@ export default function Home() {
       />
       <section
         className="
-      bg-gradient-to-b from-slate-800 to-slate-950
-      h-screen
-      flex
-      flex-col
+      flex h-screen flex-col
+      bg-gradient-to-b
+      from-slate-800
+      to-slate-950
       "
       >
         <Navbar background={false} wave={false} />
         <section className="container">
           <h2
-            className="font-extrabold mt-28 text-white text-center leading-normal text-4xl
+            className="mt-28 text-center text-4xl font-extrabold leading-normal text-white
           sm:text-4xl
-          md:text-7xl md:max-w-3xl md:mt-40 md:text-center md:leading-snug
-          lg:text-8xl lg:text-left lg:leading-tight
-          2xl:text-9xl 2xl:max-w-7xl"
+          md:mt-40 md:max-w-3xl md:text-center md:text-7xl md:leading-snug
+          lg:text-left lg:text-8xl lg:leading-tight
+          2xl:max-w-7xl 2xl:text-9xl"
           >
             Problem solving oriented company
           </h2>
         </section>
         <div
-          className="lg:hidden
-        flex justify-center mt-24"
+          className="mt-24
+        flex justify-center lg:hidden"
         >
           <button
             className="
-            w-32 h-32
-            md:w-64 md:h-64 md:text-5xl md:border-2
-            lg:hidden 
+            h-32 w-32
+            rounded-full border bg-slate-800 px-4
+            py-2 
           
-           bg-slate-800 hover:bg-slate-900 text-white text-2xl font-bold py-2 px-4 rounded-full border"
+           text-2xl font-bold text-white hover:bg-slate-900 md:h-64 md:w-64 md:border-2 md:text-5xl lg:hidden"
           >
             <a href="/contact">Contact</a>
           </button>
@@ -60,10 +60,10 @@ export default function Home() {
       </svg>
 
       <section className="container mx-auto">
-        <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+        <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
           Custom Software Development
         </h1>
-        <p className="text-2xl md:text-4xl font-light">
+        <p className="text-2xl font-light md:text-4xl">
           Becuase tailored solutions are the best solutions
         </p>
       </section>
@@ -82,10 +82,10 @@ export default function Home() {
 
       <section className="bg-slate-950 text-white">
         <div className="container mx-auto">
-          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold">
+          <h1 className="py-2 text-4xl font-bold md:py-5 md:text-8xl">
             Outsouring
           </h1>
-          <p className="text-2xl md:text-4xl font-light">
+          <p className="text-2xl font-light md:text-4xl">
             Becuase good people are hard to find
           </p>
         </div>
@@ -103,15 +103,15 @@ export default function Home() {
         ></path>
       </svg>
 
-      <section className="bg-white container mx-auto">
+      <section className="container mx-auto bg-white">
         <div className="">
-          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold text-black">
+          <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
             Technologies
           </h1>
-          <p className="text-2xl md:text-4xl font-light">
+          <p className="text-2xl font-light md:text-4xl">
             Because choosing right tools is crucial
           </p>
-          <div className="flex justify-between items-center flex-col md:flex-row">
+          <div className="flex flex-col items-center justify-between md:flex-row">
             <div className="flex flex-col justify-between">
               <div className=" pt-4">
                 <Technology
@@ -163,10 +163,10 @@ export default function Home() {
 
       <section className="bg-slate-950 text-white">
         <div className="container mx-auto">
-          <h1 className="text-4xl md:text-8xl py-2 md:py-5 font-bold">
+          <h1 className="py-2 text-4xl font-bold md:py-5 md:text-8xl">
             Consulting
           </h1>
-          <p className="text-2xl md:text-4xl font-light">
+          <p className="text-2xl font-light md:text-4xl">
             Becuase tips from professionals are essentials
           </p>
         </div>
