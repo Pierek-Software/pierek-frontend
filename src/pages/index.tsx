@@ -17,23 +17,37 @@ export default function Home() {
       />
       <section
         className="
-      flex h-screen flex-col
-      bg-gradient-to-b
-      from-slate-800
-      to-slate-950
-      "
+        flex h-screen flex-col 
+        bg-gradient-to-b from-slate-800 to-slate-950
+        "
       >
         <Navbar background={false} wave={false} />
         <section className="container">
-          <h2
-            className="mt-28 text-center text-4xl font-extrabold leading-normal text-white
-          sm:text-4xl
-          md:mt-40 md:max-w-3xl md:text-center md:text-7xl md:leading-snug
-          lg:text-left lg:text-8xl lg:leading-tight
-          2xl:max-w-7xl 2xl:text-9xl"
+          <div
+            className="
+            mt-20 
+            sm:mt-28 
+            md:mt-40 
+            lg:mt-20 lg:flex lg:items-center lg:align-middle
+            "
           >
-            Problem solving oriented company
-          </h2>
+            <div className="lg:w-2/3">
+              <h2
+                className="
+            text-center text-4xl font-extrabold leading-normal text-white
+            sm:text-4xl
+            md:max-w-3xl md:text-center md:text-7xl md:leading-snug
+            lg:text-left lg:text-8xl lg:leading-tight
+            2xl:max-w-7xl 2xl:text-9xl
+          "
+              >
+                Problem solving oriented company
+              </h2>
+            </div>
+            <div className="hidden w-1/3 lg:block">
+              <img src="/static/header-illustration.png" />
+            </div>
+          </div>
         </section>
         <div
           className="mt-24
@@ -41,7 +55,7 @@ export default function Home() {
         >
           <button
             className="
-            h-32 w-32
+            h-40 w-40
             rounded-full border bg-slate-800 px-4
             py-2 
           
