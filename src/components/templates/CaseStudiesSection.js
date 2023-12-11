@@ -14,10 +14,10 @@ function CaseStudiesSection() {
       <div className="flex flex-col items-center justify-between md:flex-row">
         <div className="flex flex-col md:max-w-6xl md:flex-row">
           <section className="mt-8 flex flex-wrap justify-center">
-            <div key={data[0].id} className="p-3">
+            <div key={data[0].id} className="py-3 md:mr-3 md:py-0">
               <ArticleCard {...data[0]} />
             </div>
-            <div key={data[1].id} className="p-3">
+            <div key={data[1].id} className="py-3 md:ml-3 md:py-0">
               <ArticleCard {...data[1]} />
             </div>
           </section>
