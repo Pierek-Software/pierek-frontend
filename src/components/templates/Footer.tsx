@@ -11,7 +11,7 @@ function Footer({ wave = true }: FooterProps) {
     <footer>
       {wave === true ? (
         <svg
-          className="-mb-0.5 mt-10"
+          className="-mb-0.5"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >

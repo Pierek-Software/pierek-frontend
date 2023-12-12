@@ -11,6 +11,7 @@ import MarkdownComponents from "../../mappers/MarkdownComponents";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { DictionaryLink, Header } from "../../components/Typography";
 import ApiClient from "../../api";
+import BlogPostCard from "../../components/atom/BlogPostCard";
 
 function code({ className, ...props }) {
   const match = /language-(\w+)/.exec(className || "");
@@ -126,6 +127,24 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
             components={{ ...MarkdownComponents, code }}
           />
         </section>
+
+        <section>
+          <Header level={2}>You may also like</Header>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+            {post.recommendations.map((recommendation) => {
+              return (
+                <BlogPostCard
+                  key={recommendation.id}
+                  id={recommendation.id}
+                  slug={recommendation.slug}
+                  title={recommendation.title}
+                  description={recommendation.description}
+                  createdAt={recommendation.created_at}
+                />
+              );
+            })}
+          </div>
+        </section>
       </main>
       <Footer />
     </>
@@ -139,7 +158,10 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   const apiClient = new ApiClient();
 
-  const post = await apiClient.getPost(params.slug);
+  const [post, postRecommendations] = await Promise.all([
+    await apiClient.getPost(params.slug),
+    await apiClient.getPostRecommendations(params.slug),
+  ]);
 
   const mdxSource = await serialize(post.markdown);
 
@@ -147,7 +169,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   return {
     props: {
-      post,
+      post: { ...post, recommendations: postRecommendations },
       mdxSource,
       dictionary,
     },

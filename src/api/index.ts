@@ -38,5 +38,13 @@ class ApiClient {
 
     return data;
   }
+
+  async getPostRecommendations(slug: string) {
+    const url = this.baseUrl + "/posts/" + slug + "/recommendations";
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data;
+  }
 }
 export default ApiClient;
