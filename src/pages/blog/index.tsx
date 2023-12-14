@@ -50,6 +50,7 @@ export default function Page({ posts, pagination }: IBlogPageProps) {
             {posts.map((post) => {
               return (
                 <BlogPostCard
+                  imagePriority={true}
                   key={post.id}
                   id={post.id}
                   slug={post.slug}

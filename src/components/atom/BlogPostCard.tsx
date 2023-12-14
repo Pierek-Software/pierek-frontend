@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { isoDateToRRRRMMDD } from "../../utils";
 
 export interface IBlogPostCardProps {
@@ -6,6 +7,7 @@ export interface IBlogPostCardProps {
   slug: string;
   id: number;
   createdAt: string;
+  imagePriority: boolean;
 }
 
 function BlogPostCard({
@@ -14,11 +16,15 @@ function BlogPostCard({
   slug,
   id,
   createdAt,
+  imagePriority,
 }: IBlogPostCardProps) {
   return (
     <div className="lg:max-w-xl">
       <a href={"/blog" + "/" + slug}>
-        <img
+        <Image
+          priority={imagePriority}
+          width={1920}
+          height={1080}
           src={"/posts" + "/" + id + "/" + "cover.jpg"}
           alt="Blog Post Image"
           className="w-full rounded"

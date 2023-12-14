@@ -11,6 +11,7 @@ import MarkdownComponents from "../../mappers/MarkdownComponents";
 import { DictionaryLink, Header } from "../../components/Typography";
 import ApiClient from "../../api";
 import BlogPostCard from "../../components/atom/BlogPostCard";
+import Image from "next/image";
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -72,10 +73,13 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
             </h1>
           </div>
           <div className="mt-3 sm:mt-10">
-            <img
+            <Image
               title={post.title}
               alt={`${post.title} post image cover`}
               src={`/posts/${post.id}/cover.jpg`}
+              width={1920}
+              height={1080}
+              priority={true}
             />
           </div>
         </section>
@@ -116,6 +120,7 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
             {post.recommendations.map((recommendation) => {
               return (
                 <BlogPostCard
+                  imagePriority={false}
                   key={recommendation.id}
                   id={recommendation.id}
                   slug={recommendation.slug}
