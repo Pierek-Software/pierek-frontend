@@ -1,5 +1,13 @@
 import React, { ReactNode } from "react";
 import { slugify } from "../utils";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
+import docco from "react-syntax-highlighter/dist/cjs/styles/hljs/docco";
+
+import js from "react-syntax-highlighter/dist/cjs/languages/hljs/javascript";
+import bash from "react-syntax-highlighter/dist/cjs/languages/hljs/bash";
+
+SyntaxHighlighter.registerLanguage("javascript", js);
+SyntaxHighlighter.registerLanguage("bash", bash);
 
 const headerTagToSize = {
   h1: "text-5xl",
@@ -69,3 +77,20 @@ export const YoutubeComponent = (props: { videoId: string }) => {
     ></iframe>
   );
 };
+
+export function CodeComponent({ className, children }) {
+  const match = /language-(\w+)/.exec(className || "");
+  return match ? (
+    <SyntaxHighlighter
+      children={children}
+      style={docco}
+      className="my-5"
+      language={match[1]}
+      wrapLines={true}
+      wrapLongLines={true}
+      PreTag="div"
+    />
+  ) : (
+    <code className={className}>{children}</code>
+  );
+}

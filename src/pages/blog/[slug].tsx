@@ -3,29 +3,14 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
 
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Breadcrumbs from "../../components/atom/Breadcrumbs";
 import AuthorSection from "../../components/atom/AuthorSection";
 import HeadComponent from "../../components/atom/Head";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
-import SyntaxHighlighter from "react-syntax-highlighter";
 import { DictionaryLink, Header } from "../../components/Typography";
 import ApiClient from "../../api";
 import BlogPostCard from "../../components/atom/BlogPostCard";
-
-function code({ className, ...props }) {
-  const match = /language-(\w+)/.exec(className || "");
-  return match ? (
-    <SyntaxHighlighter
-      className="my-5"
-      language={match[1]}
-      PreTag="div"
-      {...props}
-    />
-  ) : (
-    <code className={className} {...props} />
-  );
-}
 
 interface Props {
   mdxSource: MDXRemoteSerializeResult;
@@ -122,10 +107,7 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
             </div>
           </section>
           <p className="my-2 text-xl leading-loose">{post.description}</p>
-          <MDXRemote
-            {...mdxSource}
-            components={{ ...MarkdownComponents, code }}
-          />
+          <MDXRemote {...mdxSource} components={MarkdownComponents} />
         </section>
 
         <section>

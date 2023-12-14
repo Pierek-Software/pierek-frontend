@@ -1,5 +1,10 @@
 import { MDXComponents } from "mdx/types";
-import { Header, Paragraph, YoutubeComponent } from "../components/Typography";
+import {
+  Header,
+  Paragraph,
+  YoutubeComponent,
+  CodeComponent,
+} from "../components/Typography";
 
 const MarkdownComponents: MDXComponents = {
   p: ({ children }) => <Paragraph>{children}</Paragraph>,
@@ -13,6 +18,7 @@ const MarkdownComponents: MDXComponents = {
       src={props.src.replace("../../public", "")}
     />
   ),
+  code: CodeComponent,
 };
 
 export default MarkdownComponents;
