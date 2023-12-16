@@ -1,9 +1,14 @@
+import HeadComponent from "../../components/atom/Head";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
 export default function Page() {
   return (
     <>
+      <HeadComponent
+        title="Privacy Policy"
+        description="Pierek privacy policy"
+      />
       <Navbar background={true} wave={false} />
       <section className="container mt-5">
         <h1>Privacy Policy</h1>

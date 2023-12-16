@@ -1,5 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 
+import HeadComponent from "../../components/atom/Head";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 // import SyntaxHighlighter from "../../components/molecules/SyntaxHighlighter";
@@ -21,6 +22,11 @@ app.listen(port, () => {
 export default function Page() {
   return (
     <>
+      <HeadComponent
+        title="Node.js Development"
+        description="
+Node.js is a server-side JavaScript runtime that empowers developers to build scalable, high-performance applications. It utilizes an event-driven, non-blocking I/O model, making it ideal for real-time applications and microservices. With a vast ecosystem of modules, Node.js streamlines server-side development, fostering efficient and flexible web solutions."
+      />
       <Navbar background wave />
       <main className="container">
         <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
@@ -44,17 +50,6 @@ export default function Page() {
         <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
           Why use Node.js for next application?
         </h2>
-
-        {/* <h3 className="text-3xl md:text-7xl py-2 md:py-5 font-bold text-black">
-          1. Simple
-        </h3> */}
-
-        {/* <SyntaxHighlighter code={code} /> */}
-
-        {/* <p className="mt-3 text-justify text-xl leading-loose">
-          In just a few lines of code, we successfully instantiated a server
-          instance, complete with a rudimentary "hello world" endpoint.
-        </p> */}
 
         <h3 className="py-2 text-3xl font-bold text-black md:py-5 md:text-7xl">
           Microservice ready

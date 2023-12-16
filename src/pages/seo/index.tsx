@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import HeadComponent from "../../components/atom/Head";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
@@ -7,6 +8,10 @@ import Navbar from "../../components/templates/Navbar";
 export default function Page() {
   return (
     <>
+      <HeadComponent
+        title="Search Engine Optimization"
+        description="Search Engine Optimization (SEO) is the practice of optimizing websites to rank higher in search engine results. It involves improving content, using relevant keywords, and enhancing website structure to increase visibility and attract organic traffic."
+      />
       <div
         className="min-w-screen flex
         min-h-screen flex-col  justify-between

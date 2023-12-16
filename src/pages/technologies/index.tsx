@@ -9,6 +9,7 @@ import {
 } from "../../mappers";
 import TechnologyItem from "../../components/molecules/TechnologyItem";
 import { Header } from "../../components/Typography";
+import HeadComponent from "../../components/atom/Head";
 
 function TechnologyNode({ category }) {
   return (
@@ -37,6 +38,10 @@ function TechnologyNode({ category }) {
 function Technologies() {
   return (
     <>
+      <HeadComponent
+        title="Technologies"
+        description="Web development technologies that allow to build your ideas, refactor existing code to new one or add new fetures to existing codebase"
+      />
       <Navbar background wave />
       <main className="container mx-auto">
         <section>

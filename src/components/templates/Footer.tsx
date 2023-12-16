@@ -98,8 +98,9 @@ function Footer({ wave = true }: FooterProps) {
           </div>
           <div className="mt-3 md:mt-0">
             <h3 className="my-1 text-lg font-bold md:my-0">Headquater</h3>
+            <div>Pierek LTD</div>
             <div>ul. Gliwicka 82</div>
-            <div>Szczejkowice, 44-246</div>
+            <div>44-246 Szczejkowice</div>
             <div>Poland</div>
             <div>contact@pierek.com</div>
           </div>

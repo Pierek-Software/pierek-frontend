@@ -1,9 +1,14 @@
+import HeadComponent from "../../components/atom/Head";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
 export default function Page() {
   return (
     <>
+      <HeadComponent
+        title="Terms of Service"
+        description="Pierek terms of service"
+      />
       <Navbar background={true} wave={false} />
       <main className="container mt-5">
         <h1>Terms of Service for pierek.com</h1>

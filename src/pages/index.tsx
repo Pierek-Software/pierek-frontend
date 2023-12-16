@@ -32,7 +32,7 @@ export default function Home() {
             "
           >
             <div className="lg:w-2/3">
-              <h2
+              <h1
                 className="
                 text-center text-5xl font-bold leading-snug text-white
                 sm:text-4xl
@@ -42,7 +42,7 @@ export default function Home() {
                 "
               >
                 Problem solving oriented company
-              </h2>
+              </h1>
             </div>
             <div className="hidden w-1/3 lg:block">
               <img src="/static/header-illustration.png" />
@@ -79,9 +79,9 @@ export default function Home() {
       </svg>
 
       <section className="container mx-auto">
-        <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
+        <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
           Custom Software Development
-        </h1>
+        </h2>
         <p className="text-2xl font-light md:text-4xl">
           Becuase tailored solutions are the best solutions
         </p>
@@ -101,9 +101,9 @@ export default function Home() {
 
       <section className="bg-slate-950 text-white">
         <div className="container mx-auto">
-          <h1 className="py-2 text-4xl font-bold md:py-5 md:text-8xl">
+          <h2 className="py-2 text-4xl font-bold md:py-5 md:text-8xl">
             Outsouring
-          </h1>
+          </h2>
           <p className="text-2xl font-light md:text-4xl">
             Becuase good people are hard to find
           </p>
@@ -124,9 +124,9 @@ export default function Home() {
 
       <section className="container mx-auto bg-white">
         <div className="">
-          <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
+          <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
             Technologies
-          </h1>
+          </h2>
           <p className="text-2xl font-light md:text-4xl">
             Because choosing right tools is crucial
           </p>
@@ -182,9 +182,9 @@ export default function Home() {
 
       <section className="bg-slate-950 text-white">
         <div className="container mx-auto">
-          <h1 className="py-2 text-4xl font-bold md:py-5 md:text-8xl">
+          <h2 className="py-2 text-4xl font-bold md:py-5 md:text-8xl">
             Consulting
-          </h1>
+          </h2>
           <p className="text-2xl font-light md:text-4xl">
             Becuase tips from professionals are essentials
           </p>

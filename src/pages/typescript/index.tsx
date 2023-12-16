@@ -1,9 +1,14 @@
+import HeadComponent from "../../components/atom/Head";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
 export default function Page() {
   return (
     <>
+      <HeadComponent
+        title="TypeScript Development"
+        description="TypeScript is superset of JavaScript tht give enterprise type checking using compiler"
+      />
       <div
         className="
         min-w-screen flex

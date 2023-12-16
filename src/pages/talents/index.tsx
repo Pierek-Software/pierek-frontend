@@ -1,3 +1,4 @@
+import HeadComponent from "../../components/atom/Head";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
@@ -6,6 +7,10 @@ import Navbar from "../../components/templates/Navbar";
 export default function Page() {
   return (
     <>
+      <HeadComponent
+        title="Talent as a Service"
+        description="Talent as a Service (TaaS) is a model where businesses access specialized skills on-demand, often through platforms connecting freelancers or experts with companies seeking specific expertise."
+      />
       <div
         className="min-w-screen flex
         min-h-screen flex-col  justify-between

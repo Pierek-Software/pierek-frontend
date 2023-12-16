@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import HeadComponent from "../../components/atom/Head";
 import Footer from "../../components/templates/Footer";
 import Navbar from "../../components/templates/Navbar";
 
@@ -7,6 +8,10 @@ import Navbar from "../../components/templates/Navbar";
 export default function Page() {
   return (
     <>
+      <HeadComponent
+        title="React.js Development"
+        description="React is a JavaScript library for building user interfaces. It simplifies the creation of interactive UIs by organizing components that efficiently update in response to data changes."
+      />
       <div
         className="min-w-screen flex
         min-h-screen flex-col  justify-between
