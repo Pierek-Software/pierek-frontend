@@ -38,6 +38,7 @@ const HeadComponent = (props: HeadComponentProps) => {
       />
 
       <meta property="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="pierek.com" />
 
       <meta
         property="twitter:creator:id"
