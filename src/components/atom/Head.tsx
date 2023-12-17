@@ -37,6 +37,8 @@ const HeadComponent = (props: HeadComponentProps) => {
         content={`@${process.env.NEXT_PUBLIC_TWITTER_USER}`}
       />
 
+      <meta property="twitter:card" content="summary_large_image" />
+
       <meta
         property="twitter:creator:id"
         content={process.env.NEXT_PUBLIC_TWITTER_ID}
