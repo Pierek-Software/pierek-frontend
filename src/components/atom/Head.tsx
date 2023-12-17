@@ -8,6 +8,32 @@ export interface HeadComponentProps {
   imageSource?: string;
 }
 
+const TwitterTags = (props: {
+  title: string;
+  description: string;
+  imageSource?: string;
+}) => {
+  return (
+    <>
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta
+        name="twitter:site"
+        content={`@${process.env.NEXT_PUBLIC_TWITTER_USER}`}
+      />
+      <meta
+        name="twitter:creator"
+        content={`@${process.env.NEXT_PUBLIC_TWITTER_USER}`}
+      />
+      <meta name="twitter:title" content={props.title} />
+      <meta name="twitter:description" content={props.description} />
+      <meta
+        name="twitter:image"
+        content={props?.imageSource ? props.imageSource : ""}
+      />
+    </>
+  );
+};
+
 const HeadComponent = (props: HeadComponentProps) => {
   const title = `${props.title} | pierek.com`;
   return (
@@ -17,6 +43,7 @@ const HeadComponent = (props: HeadComponentProps) => {
       <meta name="keywords" content={props?.keywords?.toString() || ""} />
       <meta name="author" content={props?.author ? props.author : "Pierek"} />
       <meta name="publisher" content="Pierek" />
+
       <meta property="og:title" content={title} />
       <meta property="og:description" content={props.description} />
       <meta property="og:type" content="website" />
@@ -24,26 +51,8 @@ const HeadComponent = (props: HeadComponentProps) => {
         property="og:image"
         content={props?.imageSource ? props.imageSource : ""}
       />
-      <meta
-        property="twitter:site"
-        content={`@${process.env.NEXT_PUBLIC_TWITTER_USER}`}
-      />
-      <meta
-        property="twitter:site:id"
-        content={process.env.NEXT_PUBLIC_TWITTER_ID}
-      />
-      <meta
-        property="twitter:creator"
-        content={`@${process.env.NEXT_PUBLIC_TWITTER_USER}`}
-      />
 
-      <meta property="twitter:card" content="summary_large_image" />
-      <meta property="twitter:domain" content="pierek.com" />
-
-      <meta
-        property="twitter:creator:id"
-        content={process.env.NEXT_PUBLIC_TWITTER_ID}
-      />
+      <TwitterTags {...props} />
     </Head>
   );
 };
