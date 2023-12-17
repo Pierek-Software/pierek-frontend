@@ -21,6 +21,10 @@ const HeadComponent = (props: HeadComponentProps) => {
       <meta property="og:description" content={props.description} />
       <meta property="og:type" content="website" />
       <meta
+        property="og:image"
+        content={props?.imageSource ? props.imageSource : ""}
+      />
+      <meta
         property="twitter:site"
         content={`@${process.env.NEXT_PUBLIC_TWITTER_USER}`}
       />
@@ -36,14 +40,6 @@ const HeadComponent = (props: HeadComponentProps) => {
       <meta
         property="twitter:creator:id"
         content={process.env.NEXT_PUBLIC_TWITTER_ID}
-      />
-      <meta
-        property="og:image"
-        content={props?.imageSource ? props.imageSource : ""}
-      />
-      <meta
-        property="og:image:alt"
-        content={props?.imageSource ? props.description : ""}
       />
     </Head>
   );

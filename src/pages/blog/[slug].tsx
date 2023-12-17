@@ -46,6 +46,7 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
         description={post.description}
         keywords={post.categories}
         author={post.author.first_name + post.author.last_name}
+        imageSource={`https://www.pierek.com/posts/${post.id}/cover.jpg`}
       />
       <Navbar background={true} wave={false} />
       <Breadcrumbs
