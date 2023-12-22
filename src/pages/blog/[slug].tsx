@@ -77,7 +77,7 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
             <Image
               title={post.title}
               alt={`${post.title} post image cover`}
-              src={`/posts/${post.id}/cover.jpg`}
+              src={`${process.env.NEXT_PUBLIC_CDN_URL}/posts/${post.id}/cover.jpg`}
               width={1920}
               height={1080}
               priority={true}

@@ -25,7 +25,14 @@ function BlogPostCard({
           priority={imagePriority}
           width={1920}
           height={1080}
-          src={"/posts" + "/" + id + "/" + "cover.jpg"}
+          src={
+            process.env.NEXT_PUBLIC_CDN_URL +
+            "/posts" +
+            "/" +
+            id +
+            "/" +
+            "cover.jpg"
+          }
           alt="Blog Post Image"
           className="w-full rounded"
         />
