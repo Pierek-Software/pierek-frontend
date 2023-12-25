@@ -19,7 +19,7 @@ export default function Navbar(props: NavbarProps) {
         lg:py-5 
         "
         >
-          <li className="px-5 text-xl font-bold lg:grow">
+          <li className="px-5 text-xl font-bold sm:px-0 lg:grow">
             <a title="Home Page" href="/">
               <img
                 className="

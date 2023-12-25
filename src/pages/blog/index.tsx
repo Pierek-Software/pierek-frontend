@@ -29,13 +29,14 @@ export default function Page({ posts, pagination }: IBlogPageProps) {
       />
       <Navbar background={true} wave={false} />
 
+      <Breadcrumbs
+        breadcrumbs={[
+          { name: "Home Page", link: "/" },
+          { name: "Blog", link: "/blog" },
+        ]}
+      />
+
       <main className="container mt-3 lg:mt-5">
-        <Breadcrumbs
-          breadcrumbs={[
-            { name: "Home Page", link: "/" },
-            { name: "Blog", link: "/blog" },
-          ]}
-        />
         <section>
           <h1 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
             Blog

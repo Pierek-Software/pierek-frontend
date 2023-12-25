@@ -56,13 +56,7 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
           { name: post.title, link: "#" },
         ]}
       />
-      <main
-        className="
-      ml-5 mr-5
-      mt-3 sm:mt-10
-      md:ml-16 md:mr-16
-      lg:mx-auto lg:max-w-screen-lg"
-      >
+      <main className="container">
         <section className="mt-5">
           <div className="">
             <h1
