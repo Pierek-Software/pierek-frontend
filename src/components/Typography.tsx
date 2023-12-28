@@ -33,7 +33,7 @@ export const Header = ({
   const BasicHeader = (
     <Tag
       id={slugify(children as string)}
-      className={`${headerTagToSize[Tag]} my-2 leading-normal`}
+      className={`${headerTagToSize[Tag]} my-2 font-medium leading-normal`}
     >
       {children}
     </Tag>

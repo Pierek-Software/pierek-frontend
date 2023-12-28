@@ -3,22 +3,14 @@ import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
 
-import { GetServerSideProps } from "next";
 import Breadcrumbs from "../../components/atom/Breadcrumbs";
 import AuthorSection from "../../components/atom/AuthorSection";
-import HeadComponent from "../../components/atom/Head";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
 import { DictionaryLink, Header } from "../../components/Typography";
-import ApiClient from "../../api";
 import BlogPostCard from "../../components/atom/BlogPostCard";
 import Image from "next/image";
-import { extractHeaders } from "../debug";
-
-interface Props {
-  mdxSource: MDXRemoteSerializeResult;
-  dictionary: string;
-  post: any;
-}
+import { useEffect, useState } from "react";
+import ProductComparison from "../../components/ProductComparison";
 
 const Dictionary = (props) => {
   return (
@@ -39,16 +31,44 @@ const Dictionary = (props) => {
   );
 };
 
-export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
+export default function RemoteMdxPage() {
+  const [mdxSource, setMdxSource] = useState(undefined);
+  const [dictionary, setDictionary] = useState(undefined);
+  const [post, setPost] = useState({
+    id: 1,
+    markdown: `My favorite search engine is [Duck Duck Go](https://duckduckgo.com).`,
+    recommendations: [],
+    description: "Description",
+    created_at: new Date(),
+    updated_at: new Date(),
+    title: "Title",
+    author: {
+      first_name: "Kamil",
+      last_name: "Wilim",
+      description: "Description",
+      avatar: "/authors/kamil-wilim.jpeg",
+    },
+  });
+
+  async function createMDXSource() {
+    const mdx = await serialize(post.markdown, {
+      mdxOptions: { development: true },
+    });
+    setMdxSource(mdx);
+  }
+
+  function handleMarkdownChange(event) {
+    setPost({ ...post, markdown: event.target.value });
+    createMDXSource();
+  }
+
+  useEffect(() => {
+    createMDXSource();
+    setDictionary(extractHeaders(post.markdown));
+  }, [post]);
+
   return (
     <>
-      <HeadComponent
-        title={post.title}
-        description={post.description}
-        keywords={post.categories}
-        author={post.author.first_name + post.author.last_name}
-        imageSource={`${process.env.NEXT_PUBLIC_CDN_URL}/posts/${post.id}/cover.jpg`}
-      />
       <Navbar background={true} wave={false} />
       <Breadcrumbs
         breadcrumbs={[
@@ -83,7 +103,11 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
         <section className="mt-5 sm:mt-8">
           <section className="md:flex md:items-stretch md:justify-between">
             <div className="my-3 md:mx-3 md:w-2/5 lg:w-1/4">
-              <Dictionary dictionary={dictionary} />
+              {dictionary ? (
+                <Dictionary dictionary={dictionary} />
+              ) : (
+                "Loading..."
+              )}
             </div>
             <div className="my-3 md:mx-3 md:w-2/5 lg:w-1/4">
               <AuthorSection
@@ -107,7 +131,11 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
             </div>
           </section>
           <p className="my-2 text-xl leading-loose">{post.description}</p>
-          <MDXRemote {...mdxSource} components={MarkdownComponents} />
+          {mdxSource ? (
+            <MDXRemote {...mdxSource} components={MarkdownComponents} />
+          ) : (
+            "Loading..."
+          )}
         </section>
 
         <section>
@@ -128,33 +156,36 @@ export default function RemoteMdxPage({ post, mdxSource, dictionary }: Props) {
             })}
           </div>
         </section>
+
+        <div>
+          <textarea
+            className="h-44 min-w-full border-2 p-5"
+            value={post.markdown}
+            onChange={(event) => handleMarkdownChange(event)}
+          ></textarea>
+        </div>
+
+        <ProductComparison />
       </main>
+
       <Footer />
     </>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
-  if (!params?.slug || typeof params?.slug !== "string") {
-    throw new Error("No slug");
+export function extractHeaders(
+  markdownText: string,
+): { level: number; text: string }[] {
+  const regex = /^(#{1,6})\s+(.+)$/gm;
+  const matches = markdownText.matchAll(regex);
+
+  const headers: { level: number; text: string }[] = [];
+
+  for (const match of matches) {
+    const level = match[1].length;
+    const text = match[2].trim();
+    headers.push({ level, text });
   }
 
-  const apiClient = new ApiClient();
-
-  const [post, postRecommendations] = await Promise.all([
-    await apiClient.getPost(params.slug),
-    await apiClient.getPostRecommendations(params.slug),
-  ]);
-
-  const mdxSource = await serialize(post.markdown);
-
-  const dictionary = extractHeaders(post.markdown);
-
-  return {
-    props: {
-      post: { ...post, recommendations: postRecommendations },
-      mdxSource,
-      dictionary,
-    },
-  };
-};
+  return headers;
+}
