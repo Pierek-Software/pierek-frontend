@@ -164,8 +164,6 @@ export default function RemoteMdxPage() {
             onChange={(event) => handleMarkdownChange(event)}
           ></textarea>
         </div>
-
-        <ProductComparison />
       </main>
 
       <Footer />
