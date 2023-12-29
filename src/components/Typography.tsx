@@ -10,9 +10,10 @@ SyntaxHighlighter.registerLanguage("javascript", js);
 SyntaxHighlighter.registerLanguage("bash", bash);
 
 const headerTagToSize = {
-  h1: "text-5xl",
-  h2: "text-4xl",
-  h3: "text-3xl",
+  h1: "text-4xl",
+  h2: "text-3xl",
+  h3: "text-2xl",
+  h4: "text-xl",
 };
 
 export const Paragraph = ({ children }) => {
@@ -28,12 +29,12 @@ export const Header = ({
   level: number;
   linkable?: boolean;
 }) => {
-  const Tag: any = `h${level > 3 ? 3 : level}`;
+  const Tag: any = `h${level > 4 ? 4 : level}`;
 
   const BasicHeader = (
     <Tag
       id={slugify(children as string)}
-      className={`${headerTagToSize[Tag]} my-2 font-medium leading-normal`}
+      className={`${headerTagToSize[Tag]} font-medium leading-normal`}
     >
       {children}
     </Tag>
@@ -44,10 +45,7 @@ export const Header = ({
   } else {
     return (
       <a title={children as string} href={"#" + slugify(children as string)}>
-        <span className="flex items-center">
-          {BasicHeader}
-          <span className="ml-2 text-xl">🔗</span>
-        </span>
+        <span className="flex items-center">{BasicHeader}</span>
       </a>
     );
   }

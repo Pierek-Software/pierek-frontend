@@ -16,7 +16,7 @@ export default function Navbar(props: NavbarProps) {
         container flex items-center justify-between py-5 align-middle
         md:py-10
         lg:justify-center
-        lg:py-5 
+        lg:py-2
         "
         >
           <li className="px-5 text-xl font-bold sm:px-0 lg:grow">

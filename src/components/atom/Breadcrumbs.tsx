@@ -17,7 +17,7 @@ const Breadcrumbs = ({ breadcrumbs, theme = "default" }: IBreadcrumbsProps) => {
             return (
               <li key={index} className="flex items-center">
                 <span
-                  className={`text-sm md:text-lg ${
+                  className={`text-md ${
                     theme === "default" ? "text-slate-950" : "text-white"
                   }`}
                 >
@@ -30,7 +30,7 @@ const Breadcrumbs = ({ breadcrumbs, theme = "default" }: IBreadcrumbsProps) => {
             <li key={index} className="flex items-center">
               <a
                 href={breadcrumb.link}
-                className={`text-sm md:text-lg ${
+                className={`text-md ${
                   theme === "default" ? "text-slate-500" : "text-slate-200"
                 }`}
               >
