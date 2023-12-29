@@ -8,13 +8,24 @@ import { serialize } from "next-mdx-remote/serialize";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
 import { MDXRemote } from "next-mdx-remote";
 import Dictionary from "../../components/atom/Dictionary";
+
+const amazonTag = "pierek-20";
+
 const Product = {
-  id: 1,
+  id: 0,
+  caption: "Best gaming laptop",
   brand: "Lenovo",
+  stores: {
+    amazon: {
+      asin: "B08N5M7S6K",
+    },
+  },
   model: "Legion Pro 7i (Gen8)",
+  shortDescription:
+    "The Lenovo Legion Pro is the best gaming laptop from all the new machines we've tested of this generation. It's also the best 16-inch notebook, too, which is our new favorite form factor, offering the best screens we've seen in modern laptops.",
   type: "Laptop",
   mainImage:
-    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61I-7jTKrKL._AC_SL1488_.jpg",
+    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61bVBHLvt+L._AC_SL1343_.jpg",
   images: [
     "https://cdn.mos.cms.futurecdn.net/iCEckDULhhXLddMk2UPs7T-1200-80.jpg.webp",
   ],
@@ -28,7 +39,7 @@ const Product = {
     Dimensions: "10.32 x 14.3 x 0.86–1.01 inches",
     Weight: "6.17 lbs",
   },
-  review: {
+  opinions: {
     advantages: {
       short: [
         "Revolutionary Quantum Display is really good",
@@ -55,10 +66,18 @@ const Product = {
 };
 
 const Product2 = {
-  id: 2,
+  id: 1,
   brand: "Gigabyte",
+  stores: {
+    amazon: {
+      asin: "",
+    },
+  },
+  shortDescription:
+    "By simply dropping either the RTX 4060 or RTX 4050 into its last-gen chassis Gigabyte has created the most affordable, most powerful budget gaming laptop around. It's a great mix of value and gaming silicon.",
+  caption: "The best affordable gaming laptop 2023",
   mainImage:
-    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/61I-7jTKrKL._AC_SL1488_.jpg",
+    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/71tgmKoXApL._AC_SL1500_.jpg",
   images: [
     "https://cdn.mos.cms.futurecdn.net/wT2WMANoYT4AxQdKeHMgUJ-1200-80.jpg.webp",
   ],
@@ -74,7 +93,7 @@ const Product2 = {
     Dimensions: "14.2 x 9.4 x 0.89 inches",
     Weight: "4.19lbs",
   },
-  review: {
+  opinions: {
     advantages: {
       short: [
         "Great gaming performance",
@@ -102,74 +121,6 @@ const Product2 = {
   },
 };
 
-const DetailedText = () => {
-  return (
-    <div>
-      <p className="my-5 leading-relaxed">
-        The Lenovo Legion Pro 7i is the best 16-inch gaming laptop, and since
-        16-inch is the best form factor for a gaming laptop, it is therefore the
-        best gaming laptop overall as well. Win and win.
-      </p>
-      <p className="my-5 leading-relaxed">
-        It's a machine that comes in at a price point that makes the rest of the
-        high-end RTX 40-series look even more ridiculous on their lofty $4,000+
-        perches. And its the RTX 4080 model that has us impressed in testing,
-        offering the sort of gaming performance that has me questioning why
-        anyone would want an RTX 4090 machine.
-      </p>
-      <p className="my-5 leading-relaxed">
-        The Legion Pro 7i runs its RTX 4080 at a 150W TGP, which is the
-        effective maximum of the GPU. Though manufacturers are given an extra
-        25W leeway to bulk up their own specs if they feel they can push a
-        little extra juice through their own systems. Lenovo hasn't gone down
-        that route, the Legion Pro knows what it likes, and it likes the 150W
-        TGP and no more.
-      </p>
-      <p className="my-5 leading-relaxed">
-        The Legion Pro 7i uses a 13th Gen Intel chip—the Core i9 13900HX. If,
-        like me, you were to assume that would essentially be a slightly higher
-        clocked version of the Core i9 13900H Asus has used in its excellent
-        Zephyrus M16 gaming laptop, then you'd be wrong.
-      </p>
-      <p className="my-5 leading-relaxed">
-        Despite the almost identical name, this is an entirely different,
-        substantially better CPU. Where the one in the Asus is a 14-core design,
-        with six P-cores, this is a 24-core setup with eight P-cores and twice
-        the number of E-cores. They're both capable of 5.4GHz boost clocks,
-        though inevitably the bigger chip has a higher base TDP of 45W.
-      </p>
-      <p className="my-5 leading-relaxed">
-        Then, backing up the key CPU/GPU combination is a 1TB PCIe 4.0 Samsung
-        SSD, and 32GB of DDR5-5600 SK Hynix memory.
-      </p>
-
-      <p className="my-5 leading-relaxed">
-        The final part of the package is the 1600p 240Hz screen. Which is fine.
-        I fear I've been spoiled by the joy of the mini LED backlights used in
-        the last few laptop displays I've tested, because this one lacks the
-        punch that I now want from a gaming panel. What it does have, however,
-        is the 16:10 aspect ratio I never knew I needed in a gaming laptop until
-        I started using them on the regular. The 2560 x 1600 native resolution
-        is a great match for the 16-inch screen size the Legion Pro comes
-        rocking.
-      </p>
-      <p className="my-5 leading-relaxed">
-        The Legion Pro 7i manages to outperform both the Razer Blade 16 and the
-        Asus Zephyrus M16 regularly, at both 1080p and 1440p resolutions. Only
-        the chonky boi MSI Titan GT77 is able to utilise its RTX 4090-ish GPU to
-        its fullest potential. And then at the expense of acoustics and
-        potentially your sanity.
-      </p>
-      <p className="my-5 leading-relaxed">
-        Because that's the thing I keep coming back to when I'm looking at this
-        Lenovo machine. It's not the prettiest, but it sure can smash out them
-        high gaming frame rates. And does it for around $2,000 less than the
-        Blade 16.
-      </p>
-    </div>
-  );
-};
-
 const DetailedOpinions = () => {
   return (
     <div className="text-justify md:ml-3">
@@ -178,7 +129,7 @@ const DetailedOpinions = () => {
       </Header>
       <div className="flex flex-col text-left">
         <div className="my-1 flex flex-col items-stretch justify-stretch rounded-md md:my-0">
-          {Product.review.advantages.detailed.map(
+          {Product.opinions.advantages.detailed.map(
             (advantageDetailed, index) => {
               return (
                 <p key={index} className="my-2 flex">
@@ -194,7 +145,7 @@ const DetailedOpinions = () => {
           Lenovo is bad because:
         </Header>
         <div className="my-1 flex flex-col items-stretch justify-stretch rounded-md md:my-0">
-          {Product.review.disadvantages.detailed.map(
+          {Product.opinions.disadvantages.detailed.map(
             (disadvantageDetailed, index) => {
               return (
                 <p key={index} className="my-2 flex">
@@ -210,6 +161,63 @@ const DetailedOpinions = () => {
   );
 };
 
+function ProductReview({ productReview }) {
+  return (
+    <section className="space-y-5">
+      <div>
+        <div className="my-3">
+          <Header level={2}>{productReview.title}</Header>
+        </div>
+        <img className="my-3" src={productReview.images[0]} />
+        <div className="my-3">
+          <p className="my-2 text-xl font-extralight">
+            {productReview.caption}
+          </p>
+          <Header level={2} linkable={false}>
+            ⭐⭐⭐⭐⭐
+          </Header>
+        </div>
+      </div>
+      <div>
+        <Header level={3}>Specifications</Header>
+        <div className="flex flex-col lg:flex-row">
+          {Object.entries(Product.specifications).map(([key, value], index) => {
+            return (
+              <p key={index} className="my-1 lg:mx-4">
+                <b>{key}</b>: {value}
+              </p>
+            );
+          })}
+        </div>
+      </div>
+      <div>
+        <div className="my-3">
+          <Header linkable={false} level={4}>
+            {`${productReview.title} Pricing`}
+          </Header>
+        </div>
+
+        <a
+          className="my-3"
+          href={`https://www.amazon.com/dp/${productReview.stores.amazon.asin}/ref=nosim?tag=${amazonTag}`}
+          target="blank"
+        >
+          <button className=" bg-orange-amazon w-full px-4 py-2 font-bold">
+            View at Amazon.com
+          </button>
+        </a>
+      </div>
+      <div className="float-right rounded-md md:max-w-xs">
+        <DetailedOpinions />
+      </div>
+      <MDXRemote
+        components={MarkdownComponents}
+        {...productReview.reviewParsed}
+      />
+    </section>
+  );
+}
+
 export default function RemoteMdxPage({ page }) {
   return (
     <>
@@ -221,7 +229,7 @@ export default function RemoteMdxPage({ page }) {
 
         <img
           className="border-orange-amazon my-4 border-r-2 border-t-2"
-          src="https://picsum.photos/1920/1080"
+          src={page.image}
         />
 
         <section className="my-5 flex w-20 justify-between">
@@ -262,67 +270,12 @@ export default function RemoteMdxPage({ page }) {
             <Header level={2}>Quick List</Header>
           </div>
           <div>
-            <ProductComparison />
+            <ProductComparison productReviews={page.productReviews} />
           </div>
-        </section>
 
-        <section>
-          <div className="my-5">
-            <div className="my-3">
-              <div className="my-3">
-                <Header level={2}>Lenovo Legion Pro 7i (Gen8)</Header>
-              </div>
-              <img
-                className="my-3"
-                src="https://cdn.mos.cms.futurecdn.net/iCEckDULhhXLddMk2UPs7T-1200-80.jpg.webp"
-              />
-
-              <div className="my-3">
-                <p className="my-2 text-xl font-extralight">
-                  The best gaming laptop
-                </p>
-                <Header level={2} linkable={false}>
-                  ⭐⭐⭐⭐⭐
-                </Header>
-              </div>
-            </div>
-            <div className="my-3">
-              <Header level={3}>Specifications</Header>
-              <div className="flex flex-col lg:flex-row">
-                {Object.entries(Product.specifications).map(
-                  ([key, value], index) => {
-                    return (
-                      <p key={index} className="my-1 lg:mx-4">
-                        <b>{key}</b>: {value}
-                      </p>
-                    );
-                  },
-                )}
-              </div>
-            </div>
-            <div className="my-3">
-              <div className="my-1">
-                <Header linkable={false} level={4}>
-                  {`Lenovo Pricing`}
-                </Header>
-              </div>
-
-              <a className="my-3" href="https://google.pl" target="blank">
-                <button className="bg-orange-amazon w-full px-4 py-2 font-bold">
-                  View at Amazon.com
-                </button>
-              </a>
-            </div>
-
-            <section className="my-5">
-              <div className="float-right my-3 rounded-md md:my-0 md:max-w-xs">
-                <DetailedOpinions />
-              </div>
-              <MDXRemote
-                components={MarkdownComponents}
-                {...page.productReviews[0].descriptionParsed}
-              />
-            </section>
+          <div>
+            <ProductReview productReview={page.productReviews[0]} />
+            <ProductReview productReview={page.productReviews[1]} />
           </div>
         </section>
       </main>
@@ -335,6 +288,7 @@ export default function RemoteMdxPage({ page }) {
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const page = {
     id: 1,
+    image: "https://picsum.photos/1920/1080",
     description: `
     We've spent the year testing the best gaming laptops, digging deep into the new flavors of AMD processor and Nvidia graphics silicon, and we know which notebooks sing and which are just tone deaf. We're not just talking about sleek, expensive new machines, either, we've picked a range of gaming laptops at different price point to highlight which give you the best bang for buck and which are just outright awesome.
 
@@ -355,10 +309,11 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       description: "Description",
       avatar: "/authors/kamil-wilim.jpeg",
     },
+
     productReviews: [
       {
         ...Product,
-        description: `
+        review: `
         The Lenovo Legion Pro 7i is the best 16-inch gaming laptop, and since 16-inch is the best form factor for a gaming laptop, it is therefore the best gaming laptop overall as well. Win and win.
 
         It's a machine that comes in at a price point that makes the rest of the high-end RTX 40-series look even more ridiculous on their lofty $4,000+ perches. And its the RTX 4080 model that has us impressed in testing, offering the sort of gaming performance that has me questioning why anyone would want an RTX 4090 machine.
@@ -380,7 +335,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
       },
       {
         ...Product2,
-        description: `
+        review: `
         The Gigabyte G5 (2023) is a great deal, and that's a little surprising considering the price hike we usually see for brand new gaming laptops. But you'll find no fad features or unnecessary add-ons to push up the costs here. Just a straightforward, well-built, and cleverly provisioned gaming laptop for less than $900 or £900 that delivers plenty of frames in games.
 
         Let's start with the star of the show here: the RTX 4060. We're yet to see Nvidia's RTX 40-series drop to this level on desktop, but even this budget-friendly card delivers superb 1080p performance befitting the G5's 1080p 144Hz display. That's partially down to the power Gigabyte's prepared to pump into the GPU inside this machine: 75W.
@@ -404,10 +359,11 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   };
 
   page.productReviews = await Promise.all(
-    page.productReviews.map(async (review) => {
+    page.productReviews.map(async (productReview) => {
       return {
-        ...review,
-        descriptionParsed: await serialize(review.description),
+        ...productReview,
+        reviewParsed: await serialize(productReview.review),
+        title: `${productReview.brand} ${productReview.model}`,
       };
     }),
   );
@@ -416,7 +372,7 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 
   return {
     props: {
-      page: { ...page },
+      page,
     },
   };
 };
