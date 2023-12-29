@@ -132,7 +132,7 @@ function Product(props: ProductProps) {
       </div>
 
       <a href="https://google.pl" target="blank">
-        <button className="w-full max-w-md rounded bg-orange-400 px-4 py-2 font-bold">
+        <button className="bg-orange-amazon w-full max-w-md px-4 py-2 font-bold">
           View at Amazon.com
         </button>
       </a>
@@ -143,7 +143,7 @@ function Product(props: ProductProps) {
 const ProductComparison = () => {
   return (
     <>
-      <div className="flex flex-col justify-between text-center lg:flex-row">
+      <div className="flex flex-col justify-between text-center md:space-x-8 lg:flex-row">
         {products.map((product) => {
           return (
             <div key={product.id}>

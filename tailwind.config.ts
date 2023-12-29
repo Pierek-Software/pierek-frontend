@@ -7,6 +7,11 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    extend: {
+      colors: {
+        "orange-amazon": "#FF9900",
+      },
+    },
     container: {
       center: true,
       padding: {
