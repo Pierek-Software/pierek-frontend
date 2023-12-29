@@ -202,7 +202,7 @@ function ProductReview({ productReview }) {
           href={`https://www.amazon.com/dp/${productReview.stores.amazon.asin}/ref=nosim?tag=${amazonTag}`}
           target="blank"
         >
-          <button className=" bg-orange-amazon w-full px-4 py-2 font-bold">
+          <button className=" w-full bg-orange-amazon px-4 py-2 font-bold">
             View at Amazon.com
           </button>
         </a>
@@ -228,7 +228,7 @@ export default function RemoteMdxPage({ page }) {
         <p className="mt-2">{`By ${page.author.first_name} ${page.author.last_name}`}</p>
 
         <img
-          className="border-orange-amazon my-4 border-r-2 border-t-2"
+          className="my-4 border-r-2 border-t-2 border-orange-amazon"
           src={page.image}
         />
 

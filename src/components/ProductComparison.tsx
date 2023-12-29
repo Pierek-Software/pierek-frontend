@@ -65,7 +65,7 @@ function Product(props) {
 
         <div className="my-3">
           <a href="https://google.pl" target="blank">
-            <button className="bg-orange-amazon w-full max-w-md px-4 py-2 font-bold">
+            <button className="w-full max-w-md bg-orange-amazon px-4 py-2 font-bold">
               View at Amazon.com
             </button>
           </a>
