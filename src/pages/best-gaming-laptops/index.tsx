@@ -1,8 +1,6 @@
 import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
 
-import { Header } from "../../components/Typography";
-import ProductComparison from "../../components/QuickList";
 import { GetStaticProps } from "next";
 import { serialize } from "next-mdx-remote/serialize";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
@@ -10,22 +8,25 @@ import { MDXRemote } from "next-mdx-remote";
 import Dictionary from "../../components/atom/Dictionary";
 import products from "../../components/review-content/products";
 import { ProductReview } from "../../components/review-content/ProductReview";
+import QuickListSection from "../../components/QuickList";
 
 export default function RemoteMdxPage({ page }) {
   return (
     <>
       <Navbar background={true} wave={false} />
 
-      <main className="container">
-        <h1 className="my-4 text-3xl font-bold leading-snug">{page.title}</h1>
-        <p className="mt-2">{`By ${page.author.first_name} ${page.author.last_name}`}</p>
+      <main className="container mt-5 space-y-5">
+        <div>
+          <h1 className="text-3xl font-bold leading-snug">{page.title}</h1>
+          <p className="mt-2">{`By ${page.author.first_name} ${page.author.last_name}`}</p>
+        </div>
 
         <img
-          className="my-4 border-r-2 border-t-2 border-orange-amazon"
+          className="border-r-2 border-t-2 border-orange-amazon"
           src={page.image}
         />
 
-        <section className="my-5 flex w-20 justify-between">
+        <section className="flex w-20 justify-between">
           <a
             target="_blank"
             href="https://www.facebook.com/sharer/sharer.php?u=https://www.pcgamer.com/best-gaming-laptop/"
@@ -41,37 +42,37 @@ export default function RemoteMdxPage({ page }) {
           </a>
         </section>
 
-        <section className="my-5">
-          <div className="float-right rounded-md">
-            <Dictionary
-              paragraphs={[
-                "Hello",
-                "Test",
-                "Best Gaming Laptop 15 inch",
-                "Best Gaming Laptop 15 inch Best Gaming Laptop 15 inch",
-              ]}
-            />
-          </div>
-          <MDXRemote
-            {...page.content[0].value}
-            components={MarkdownComponents}
-          />
-        </section>
+        <div className="rounded-md md:float-right md:m-0">
+          <Dictionary paragraphs={page.dictionary} />
+        </div>
 
-        <section>
-          <div className="my-5">
-            <Header level={2}>Quick List</Header>
-          </div>
-          <div>
-            <ProductComparison productReviews={page.productReviews} />
-          </div>
+        {page.content.map((contentBlock, index) => {
+          switch (contentBlock.type) {
+            case "markdown":
+              return (
+                <div key={index}>
+                  <MDXRemote
+                    {...contentBlock.value}
+                    components={MarkdownComponents}
+                  />
+                </div>
+              );
 
-          <div>
-            {page.productReviews.map((productReview, index) => (
-              <ProductReview key={index} productReview={productReview} />
-            ))}
-          </div>
-        </section>
+            case "quickList":
+              return (
+                <div key={index}>
+                  <QuickListSection productReviews={contentBlock.value} />
+                </div>
+              );
+
+            case "productReview":
+              return (
+                <div key={index}>
+                  <ProductReview productReview={contentBlock.value} />
+                </div>
+              );
+          }
+        })}
       </main>
 
       <Footer />
@@ -82,6 +83,11 @@ export default function RemoteMdxPage({ page }) {
 export const getStaticProps: GetStaticProps = async () => {
   const page = {
     id: 1,
+    dictionary: [
+      "Quick List",
+      "Lenovo Legion Pro 7i (Gen8)",
+      "Gigabyte G5 (2023)",
+    ],
     image: "https://picsum.photos/1920/1080",
     created_at: new Date().toISOString(),
     updated_at: new Date().toISOString(),
@@ -105,23 +111,37 @@ export const getStaticProps: GetStaticProps = async () => {
         AMD has also now released its new 3D V-cache mobile chip, and it's absolutely the best mobile gaming chip you can buy, which makes the 17-inch Asus ROG Strix Scar 17 X3D the outright fastest. It's a pricey beast, though, and a lot of money for just a handful of extra frames per second.We test dozens of the best gaming laptops every year. The ones that make it to the list provide the best value for money—the best balance of performance, price, and portability.
     `,
       },
+      { type: "quickList", value: products },
+      { type: "productReview", value: products[0] },
+      { type: "productReview", value: products[1] },
+      {
+        type: "markdown",
+        value: `
+        ## Frequently Asked Questions
+        `,
+      },
     ],
-
-    productReviews: [products[0], products[1]],
   };
 
-  page.productReviews = await Promise.all(
-    page.productReviews.map(async (productReview) => {
-      return {
-        ...productReview,
-        reviewParsed: await serialize(productReview.review),
-        title: `${productReview.brand} ${productReview.model}`,
-      };
-    }),
-  );
-
   const promises = page.content.map(async (contentBlock) => {
-    return { ...contentBlock, value: await serialize(contentBlock.value) };
+    if (contentBlock.type === "markdown") {
+      return {
+        ...contentBlock,
+        value: await serialize(contentBlock.value as any),
+      };
+    }
+
+    if (contentBlock.type === "productReview") {
+      return {
+        ...contentBlock,
+        value: {
+          ...contentBlock.value,
+          reviewParsed: await serialize(contentBlock.value.review),
+          title: `${contentBlock.value.brand} ${contentBlock.value.model}`,
+        },
+      };
+    }
+    return contentBlock;
   });
 
   page.content = (await Promise.all(promises)) as any;

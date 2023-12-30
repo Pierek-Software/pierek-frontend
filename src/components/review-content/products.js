@@ -3,6 +3,7 @@ const products = [
     id: 0,
     caption: "Best gaming laptop",
     brand: "Lenovo",
+    title: "Lenovo Legion Pro 7i (Gen8)",
     stores: {
       amazon: {
         asin: "B08N5M7S6K",
@@ -88,6 +89,7 @@ const products = [
       "https://cdn.mos.cms.futurecdn.net/wT2WMANoYT4AxQdKeHMgUJ-1200-80.jpg.webp",
     ],
     model: "G5 (2023)",
+    title: "Gigabyte GE (2023)",
     type: "Laptop",
     specifications: {
       CPU: "Up to Intel Core i7 12th Gen",

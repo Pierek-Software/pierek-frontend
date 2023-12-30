@@ -91,4 +91,15 @@ const QuickList = ({ productReviews }) => {
   );
 };
 
-export default QuickList;
+const QuickListSection = ({ productReviews }) => {
+  return (
+    <div>
+      <div className="my-5">
+        <Header level={2}>Quick List</Header>
+      </div>
+      <QuickList productReviews={productReviews} />
+    </div>
+  );
+};
+
+export default QuickListSection;
