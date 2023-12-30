@@ -12,7 +12,11 @@ const Dictionary = (props: DictionaryProps) => {
       </Header>
       {props.paragraphs.map((text, index) => {
         return (
-          <DictionaryLink className="my-1 hover:underline" key={index}>
+          <DictionaryLink
+            classId={text}
+            className="my-1 hover:underline"
+            key={index}
+          >
             {`${index + 1}. ${text}`}
           </DictionaryLink>
         );

@@ -7,7 +7,10 @@ export function slugify(text: string) {
     .replace(/\,-/g, "-")
     .replace(/\:/g, "-")
     .replace(/\"/g, "-")
+    .replace(/\(/g, "-")
+    .replace(/\)/g, "-")
     .replace(/-{2,}/g, "-")
+    .replace(/-$/, "") // Remove trailing hyphen
     .toLowerCase();
 }
 
@@ -19,3 +22,9 @@ export function isoDateToRRRRMMDD(isoDate: string) {
 
   return `${year}/${month}/${day}`;
 }
+
+const amazonTag = "pierek-20";
+
+export const amazonLinkBuilder = (asin: string) => {
+  return `https://www.amazon.com/dp/${asin}/ref=nosim?tag=${amazonTag}`;
+};

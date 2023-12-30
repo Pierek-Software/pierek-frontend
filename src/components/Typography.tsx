@@ -51,12 +51,14 @@ export const Header = ({
   }
 };
 
-export const DictionaryLink = ({ children, className }) => {
+export const DictionaryLink = ({ children, className, classId }) => {
   return (
     <a
       className={className}
       title={children as string}
-      href={"#" + slugify(children as string)}
+      href={
+        classId ? `#${slugify(classId)}` : `#${slugify(children as string)}`
+      }
     >
       {children}
     </a>
