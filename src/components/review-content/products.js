@@ -122,7 +122,8 @@ const products = [
           "You want a quiet gaming device: Better stick to the Steam Deck or Asus ROG Ally if you want something quieter. The G5 makes a helluva noise when it's gaming.",
         ],
       },
-      review: `
+    },
+    review: `
         The Gigabyte G5 (2023) is a great deal, and that's a little surprising considering the price hike we usually see for brand new gaming laptops. But you'll find no fad features or unnecessary add-ons to push up the costs here. Just a straightforward, well-built, and cleverly provisioned gaming laptop for less than $900 or £900 that delivers plenty of frames in games.
 
         Let's start with the star of the show here: the RTX 4060. We're yet to see Nvidia's RTX 40-series drop to this level on desktop, but even this budget-friendly card delivers superb 1080p performance befitting the G5's 1080p 144Hz display. That's partially down to the power Gigabyte's prepared to pump into the GPU inside this machine: 75W.
@@ -141,7 +142,6 @@ const products = [
 
         The G5 (2023) just feels such a solid design for a gaming laptop. The performance is there, the flexibility and upgradeability too, and you aren't paying over the odds for the hot new thing. It's actually pretty affordable. This is going to be tough to beat for the best affordable gaming laptop to buy right now.
       `,
-    },
   },
 ];
 
