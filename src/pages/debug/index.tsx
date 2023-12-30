@@ -10,7 +10,6 @@ import { DictionaryLink, Header } from "../../components/Typography";
 import BlogPostCard from "../../components/atom/BlogPostCard";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import ProductComparison from "../../components/ProductComparison";
 
 const Dictionary = (props) => {
   return (

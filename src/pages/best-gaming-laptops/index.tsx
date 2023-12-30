@@ -2,8 +2,8 @@ import Navbar from "../../components/templates/Navbar";
 import Footer from "../../components/templates/Footer";
 
 import { Header } from "../../components/Typography";
-import ProductComparison from "../../components/ProductComparison";
-import { GetServerSideProps } from "next";
+import ProductComparison from "../../components/QuickList";
+import { GetStaticProps } from "next";
 import { serialize } from "next-mdx-remote/serialize";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
 import { MDXRemote } from "next-mdx-remote";
@@ -161,7 +161,7 @@ const DetailedOpinions = () => {
   );
 };
 
-function ProductReview({ productReview }) {
+export function ProductReview({ productReview }) {
   return (
     <section className="space-y-5">
       <div>
@@ -173,9 +173,8 @@ function ProductReview({ productReview }) {
           <p className="my-2 text-xl font-extralight">
             {productReview.caption}
           </p>
-          <Header level={2} linkable={false}>
-            ⭐⭐⭐⭐⭐
-          </Header>
+
+          <span className="m-auto">⭐⭐⭐⭐⭐</span>
         </div>
       </div>
       <div>
@@ -218,7 +217,7 @@ function ProductReview({ productReview }) {
   );
 }
 
-export default function RemoteMdxPage({ page }) {
+export default function RemoteMdxPage({ page, mdxSource }) {
   return (
     <>
       <Navbar background={true} wave={false} />
@@ -285,7 +284,7 @@ export default function RemoteMdxPage({ page }) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async () => {
   const page = {
     id: 1,
     image: "https://picsum.photos/1920/1080",

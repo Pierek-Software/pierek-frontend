@@ -5,7 +5,7 @@ import data from "../../data/case-studies.json";
 function CaseStudiesSection() {
   return (
     <section className="container mx-auto">
-      <h1 className="py-2 text-4xl font-bold text-gray-900 md:py-5 md:text-8xl">
+      <h1 className="py-2 text-4xl font-bold text-gray-900 md:py-5 md:text-7xl">
         Case Studies
       </h1>
       <p className="text-2xl font-light md:text-4xl">

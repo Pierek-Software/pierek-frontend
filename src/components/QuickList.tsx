@@ -75,7 +75,7 @@ function Product(props) {
   );
 }
 
-const ProductComparison = ({ productReviews }) => {
+const QuickList = ({ productReviews }) => {
   return (
     <>
       <div className="flex flex-col justify-between text-center md:space-x-8 lg:flex-row">
@@ -91,4 +91,4 @@ const ProductComparison = ({ productReviews }) => {
   );
 };
 
-export default ProductComparison;
+export default QuickList;

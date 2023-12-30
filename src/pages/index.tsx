@@ -28,13 +28,13 @@ export default function Home() {
             mt-16
             sm:mt-24
             md:mt-20
-            lg:mt-20 lg:flex lg:items-center lg:align-middle
+            lg:mt-10 lg:flex lg:items-center lg:align-middle
             "
           >
             <div className="lg:w-2/3">
               <h1
                 className="
-                text-center text-5xl font-bold leading-snug text-white
+                text-center text-4xl font-bold leading-snug text-white
                 sm:text-4xl
                 md:text-7xl md:leading-relaxed
                 lg:text-left lg:text-8xl lg:leading-tight
@@ -60,7 +60,7 @@ export default function Home() {
           <a href="/contact">
             <button
               className="
-            h-52 w-52 rounded-full border-2 bg-slate-800  text-3xl font-bold text-white hover:bg-slate-900
+            h-44 w-44 rounded-full border-2 bg-slate-800  text-3xl font-bold text-white hover:bg-slate-900
             md:h-80 md:w-80 md:border-4 md:text-5xl
             lg:hidden
             "
@@ -79,7 +79,7 @@ export default function Home() {
       </svg>
 
       <section className="container mx-auto">
-        <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
+        <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-7xl">
           Custom Software Development
         </h2>
         <p className="text-2xl font-light md:text-4xl">
@@ -101,7 +101,7 @@ export default function Home() {
 
       <section className="bg-slate-950 text-white">
         <div className="container mx-auto">
-          <h2 className="py-2 text-4xl font-bold md:py-5 md:text-8xl">
+          <h2 className="py-2 text-4xl font-bold md:py-5 md:text-7xl">
             Outsouring
           </h2>
           <p className="text-2xl font-light md:text-4xl">
@@ -124,7 +124,7 @@ export default function Home() {
 
       <section className="container mx-auto bg-white">
         <div className="">
-          <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-8xl">
+          <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-7xl">
             Technologies
           </h2>
           <p className="text-2xl font-light md:text-4xl">
@@ -182,7 +182,7 @@ export default function Home() {
 
       <section className="bg-slate-950 text-white">
         <div className="container mx-auto">
-          <h2 className="py-2 text-4xl font-bold md:py-5 md:text-8xl">
+          <h2 className="py-2 text-4xl font-bold md:py-5 md:text-7xl">
             Consulting
           </h2>
           <p className="text-2xl font-light md:text-4xl">
