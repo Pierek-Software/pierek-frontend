@@ -1,3 +1,4 @@
+import { amazonLinkBuilder } from "../utils";
 import { Header, Paragraph } from "./Typography";
 
 const ProductIndexToTrophy = {
@@ -6,36 +7,41 @@ const ProductIndexToTrophy = {
   "2": "🥉",
 };
 
-function Product(props) {
+function Product({
+  advantages,
+  disadvantages,
+  description,
+  product,
+  brand,
+  id,
+}) {
+  const title = `${brand.name} ${product.name}`;
+
   return (
     <div className="space-y-5 rounded-md">
       <Header linkable={false} level={3}>
-        {`${props.title} ${
-          props.id <= 2 ? ProductIndexToTrophy[props.id] : ""
-        }`}
+        {`${title} ${id <= 2 ? ProductIndexToTrophy[id] : ""}`}
       </Header>
-      <img className="mx-auto h-48 object-contain" src={props.mainImage} />
-
-      <div>⭐⭐⭐⭐⭐</div>
+      <img className="mx-auto h-48 object-contain" src={product.main_image} />
 
       <div className="flex justify-center align-middle">
         <Header linkable={false} level={4}>
-          {`${props.title} Description`}
+          {`${title} Description`}
         </Header>
       </div>
 
       <div className="text-justify">
-        <Paragraph>{props.shortDescription}</Paragraph>
+        <Paragraph>{description}</Paragraph>
       </div>
 
       <div className="flex justify-center align-middle">
         <Header linkable={false} level={4}>
-          {`${props.title} Pros & Cons`}
+          {`${title} Pros & Cons`}
         </Header>
       </div>
       <div className="flex flex-col text-left">
         <div className="my-1 flex flex-col items-stretch justify-stretch rounded-md">
-          {props.opinions.advantages.short.map((advantage, index) => {
+          {advantages.map((advantage, index) => {
             return (
               <p key={index} className="my-2 flex">
                 <span>✅</span>
@@ -45,7 +51,7 @@ function Product(props) {
           })}
         </div>
         <div className="my-1 flex flex-col items-stretch justify-stretch rounded-md">
-          {props.opinions.disadvantages.short.map((disadvantage, index) => {
+          {disadvantages.map((disadvantage, index) => {
             return (
               <p key={index} className="my-2 flex">
                 <span>❌</span>
@@ -59,12 +65,12 @@ function Product(props) {
       <div>
         <div>
           <Header linkable={false} level={4}>
-            {`${props.title} Pricing`}
+            {`${title} Pricing`}
           </Header>
         </div>
 
         <div className="my-3">
-          <a href="https://google.pl" target="blank">
+          <a href={amazonLinkBuilder(product.asin)} target="blank">
             <button className="w-full max-w-md bg-orange-amazon px-4 py-2 font-bold">
               View at Amazon.com
             </button>
@@ -75,14 +81,14 @@ function Product(props) {
   );
 }
 
-const QuickList = ({ productReviews }) => {
+const QuickList = ({ content }) => {
   return (
     <>
       <div className="flex flex-col justify-between text-center md:space-x-8 lg:flex-row">
-        {productReviews.map((product) => {
+        {content.map((quickListItem, index) => {
           return (
-            <div key={product.id}>
-              <Product {...product} />
+            <div key={index}>
+              <Product {...quickListItem} />
             </div>
           );
         })}
@@ -91,13 +97,13 @@ const QuickList = ({ productReviews }) => {
   );
 };
 
-const QuickListSection = ({ productReviews }) => {
+const QuickListSection = ({ id, content }) => {
   return (
     <div>
       <div className="my-5">
         <Header level={2}>Quick List</Header>
       </div>
-      <QuickList productReviews={productReviews} />
+      <QuickList content={content} />
     </div>
   );
 };

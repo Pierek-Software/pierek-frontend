@@ -1,15 +1,15 @@
-import Navbar from "../../components/templates/Navbar";
-import Footer from "../../components/templates/Footer";
+import Navbar from "../components/templates/Navbar";
+import Footer from "../components/templates/Footer";
 
-import { GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { serialize } from "next-mdx-remote/serialize";
-import MarkdownComponents from "../../mappers/MarkdownComponents";
+import MarkdownComponents from "../mappers/MarkdownComponents";
 import { MDXRemote } from "next-mdx-remote";
-import Dictionary from "../../components/atom/Dictionary";
-import products from "../../components/review-content/products";
-import { ProductReview } from "../../components/review-content/ProductReview";
-import QuickListSection from "../../components/QuickList";
-import ApiClient from "../../api";
+import Dictionary from "../components/atom/Dictionary";
+import { ProductReview } from "../components/review-content/ProductReview";
+import QuickListSection from "../components/QuickList";
+import ApiClient from "../api";
+import ReviewGenerator from "../components/test";
 
 export default function RemoteMdxPage({ page }) {
   return (
@@ -80,6 +80,19 @@ export default function RemoteMdxPage({ page }) {
     </>
   );
 }
+
+export const getStaticPaths = (async () => {
+  return {
+    paths: [
+      {
+        params: {
+          slug: "best-gaming-laptops",
+        },
+      },
+    ],
+    fallback: false, // false or "blocking"
+  };
+}) satisfies GetStaticPaths;
 
 export const getStaticProps: GetStaticProps = async () => {
   const apiClient = new ApiClient();

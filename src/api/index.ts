@@ -22,6 +22,26 @@ class ApiClient {
     return data;
   }
 
+  async getPage(slug: string) {
+    const url = this.baseUrl + "/pages" + "/" + slug;
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data;
+  }
+
+  async getProductById(id: number) {
+    try {
+      const url = this.baseUrl + "/products" + "/" + id;
+      const response = await fetch(url);
+      const data = await response.json();
+
+      return data;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   async getSitemap() {
     const url = this.baseUrl + "/sitemap.xml";
     const response = await fetch(url);
