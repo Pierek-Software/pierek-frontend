@@ -1,16 +1,13 @@
-// pages/index.js
-
 import { useState } from "react";
-import ApiClient from "../../api";
 import set from "lodash.set";
-import unset from "lodash.unset";
 import get from "lodash.get";
+import QuickListContentBlock from "../../components/content/QuickListContentBlock";
+import ProductReviewContentBlock from "../../components/content/ProductReviewContentBlock";
+import Page from "../../components/content/Page";
 
 const SectionTypes = ["markdown", "product_review", "quick_list"];
 
 export type HandleChangeType = "section-quickLink-advantage";
-
-const apiClient = new ApiClient();
 
 const HomePage = () => {
   const [pageData, setPageData] = useState({});
@@ -57,7 +54,10 @@ const HomePage = () => {
   const handleAdd = (contentIndex, path, value) => {
     const updatedSections = [...sections];
 
-    const originalValue = get(updatedSections[contentIndex], path);
+    let originalValue = get(updatedSections[contentIndex], path);
+    if (!originalValue) {
+      originalValue = [];
+    }
 
     set(updatedSections[contentIndex], path, [...originalValue, value]);
 
@@ -65,57 +65,13 @@ const HomePage = () => {
   };
 
   const handleOutputJson = () => {
-    console.log(JSON.stringify({ ...pageData, sections }, null, 2));
+    // console.log(JSON.stringify({ ...pageData, sections }, null, 2));
   };
 
   return (
     <div className="p-4">
       <h1 className="mb-4 text-3xl font-bold">Page Builder</h1>
-      <div>
-        <label className="mb-2 block">Title</label>
-        <input
-          value={pageData.title || ""}
-          onChange={(e) => handlePageChange("title", e.target.value)}
-          className="w-full border p-2"
-          type="text"
-        />
-      </div>
-      <div>
-        <label className="mb-2 block">Description</label>
-        <input
-          value={pageData.description || ""}
-          onChange={(e) => handlePageChange("description", e.target.value)}
-          className="w-full border p-2"
-          type="text"
-        />
-      </div>
-      <div>
-        <label className="mb-2 block">Image</label>
-        <input
-          value={pageData.image || ""}
-          onChange={(e) => handlePageChange("image", e.target.value)}
-          className="w-full border p-2"
-          type="text"
-        />
-      </div>
-      <div>
-        <label className="mb-2 block">Created At</label>
-        <input
-          value={pageData.created_at || ""}
-          onChange={(e) => handlePageChange("created_at", e.target.value)}
-          className="w-full border p-2"
-          type="text"
-        />
-      </div>
-      <div>
-        <label className="mb-2 block">Updated At</label>
-        <input
-          value={pageData.updated_at || ""}
-          onChange={(e) => handlePageChange("updated_at", e.target.value)}
-          className="w-full border p-2"
-          type="text"
-        />
-      </div>
+      <Page handlePageChange={handlePageChange} pageData={pageData} />
       {sections.map((section, contentIndex) => (
         <div key={contentIndex} className="my-4 border-2 p-5">
           <label className="my-2 block">Section Type</label>
@@ -135,132 +91,22 @@ const HomePage = () => {
           </select>
 
           {section.type === "quick_list" && (
-            <>
-              <div>
-                {section?.value?.map(
-                  (quickListItemValue, quickListItemIndex) => {
-                    return (
-                      <div
-                        className="m-5 border-2 p-5"
-                        key={`quickListItem-${quickListItemIndex}`}
-                      >
-                        <div className="flex justify-end">
-                          <button
-                            onClick={(e) =>
-                              handleRemoveQuickList(
-                                contentIndex,
-                                quickListItemIndex,
-                              )
-                            }
-                            className="my-2 rounded bg-red-900 p-2 text-white"
-                          >
-                            Delete Quick List
-                          </button>
-                        </div>
-                        <label className="mb-2 block">Product ID</label>
-                        <input
-                          type="text"
-                          value={quickListItemValue?.product_id || ""}
-                          onChange={async (e) => {
-                            handleChange(
-                              contentIndex,
-                              `value[${quickListItemIndex}].product_id`,
-                              e.target.value,
-                            );
-
-                            const api = await apiClient.getProductById(
-                              +e.target.value,
-                            );
-
-                            handleChange(
-                              contentIndex,
-                              `value[${quickListItemIndex}].product`,
-                              api,
-                            );
-                          }}
-                          className="w-full border p-2"
-                          placeholder="Product Name"
-                        />
-
-                        <div className="flex">
-                          <button
-                            className="my-2 w-1/3 rounded bg-green-300 p-2 text-white"
-                            onClick={() =>
-                              handleAdd(
-                                contentIndex,
-                                `value[${quickListItemIndex}].advantages`,
-                                "Test",
-                              )
-                            }
-                          >
-                            + Add Advantage
-                          </button>
-                        </div>
-
-                        {quickListItemValue?.advantages?.map(
-                          (advantage, advantageIndex) => {
-                            return (
-                              <input
-                                type="text"
-                                value={advantage}
-                                className="bg-red-500"
-                                key={`advantage-${advantageIndex}`}
-                                onChange={(e) =>
-                                  handleChange(
-                                    contentIndex,
-                                    `value[${quickListItemIndex}].advantages[${advantageIndex}]`,
-                                    e.target.value,
-                                  )
-                                }
-                              />
-                            );
-                          },
-                        )}
-                      </div>
-                    );
-                  },
-                )}
-              </div>
-
-              <button
-                className="my-2 w-1/2 rounded bg-green-400 p-2 text-white"
-                onClick={() =>
-                  handleAdd(contentIndex, `value`, {
-                    product_id: 0,
-                    advantages: [],
-                    disadvantages: [],
-                  })
-                }
-              >
-                + Add Quick Item
-              </button>
-            </>
+            <QuickListContentBlock
+              section={section}
+              handleRemoveQuickList={handleRemoveQuickList}
+              handleAdd={handleAdd}
+              contentIndex={contentIndex}
+              handleChange={handleChange}
+            />
           )}
 
           {section.type === "product_review" && (
-            <div className="mt-4">
-              <label className="mb-2 block">Product Name</label>
-              <input
-                type="text"
-                value={section.value?.name || ""}
-                onChange={(e) =>
-                  handleChange(contentIndex, "value.name", e.target.value)
-                }
-                className="w-full border p-2"
-                placeholder="Product Name"
-              />
-
-              <label className="mb-2 mt-2 block">Product ASIN</label>
-              <input
-                type="text"
-                value={section.value?.asin || ""}
-                onChange={(e) =>
-                  handleChange(contentIndex, "value.asin", e.target.value)
-                }
-                className="w-full border p-2"
-                placeholder="Product ASIN"
-              />
-            </div>
+            <ProductReviewContentBlock
+              sections={sections}
+              contentIndex={contentIndex}
+              handleAdd={handleAdd}
+              handleChange={handleChange}
+            />
           )}
 
           <button
