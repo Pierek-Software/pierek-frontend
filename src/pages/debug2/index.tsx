@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import ApiClient from "../../api";
+import set from "lodash.set";
 
 const SectionTypes = ["markdown", "product_review", "quick_list"];
+
+export type HandleChangeType = "section-quickLink-advantage";
 
 const apiClient = new ApiClient();
 
@@ -33,26 +36,15 @@ const HomePage = () => {
   };
 
   const handleAddQuickItemAdvantage = (sectionIndex, quickListItemIndex) => {
-    const newAdvantage = "";
     const updatedSections = [...sections];
+    const currentAdvantages =
+      updatedSections[sectionIndex].value[quickListItemIndex].advantages || [];
 
-    console.log(sectionIndex, quickListItemIndex);
+    const newAdvantage = "Example Advantage";
+    const updatedAdvantages = [...currentAdvantages, newAdvantage];
 
-    console.log(updatedSections[sectionIndex].value[quickListItemIndex]);
-
-    if (
-      !Array.isArray(
-        updatedSections[sectionIndex].value[quickListItemIndex].advantages,
-      )
-    ) {
-      updatedSections[sectionIndex].value[quickListItemIndex].advantages = [];
-    }
-
-    updatedSections[sectionIndex].value[quickListItemIndex].advantages = [
-      ...updatedSections[sectionIndex].value[quickListItemIndex].advantages,
-      newAdvantage,
-    ];
-
+    updatedSections[sectionIndex].value[quickListItemIndex].advantages =
+      updatedAdvantages;
     setSections(updatedSections);
   };
 
@@ -93,15 +85,24 @@ const HomePage = () => {
     setSections(updatedSections);
   };
 
+  //   const handleAdd = (contentIndex, path, value) => {
+  //     const updatedSections =
+  //   };
+
+  const handleChange = (sectionIndex, path, value) => {
+    const updatedSections = [...sections];
+    set(updatedSections[sectionIndex], path, value);
+    setSections(updatedSections);
+  };
+
   const handleValueChange = (index, field, value) => {
     const updatedSections = [...sections];
-    console.log(updatedSections[index]);
     updatedSections[index].value[field] = value;
     setSections(updatedSections);
   };
 
   const handleOutputJson = () => {
-    console.log(JSON.stringify({ ...pageData, content: sections }, null, 2));
+    console.log(JSON.stringify({ ...pageData, sections }, null, 2));
   };
 
   return (
@@ -152,12 +153,12 @@ const HomePage = () => {
           type="text"
         />
       </div>
-      {sections.map((section, index) => (
-        <div key={index} className="my-4">
+      {sections.map((section, contentIndex) => (
+        <div key={contentIndex} className="my-4">
           <label className="my-2 block">Section Type</label>
           <select
             value={section.type}
-            onChange={(e) => handleTypeChange(index, e.target.value)}
+            onChange={(e) => handleTypeChange(contentIndex, e.target.value)}
             className="w-full border p-2"
           >
             <option value="" disabled>
@@ -176,14 +177,14 @@ const HomePage = () => {
                 {section?.value?.map(
                   (quickListItemValue, quickListItemIndex) => {
                     return (
-                      <>
+                      <div key={`quickListItem-${quickListItemIndex}`}>
                         <label className="mb-2 block">Product ID</label>
                         <input
                           type="text"
                           value={quickListItemValue.product_id || ""}
                           onChange={async (e) => {
                             handleQuickItemEdit(
-                              index,
+                              contentIndex,
                               quickListItemIndex,
                               "product_id",
                               e.target.value,
@@ -193,7 +194,7 @@ const HomePage = () => {
                               +e.target.value,
                             );
                             handleQuickItemEdit(
-                              index,
+                              contentIndex,
                               quickListItemIndex,
                               "product",
                               api,
@@ -203,40 +204,11 @@ const HomePage = () => {
                           placeholder="Product Name"
                         />
 
-                        <label className="mb-2 block">Product ID</label>
-                        <input
-                          type="text"
-                          value={quickListItemValue.product_id || ""}
-                          onChange={async (e) => {
-                            handleQuickItemEdit(
-                              index,
-                              quickListItemIndex,
-                              "product_id",
-                              e.target.value,
-                            );
-
-                            const api = await apiClient.getProductById(
-                              +e.target.value,
-                            );
-                            handleQuickItemEdit(
-                              index,
-                              quickListItemIndex,
-                              "product",
-                              api,
-                            );
-                          }}
-                          className="w-full border p-2"
-                          placeholder="Product Name"
-                        />
-
-                        {quickListItemValue.advantages?.map((advantage) => {
-                          <p>{advantage}</p>;
-                        })}
                         <div>
                           <button
                             onClick={(e) =>
                               handleAddQuickItemAdvantage(
-                                index,
+                                contentIndex,
                                 quickListItemIndex,
                               )
                             }
@@ -245,16 +217,34 @@ const HomePage = () => {
                           </button>
                         </div>
 
-                        <p key={`quickListItem-${quickListItemIndex}`}>
-                          {JSON.stringify(quickListItemValue)}
-                        </p>
-                      </>
+                        {quickListItemValue?.advantages?.map(
+                          (advantage, advantageIndex) => {
+                            return (
+                              <input
+                                type="text"
+                                value={advantage}
+                                className="bg-red-500"
+                                key={`advantage-${advantageIndex}`}
+                                onChange={(e) =>
+                                  handleChange(
+                                    contentIndex,
+                                    `value[${quickListItemIndex}].advantages[${advantageIndex}]`,
+                                    e.target.value,
+                                  )
+                                }
+                              />
+                            );
+                          },
+                        )}
+
+                        <p>{JSON.stringify(quickListItemValue)}</p>
+                      </div>
                     );
                   },
                 )}
               </div>
 
-              <button onClick={(e) => handleAddQuickItem(index)}>
+              <button onClick={(e) => handleAddQuickItem(contentIndex)}>
                 + Add Quick Item
               </button>
             </>
@@ -267,7 +257,7 @@ const HomePage = () => {
                 type="text"
                 value={section.value?.name || ""}
                 onChange={(e) =>
-                  handleValueChange(index, "name", e.target.value)
+                  handleValueChange(contentIndex, "name", e.target.value)
                 }
                 className="w-full border p-2"
                 placeholder="Product Name"
@@ -278,7 +268,7 @@ const HomePage = () => {
                 type="text"
                 value={section.value?.asin || ""}
                 onChange={(e) =>
-                  handleValueChange(index, "asin", e.target.value)
+                  handleValueChange(contentIndex, "asin", e.target.value)
                 }
                 className="w-full border p-2"
                 placeholder="Product ASIN"
@@ -288,7 +278,7 @@ const HomePage = () => {
 
           <button
             className="mt-2 rounded bg-red-500 p-2 text-white"
-            onClick={() => handleRemoveSection(index)}
+            onClick={() => handleRemoveSection(contentIndex)}
           >
             Remove Section
           </button>
