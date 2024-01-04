@@ -3,6 +3,8 @@
 import { useState } from "react";
 import ApiClient from "../../api";
 import set from "lodash.set";
+import unset from "lodash.unset";
+import get from "lodash.get";
 
 const SectionTypes = ["markdown", "product_review", "quick_list"];
 
@@ -24,51 +26,6 @@ const HomePage = () => {
     setSections([...sections, newSection]);
   };
 
-  const handleQuickItemEdit = (
-    sectionIndex,
-    quickListItemIndex,
-    field,
-    value,
-  ) => {
-    const updatedSections = [...sections];
-    updatedSections[sectionIndex].value[quickListItemIndex][field] = value;
-    setSections(updatedSections);
-  };
-
-  const handleAddQuickItemAdvantage = (sectionIndex, quickListItemIndex) => {
-    const updatedSections = [...sections];
-    const currentAdvantages =
-      updatedSections[sectionIndex].value[quickListItemIndex].advantages || [];
-
-    const newAdvantage = "Example Advantage";
-    const updatedAdvantages = [...currentAdvantages, newAdvantage];
-
-    updatedSections[sectionIndex].value[quickListItemIndex].advantages =
-      updatedAdvantages;
-    setSections(updatedSections);
-  };
-
-  const handleAddQuickItem = (sectionIndex) => {
-    const newQuickItem = { product_id: undefined };
-
-    // Create a copy of the sections array
-    const updatedSections = [...sections];
-
-    // Check if the value field is an array, if not, initialize it as an empty array
-    if (!Array.isArray(updatedSections[sectionIndex].value)) {
-      updatedSections[sectionIndex].value = [];
-    }
-
-    // Create a new array with the updated value field
-    updatedSections[sectionIndex].value = [
-      ...updatedSections[sectionIndex].value,
-      newQuickItem,
-    ];
-
-    // Update the state with the new array
-    setSections(updatedSections);
-  };
-
   const handleTypeChange = (index, selectedType) => {
     const updatedSections = [...sections];
     updatedSections[index].type = selectedType;
@@ -85,19 +42,25 @@ const HomePage = () => {
     setSections(updatedSections);
   };
 
-  //   const handleAdd = (contentIndex, path, value) => {
-  //     const updatedSections =
-  //   };
-
-  const handleChange = (sectionIndex, path, value) => {
+  const handleChange = (contentIndex, path, value) => {
     const updatedSections = [...sections];
-    set(updatedSections[sectionIndex], path, value);
+    set(updatedSections[contentIndex], path, value);
     setSections(updatedSections);
   };
 
-  const handleValueChange = (index, field, value) => {
+  const handleRemoveQuickList = (contentIndex, quickListIndex) => {
     const updatedSections = [...sections];
-    updatedSections[index].value[field] = value;
+    updatedSections[contentIndex].value.splice(quickListIndex, 1);
+    setSections(updatedSections);
+  };
+
+  const handleAdd = (contentIndex, path, value) => {
+    const updatedSections = [...sections];
+
+    const originalValue = get(updatedSections[contentIndex], path);
+
+    set(updatedSections[contentIndex], path, [...originalValue, value]);
+
     setSections(updatedSections);
   };
 
@@ -154,7 +117,7 @@ const HomePage = () => {
         />
       </div>
       {sections.map((section, contentIndex) => (
-        <div key={contentIndex} className="my-4">
+        <div key={contentIndex} className="my-4 border-2 p-5">
           <label className="my-2 block">Section Type</label>
           <select
             value={section.type}
@@ -177,26 +140,41 @@ const HomePage = () => {
                 {section?.value?.map(
                   (quickListItemValue, quickListItemIndex) => {
                     return (
-                      <div key={`quickListItem-${quickListItemIndex}`}>
+                      <div
+                        className="m-5 border-2 p-5"
+                        key={`quickListItem-${quickListItemIndex}`}
+                      >
+                        <div className="flex justify-end">
+                          <button
+                            onClick={(e) =>
+                              handleRemoveQuickList(
+                                contentIndex,
+                                quickListItemIndex,
+                              )
+                            }
+                            className="my-2 rounded bg-red-900 p-2 text-white"
+                          >
+                            Delete Quick List
+                          </button>
+                        </div>
                         <label className="mb-2 block">Product ID</label>
                         <input
                           type="text"
-                          value={quickListItemValue.product_id || ""}
+                          value={quickListItemValue?.product_id || ""}
                           onChange={async (e) => {
-                            handleQuickItemEdit(
+                            handleChange(
                               contentIndex,
-                              quickListItemIndex,
-                              "product_id",
+                              `value[${quickListItemIndex}].product_id`,
                               e.target.value,
                             );
 
                             const api = await apiClient.getProductById(
                               +e.target.value,
                             );
-                            handleQuickItemEdit(
+
+                            handleChange(
                               contentIndex,
-                              quickListItemIndex,
-                              "product",
+                              `value[${quickListItemIndex}].product`,
                               api,
                             );
                           }}
@@ -204,12 +182,14 @@ const HomePage = () => {
                           placeholder="Product Name"
                         />
 
-                        <div>
+                        <div className="flex">
                           <button
-                            onClick={(e) =>
-                              handleAddQuickItemAdvantage(
+                            className="my-2 w-1/3 rounded bg-green-300 p-2 text-white"
+                            onClick={() =>
+                              handleAdd(
                                 contentIndex,
-                                quickListItemIndex,
+                                `value[${quickListItemIndex}].advantages`,
+                                "Test",
                               )
                             }
                           >
@@ -236,15 +216,22 @@ const HomePage = () => {
                             );
                           },
                         )}
-
-                        <p>{JSON.stringify(quickListItemValue)}</p>
                       </div>
                     );
                   },
                 )}
               </div>
 
-              <button onClick={(e) => handleAddQuickItem(contentIndex)}>
+              <button
+                className="my-2 w-1/2 rounded bg-green-400 p-2 text-white"
+                onClick={() =>
+                  handleAdd(contentIndex, `value`, {
+                    product_id: 0,
+                    advantages: [],
+                    disadvantages: [],
+                  })
+                }
+              >
                 + Add Quick Item
               </button>
             </>
@@ -257,7 +244,7 @@ const HomePage = () => {
                 type="text"
                 value={section.value?.name || ""}
                 onChange={(e) =>
-                  handleValueChange(contentIndex, "name", e.target.value)
+                  handleChange(contentIndex, "value.name", e.target.value)
                 }
                 className="w-full border p-2"
                 placeholder="Product Name"
@@ -268,7 +255,7 @@ const HomePage = () => {
                 type="text"
                 value={section.value?.asin || ""}
                 onChange={(e) =>
-                  handleValueChange(contentIndex, "asin", e.target.value)
+                  handleChange(contentIndex, "value.asin", e.target.value)
                 }
                 className="w-full border p-2"
                 placeholder="Product ASIN"
@@ -277,7 +264,7 @@ const HomePage = () => {
           )}
 
           <button
-            className="mt-2 rounded bg-red-500 p-2 text-white"
+            className="mt-2 w-full rounded bg-red-500 p-2 text-white"
             onClick={() => handleRemoveSection(contentIndex)}
           >
             Remove Section
@@ -300,6 +287,8 @@ const HomePage = () => {
           Output JSON
         </button>
       </div>
+
+      <div className="m-5">{JSON.stringify({ pageData, sections })}</div>
     </div>
   );
 };

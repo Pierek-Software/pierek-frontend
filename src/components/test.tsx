@@ -68,7 +68,6 @@ const ReviewGenerator = () => {
       disadvantages,
     };
     console.log(JSON.stringify(reviewData));
-    // You can use the reviewData as needed, for example, send it to an API or use it in your application.
   };
 
   return (

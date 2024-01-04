@@ -38,7 +38,7 @@ class ApiClient {
 
       return data;
     } catch (err) {
-      console.log(err);
+      return;
     }
   }
 
