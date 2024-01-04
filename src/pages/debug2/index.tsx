@@ -11,12 +11,29 @@ export type HandleChangeType = "section-quickLink-advantage";
 
 const HomePage = () => {
   const [pageData, setPageData] = useState({});
-  const [sections, setSections] = useState([]);
+  const [sections, setSections] = useState([
+    { type: "markdown", value: {} },
+    { type: "product_review", value: {} },
+  ]);
 
   const handlePageChange = (key, value) => {
     const updatedPageData = { ...pageData, [key]: value };
     setPageData(updatedPageData);
   };
+
+  function move(array, index, offset) {
+    const output = [...array];
+    const element = output.splice(index, 1)[0];
+    let updatedIndex = index + offset;
+    if (updatedIndex < 0) {
+      updatedIndex++;
+    } else if (updatedIndex >= array.length) {
+      updatedIndex -= array.length;
+    }
+    output.splice(updatedIndex, 0, element);
+    setSections(output);
+    return output;
+  }
 
   const handleAddSection = () => {
     const newSection = { type: "", value: {} };
@@ -26,10 +43,12 @@ const HomePage = () => {
   const handleTypeChange = (index, selectedType) => {
     const updatedSections = [...sections];
     updatedSections[index].type = selectedType;
+    updatedSections[index].value = {};
 
     if (selectedType === "quick_list") {
       updatedSections[index].value = [];
     }
+
     setSections(updatedSections);
   };
 
@@ -109,6 +128,21 @@ const HomePage = () => {
             />
           )}
 
+          <div className="mt-2 flex">
+            <button
+              className="mr-1 w-1/2 rounded bg-blue-500 p-2 text-white"
+              onClick={() => move(sections, contentIndex, -1)}
+            >
+              Move Up
+            </button>
+            <button
+              onClick={() => move(sections, contentIndex, 1)}
+              className="ml-1 w-1/2 rounded bg-blue-500 p-2 text-white"
+            >
+              Move Down
+            </button>
+          </div>
+
           <button
             className="mt-2 w-full rounded bg-red-500 p-2 text-white"
             onClick={() => handleRemoveSection(contentIndex)}
@@ -134,7 +168,7 @@ const HomePage = () => {
         </button>
       </div>
 
-      <div className="m-5">{JSON.stringify({ pageData, sections })}</div>
+      <div className="m-5">{JSON.stringify(sections)}</div>
     </div>
   );
 };

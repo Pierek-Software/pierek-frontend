@@ -1,7 +1,7 @@
 export function Opinions(props) {
   return (
     <div>
-      {props.quickListItemValue?.advantages?.map(
+      {props.opinionsObject?.advantages?.map(
         (
           advantage: string | number | readonly string[],
           advantageIndex: any,
@@ -11,11 +11,11 @@ export function Opinions(props) {
               type="text"
               value={advantage}
               className="my-3 w-full border-2 p-5"
-              key={`advantage-${advantageIndex}`}
+              key={`${props.keyPrefix}-${advantageIndex}`}
               onChange={(e) =>
                 props.handleChange(
                   props.contentIndex,
-                  `value[${props.quickListItemIndex}].advantages[${advantageIndex}]`,
+                  props.path + `advantages[${advantageIndex}]`,
                   e.target.value,
                 )
               }
@@ -26,17 +26,13 @@ export function Opinions(props) {
       <button
         className="my-2 w-full rounded bg-green-300 p-2 text-white"
         onClick={() =>
-          props.handleAdd(
-            props.contentIndex,
-            `value[${props.quickListItemIndex}].advantages`,
-            "Test",
-          )
+          props.handleAdd(props.contentIndex, props.path + `advantages`, "Test")
         }
       >
         + Add Advantage
       </button>
 
-      {props.quickListItemValue?.disadvantages?.map(
+      {props.opinionsObject?.disadvantages?.map(
         (
           disadvantage: string | number | readonly string[],
           advantageIndex: any,
@@ -46,11 +42,11 @@ export function Opinions(props) {
               type="text"
               value={disadvantage}
               className="my-3 w-full border-2 p-5"
-              key={`advantage-${advantageIndex}`}
+              key={`${props.keyPrefix}-${advantageIndex}`}
               onChange={(e) =>
                 props.handleChange(
                   props.contentIndex,
-                  `value[${props.quickListItemIndex}].disadvantages[${advantageIndex}]`,
+                  props.path + `disadvantages[${advantageIndex}]`,
                   e.target.value,
                 )
               }
@@ -63,7 +59,7 @@ export function Opinions(props) {
         onClick={() =>
           props.handleAdd(
             props.contentIndex,
-            `value[${props.quickListItemIndex}].disadvantages`,
+            props.path + `disadvantages`,
             "Test",
           )
         }

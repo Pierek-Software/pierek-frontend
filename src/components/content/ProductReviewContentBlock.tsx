@@ -1,4 +1,5 @@
 import ApiClient from "../../api";
+import Opinions from "./atomic/Opinions";
 
 const apiClient = new ApiClient();
 
@@ -8,49 +9,30 @@ function ProductReviewContentBlock(props) {
       <label className="mb-2 block">Product ID</label>
       <input
         type="text"
-        value={props.sections[props.contentIndex].product_id || ""}
+        value={props.sections[props.contentIndex].value.product_id || ""}
         onChange={async (e) => {
-          props.handleChange(props.contentIndex, `product_id`, e.target.value);
+          props.handleChange(
+            props.contentIndex,
+            `value.product_id`,
+            e.target.value,
+          );
 
           const api = await apiClient.getProductById(+e.target.value);
 
-          props.handleChange(props.contentIndex, `product`, api);
+          props.handleChange(props.contentIndex, `value.product`, api);
         }}
         className="w-full border p-2"
         placeholder="Product Name"
       />
 
-      {props.sections[props.contentIndex].advantages?.map(
-        (
-          advantage: string | number | readonly string[],
-          advantageIndex: any,
-        ) => {
-          return (
-            <input
-              type="text"
-              value={advantage}
-              className="bg-red-500"
-              key={`advantage-${advantageIndex}`}
-              onChange={(e) =>
-                props.handleChange(
-                  props.contentIndex,
-                  `advantages[${advantageIndex}]`,
-                  e.target.value,
-                )
-              }
-            />
-          );
-        },
-      )}
-
-      <button
-        className="my-2 w-1/3 rounded bg-green-300 p-2 text-white"
-        onClick={() =>
-          props.handleAdd(props.contentIndex, `advantages`, "Test")
-        }
-      >
-        + Add Advantage
-      </button>
+      <Opinions
+        path={`value.`}
+        handleAdd={props.handleAdd}
+        handleChange={props.handleChange}
+        contentIndex={props.contentIndex}
+        opinionsObject={props.sections[props.contentIndex].value}
+        keyPrefix={`key-quick-list-${props.contentIndex}`}
+      />
     </div>
   );
 }

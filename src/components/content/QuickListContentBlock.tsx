@@ -58,11 +58,12 @@ function QuickListContentBlock(props) {
                 />
 
                 <Opinions
+                  path={`value[${quickListItemIndex}].`}
                   handleAdd={props.handleAdd}
                   handleChange={props.handleChange}
                   contentIndex={props.contentIndex}
-                  quickListItemValue={quickListItemValue}
-                  quickListItemIndex={quickListItemIndex}
+                  opinionsObject={quickListItemValue}
+                  keyPrefix={`key-quick-list-${quickListItemIndex}`}
                 />
               </div>
             );
