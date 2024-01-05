@@ -34,6 +34,7 @@ function QuickListContentBlock(props) {
                     Delete Quick List
                   </button>
                 </div>
+
                 <label className="mb-2 block">Product ID</label>
                 <input
                   type="text"

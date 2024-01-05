@@ -1,30 +1,10 @@
-import ApiClient from "../../api";
+import GetProductInput from "./atomic/GetProductInput";
 import Opinions from "./atomic/Opinions";
-
-const apiClient = new ApiClient();
 
 function ProductReviewContentBlock(props) {
   return (
     <div className="mt-4">
-      <label className="mb-2 block">Product ID</label>
-      <input
-        type="text"
-        value={props.sections[props.contentIndex].value.product_id || ""}
-        onChange={async (e) => {
-          props.handleChange(
-            props.contentIndex,
-            `value.product_id`,
-            e.target.value,
-          );
-
-          const api = await apiClient.getProductById(+e.target.value);
-
-          props.handleChange(props.contentIndex, `value.product`, api);
-        }}
-        className="w-full border p-2"
-        placeholder="Product Name"
-      />
-
+      <GetProductInput {...props} />
       <Opinions
         path={`value.`}
         handleAdd={props.handleAdd}

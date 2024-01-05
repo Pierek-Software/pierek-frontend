@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import set from "lodash.set";
 import get from "lodash.get";
 import QuickListContentBlock from "../../components/content/QuickListContentBlock";
@@ -11,15 +11,31 @@ export type HandleChangeType = "section-quickLink-advantage";
 
 const HomePage = () => {
   const [pageData, setPageData] = useState({});
-  const [sections, setSections] = useState([
-    { type: "markdown", value: {} },
-    { type: "product_review", value: {} },
-  ]);
+  const [sections, setSections] = useState([]);
 
   const handlePageChange = (key, value) => {
     const updatedPageData = { ...pageData, [key]: value };
     setPageData(updatedPageData);
   };
+
+  useEffect(() => {
+    // Save to localStorage
+    if (sections[0]) {
+      localStorage.setItem("sections", JSON.stringify(sections));
+    }
+
+    if (pageData.title) {
+      localStorage.setItem("pageData", JSON.stringify(pageData));
+    }
+  }, [sections, pageData]);
+
+  useEffect(() => {
+    const savedPageData = JSON.parse(localStorage.getItem("pageData"));
+    const savedSections = JSON.parse(localStorage.getItem("sections"));
+
+    setSections(savedSections);
+    setPageData(savedPageData);
+  }, []);
 
   function move(array, index, offset) {
     const output = [...array];
@@ -47,6 +63,10 @@ const HomePage = () => {
 
     if (selectedType === "quick_list") {
       updatedSections[index].value = [];
+    }
+
+    if (selectedType === "markdown") {
+      updatedSections[index].value = "";
     }
 
     setSections(updatedSections);
@@ -109,6 +129,16 @@ const HomePage = () => {
             ))}
           </select>
 
+          {section.type === "markdown" && (
+            <textarea
+              value={section.value}
+              onChange={(e) =>
+                handleChange(contentIndex, "value", e.target.value)
+              }
+              className="my-5 w-full border-2 p-5"
+            />
+          )}
+
           {section.type === "quick_list" && (
             <QuickListContentBlock
               section={section}
@@ -125,6 +155,7 @@ const HomePage = () => {
               contentIndex={contentIndex}
               handleAdd={handleAdd}
               handleChange={handleChange}
+              valuePath={sections[contentIndex].value}
             />
           )}
 
@@ -168,7 +199,7 @@ const HomePage = () => {
         </button>
       </div>
 
-      <div className="m-5">{JSON.stringify(sections)}</div>
+      <div className="m-5">{JSON.stringify({ ...pageData, sections })}</div>
     </div>
   );
 };
