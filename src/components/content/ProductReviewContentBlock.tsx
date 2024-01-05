@@ -2,17 +2,18 @@ import GetProductInput from "./atomic/GetProductInput";
 import Opinions from "./atomic/Opinions";
 
 function ProductReviewContentBlock(props) {
-  console.log("PRODUCT REVIEW CONTENT BLOCK", props);
   return (
     <div className="mt-4">
-      <GetProductInput {...props} />
+      <GetProductInput
+        rootPath={`contentBlocks[${props.contentBlockIndex}].value`}
+        handleGetGeneric={props.handleGetGeneric}
+        handleChangeGeneric={props.handleChangeGeneric}
+      />
       <Opinions
-        path={`value.`}
-        handleAdd={props.handleAdd}
-        handleChange={props.handleChange}
-        contentIndex={props.contentIndex}
-        opinionsObject={props.sections[props.contentIndex].value}
-        keyPrefix={`key-quick-list-${props.contentIndex}`}
+        rootPath={`contentBlocks[${props.contentBlockIndex}].value`}
+        handleGetGeneric={props.handleGetGeneric}
+        handleChangeGeneric={props.handleChangeGeneric}
+        handleAddGeneric={props.handleAddGeneric}
       />
     </div>
   );

@@ -9,6 +9,10 @@ const SectionTypes = ["markdown", "product_review", "quick_list"];
 
 export type HandleChangeType = "section-quickLink-advantage";
 
+export type THandleChangeGeneric = (path: string, value: any) => void;
+export type THandleGetGeneric = (path: string) => any;
+export type THandleAddGeneric = (path: string, value: any) => any;
+
 const HomePage = () => {
   const [page, setPage] = useState({
     title: "",
@@ -22,24 +26,16 @@ const HomePage = () => {
   };
 
   useEffect(() => {
-    // Save to localStorage
-    if (page.contentBlocks) {
-      localStorage.setItem("contentBlocks", JSON.stringify(page.contentBlocks));
-    }
-
-    if (page.title) {
+    if (page && page.title) {
       localStorage.setItem("page", JSON.stringify(page));
     }
-  }, [page.contentBlocks, page.title]);
+  }, [page]);
 
   useEffect(() => {
     const savedPage = JSON.parse(localStorage.getItem("page"));
-    const savedContentBlocks = JSON.parse(
-      localStorage.getItem("contentBlocks"),
-    );
-
-    setPage(savedPage || page);
-    setPage({ ...page, contentBlocks: savedContentBlocks });
+    if (savedPage) {
+      setPage(savedPage);
+    }
   }, []);
 
   function move(array, index, offset) {
@@ -83,19 +79,28 @@ const HomePage = () => {
     setPage({ ...page, contentBlocks: updatedContentBlocks });
   };
 
-  const handleChange = (contentIndex, path, value) => {
-    const updatedContentBlocks = [...page.contentBlocks];
-    set(updatedContentBlocks[contentIndex], path, value);
-    setPage({ ...page, contentBlocks: updatedContentBlocks });
+  const handleAddGeneric = (path: string, value: any) => {
+    const updatedPage = { ...page };
+
+    let originalValue = get(page, path);
+    if (!originalValue) {
+      originalValue = [];
+    }
+
+    set(page, path, [...originalValue, value]);
+
+    setPage(updatedPage);
   };
 
-  const handleChangeGeneric = (path, value) => {
-    console.log("PATH", path);
-    console.log("VALUE", value);
+  const handleChangeGeneric = (path: string, value: any): void => {
     const updatedPage = { ...page };
     set(updatedPage, path, value);
-    console.log(updatedPage);
     setPage(updatedPage);
+  };
+
+  const handleGetGeneric = (path: string) => {
+    const value = get(page, path);
+    return value;
   };
 
   const handleRemoveQuickList = (contentIndex, quickListIndex) => {
@@ -125,12 +130,14 @@ const HomePage = () => {
     <div className="p-4">
       <h1 className="mb-4 text-3xl font-bold">Page Builder</h1>
       <Page handlePageChange={handlePageChange} pageData={page} />
-      {page.contentBlocks?.map((section, contentIndex) => (
-        <div key={contentIndex} className="my-4 border-2 p-5">
+      {page?.contentBlocks?.map((contentBlock, contentBlockIndex) => (
+        <div key={contentBlockIndex} className="my-4 border-2 p-5">
           <label className="my-2 block">Section Type</label>
           <select
-            value={section.type}
-            onChange={(e) => handleTypeChange(contentIndex, e.target.value)}
+            value={contentBlock.type}
+            onChange={(e) =>
+              handleTypeChange(contentBlockIndex, e.target.value)
+            }
             className="w-full border p-2"
           >
             <option value="" disabled>
@@ -143,12 +150,12 @@ const HomePage = () => {
             ))}
           </select>
 
-          {section.type === "markdown" && (
+          {contentBlock.type === "markdown" && (
             <textarea
-              value={section.value}
+              value={contentBlock.value}
               onChange={(e) =>
                 handleChangeGeneric(
-                  `contentBlocks[${contentIndex}].value`,
+                  `contentBlocks[${contentBlockIndex}].value`,
                   e.target.value,
                 )
               }
@@ -156,38 +163,36 @@ const HomePage = () => {
             />
           )}
 
-          {section.type === "quick_list" && (
+          {contentBlock.type === "quick_list" && (
             <QuickListContentBlock
-              section={section}
+              contentBlock={contentBlock}
               handleRemoveQuickList={handleRemoveQuickList}
               handleAdd={handleAdd}
-              contentIndex={contentIndex}
-              handleChange={handleChange}
+              contentIndex={contentBlockIndex}
+              handleGetGeneric={handleGetGeneric}
+              handleChangeGeneric={handleChangeGeneric}
+              handleAddGeneric={handleAddGeneric}
             />
           )}
 
-          {section.type === "product_review" && (
+          {contentBlock.type === "product_review" && (
             <ProductReviewContentBlock
-              sections={page.contentBlocks}
-              contentBlocks={page.contentBlocks}
-              contentBlock={page.contentBlocks[contentIndex]}
-              contentBlockIndex={contentIndex}
-              contentIndex={contentIndex}
-              handleAdd={handleAdd}
-              handleChange={handleChange}
-              valuePath={page.contentBlocks[contentIndex].value}
+              contentBlockIndex={contentBlockIndex}
+              handleAddGeneric={handleAddGeneric}
+              handleChangeGeneric={handleChangeGeneric}
+              handleGetGeneric={handleGetGeneric}
             />
           )}
 
           <div className="mt-2 flex">
             <button
               className="mr-1 w-1/2 rounded bg-blue-500 p-2 text-white"
-              onClick={() => move(page.contentBlocks, contentIndex, -1)}
+              onClick={() => move(page.contentBlocks, contentBlockIndex, -1)}
             >
               Move Up
             </button>
             <button
-              onClick={() => move(page.contentBlocks, contentIndex, 1)}
+              onClick={() => move(page.contentBlocks, contentBlockIndex, 1)}
               className="ml-1 w-1/2 rounded bg-blue-500 p-2 text-white"
             >
               Move Down
@@ -196,7 +201,7 @@ const HomePage = () => {
 
           <button
             className="mt-2 w-full rounded bg-red-500 p-2 text-white"
-            onClick={() => handleRemoveSection(contentIndex)}
+            onClick={() => handleRemoveSection(contentBlockIndex)}
           >
             Remove Section
           </button>
@@ -210,15 +215,13 @@ const HomePage = () => {
         + Add Section
       </button>
 
-      <div className="mt-4">
-        <button
-          className="rounded bg-blue-500 p-2 text-white"
-          onClick={handleOutputJson}
-        >
-          Output JSON
-        </button>
-      </div>
-
+      <button
+        onClick={() => {
+          localStorage.clear();
+        }}
+      >
+        Clear Cache
+      </button>
       <div className="m-5">{JSON.stringify(page)}</div>
     </div>
   );

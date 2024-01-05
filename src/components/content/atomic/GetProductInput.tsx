@@ -1,38 +1,41 @@
 import ApiClient from "../../../api";
+import { THandleChangeGeneric, THandleGetGeneric } from "../../../pages/debug2";
 
-function GetProductInput(props) {
+export interface IGetProductInputProps {
+  handleGetGeneric: THandleGetGeneric;
+  handleChangeGeneric: THandleChangeGeneric;
+  rootPath: string;
+}
+
+function GetProductInput(props: IGetProductInputProps) {
   console.log("GET PRODUCT INPUT", props);
   const apiClient = new ApiClient();
 
   return (
-    <div className="flex content-center items-center">
-      <div className="w-full">
-        <label className="mb-2 block">Product ID</label>
-        <input
-          type="text"
-          value={props.valuePath.product_id || ""}
-          onChange={async (e) => {
-            props.handleChange(
-              props.contentIndex,
-              `value.product_id`,
-              e.target.value,
-            );
+    <div className="">
+      <label className="mb-2 block">Product ID</label>
+      <input
+        type="text"
+        value={props.handleGetGeneric(`${props.rootPath}.product_id`)}
+        onChange={async (e) => {
+          props.handleChangeGeneric(
+            `${props.rootPath}.product_id`,
+            e.target.value,
+          );
 
-            const api = await apiClient.getProductById(+e.target.value);
+          const api = await apiClient.getProductById(+e.target.value);
 
-            props.handleChange(
-              props.contentIndex,
-              `value.product`,
-              api ? true : false,
-            );
-          }}
-          className="w-full border p-2"
-          placeholder="Product Name"
-        />
-      </div>
-      <div>
-        <p>{props.valuePath.product ? "OK" : "NOT OK"}</p>
-      </div>
+          props.handleChangeGeneric(
+            `${props.rootPath}.product`,
+            api && e.target.value !== "" ? true : false,
+          );
+        }}
+        className="w-full border p-2"
+        placeholder="Product Name"
+      />
+      <p>
+        {props.handleGetGeneric(`${props.rootPath}.product`) ? "OK" : "NOT OK"}
+      </p>
     </div>
   );
 }
