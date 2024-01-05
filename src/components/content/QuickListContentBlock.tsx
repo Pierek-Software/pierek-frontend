@@ -31,6 +31,20 @@ function QuickListContentBlock(props) {
                 rootPath={`contentBlocks[${props.contentIndex}].value[${quickListItemIndex}]`}
               />
 
+              <label className="my-5">Description</label>
+              <textarea
+                value={props.handleGetGeneric(
+                  `contentBlocks[${props.contentIndex}].value[${quickListItemIndex}].description`,
+                )}
+                onChange={(e) =>
+                  props.handleChangeGeneric(
+                    `contentBlocks[${props.contentIndex}].value[${quickListItemIndex}].description`,
+                    e.target.value,
+                  )
+                }
+                className="h-40 w-full border-2"
+              />
+
               <Opinions
                 handleAddGeneric={props.handleAddGeneric}
                 handleChangeGeneric={props.handleChangeGeneric}

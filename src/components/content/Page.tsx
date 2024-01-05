@@ -31,6 +31,15 @@ function Page(props) {
         />
       </div>
       <div>
+        <label className="mb-2 block">Author ID</label>
+        <input
+          value={props.pageData.author_id || ""}
+          onChange={(e) => props.handlePageChange("author_id", e.target.value)}
+          className="w-full border p-2"
+          type="text"
+        />
+      </div>
+      <div>
         <label className="mb-2 block">Created At</label>
         <input
           value={props.pageData.created_at || ""}

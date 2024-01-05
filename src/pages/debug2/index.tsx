@@ -122,10 +122,6 @@ const HomePage = () => {
     setPage({ ...page, contentBlocks: updatedContentBlocks });
   };
 
-  const handleOutputJson = () => {
-    // console.log(JSON.stringify({ ...page, sections: contentBlocks }, null, 2));
-  };
-
   return (
     <div className="p-4">
       <h1 className="mb-4 text-3xl font-bold">Page Builder</h1>
