@@ -10,31 +10,36 @@ const SectionTypes = ["markdown", "product_review", "quick_list"];
 export type HandleChangeType = "section-quickLink-advantage";
 
 const HomePage = () => {
-  const [pageData, setPageData] = useState({});
-  const [sections, setSections] = useState([]);
+  const [page, setPage] = useState({
+    title: "",
+    description: "",
+    contentBlocks: [],
+  });
 
   const handlePageChange = (key, value) => {
-    const updatedPageData = { ...pageData, [key]: value };
-    setPageData(updatedPageData);
+    const updatedPage = { ...page, [key]: value };
+    setPage(updatedPage);
   };
 
   useEffect(() => {
     // Save to localStorage
-    if (sections[0]) {
-      localStorage.setItem("sections", JSON.stringify(sections));
+    if (page.contentBlocks) {
+      localStorage.setItem("contentBlocks", JSON.stringify(page.contentBlocks));
     }
 
-    if (pageData.title) {
-      localStorage.setItem("pageData", JSON.stringify(pageData));
+    if (page.title) {
+      localStorage.setItem("page", JSON.stringify(page));
     }
-  }, [sections, pageData]);
+  }, [page.contentBlocks, page.title]);
 
   useEffect(() => {
-    const savedPageData = JSON.parse(localStorage.getItem("pageData"));
-    const savedSections = JSON.parse(localStorage.getItem("sections"));
+    const savedPage = JSON.parse(localStorage.getItem("page"));
+    const savedContentBlocks = JSON.parse(
+      localStorage.getItem("contentBlocks"),
+    );
 
-    setSections(savedSections);
-    setPageData(savedPageData);
+    setPage(savedPage || page);
+    setPage({ ...page, contentBlocks: savedContentBlocks });
   }, []);
 
   function move(array, index, offset) {
@@ -47,71 +52,80 @@ const HomePage = () => {
       updatedIndex -= array.length;
     }
     output.splice(updatedIndex, 0, element);
-    setSections(output);
+    setPage({ ...page, contentBlocks: output });
     return output;
   }
 
   const handleAddSection = () => {
     const newSection = { type: "", value: {} };
-    setSections([...sections, newSection]);
+    setPage({ ...page, contentBlocks: [...page.contentBlocks, newSection] });
   };
 
   const handleTypeChange = (index, selectedType) => {
-    const updatedSections = [...sections];
-    updatedSections[index].type = selectedType;
-    updatedSections[index].value = {};
+    const updatedContentBlocks = [...page.contentBlocks];
+    updatedContentBlocks[index].type = selectedType;
+    updatedContentBlocks[index].value = {};
 
     if (selectedType === "quick_list") {
-      updatedSections[index].value = [];
+      updatedContentBlocks[index].value = [];
     }
 
     if (selectedType === "markdown") {
-      updatedSections[index].value = "";
+      updatedContentBlocks[index].value = "";
     }
 
-    setSections(updatedSections);
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
   };
 
   const handleRemoveSection = (index) => {
-    const updatedSections = [...sections];
-    updatedSections.splice(index, 1);
-    setSections(updatedSections);
+    const updatedContentBlocks = [...page.contentBlocks];
+    updatedContentBlocks.splice(index, 1);
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
   };
 
   const handleChange = (contentIndex, path, value) => {
-    const updatedSections = [...sections];
-    set(updatedSections[contentIndex], path, value);
-    setSections(updatedSections);
+    const updatedContentBlocks = [...page.contentBlocks];
+    set(updatedContentBlocks[contentIndex], path, value);
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
+  };
+
+  const handleChangeGeneric = (path, value) => {
+    console.log("PATH", path);
+    console.log("VALUE", value);
+    const updatedPage = { ...page };
+    set(updatedPage, path, value);
+    console.log(updatedPage);
+    setPage(updatedPage);
   };
 
   const handleRemoveQuickList = (contentIndex, quickListIndex) => {
-    const updatedSections = [...sections];
-    updatedSections[contentIndex].value.splice(quickListIndex, 1);
-    setSections(updatedSections);
+    const updatedContentBlocks = [...page.contentBlocks];
+    updatedContentBlocks[contentIndex].value.splice(quickListIndex, 1);
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
   };
 
   const handleAdd = (contentIndex, path, value) => {
-    const updatedSections = [...sections];
+    const updatedContentBlocks = [...page.contentBlocks];
 
-    let originalValue = get(updatedSections[contentIndex], path);
+    let originalValue = get(updatedContentBlocks[contentIndex], path);
     if (!originalValue) {
       originalValue = [];
     }
 
-    set(updatedSections[contentIndex], path, [...originalValue, value]);
+    set(updatedContentBlocks[contentIndex], path, [...originalValue, value]);
 
-    setSections(updatedSections);
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
   };
 
   const handleOutputJson = () => {
-    // console.log(JSON.stringify({ ...pageData, sections }, null, 2));
+    // console.log(JSON.stringify({ ...page, sections: contentBlocks }, null, 2));
   };
 
   return (
     <div className="p-4">
       <h1 className="mb-4 text-3xl font-bold">Page Builder</h1>
-      <Page handlePageChange={handlePageChange} pageData={pageData} />
-      {sections.map((section, contentIndex) => (
+      <Page handlePageChange={handlePageChange} pageData={page} />
+      {page.contentBlocks?.map((section, contentIndex) => (
         <div key={contentIndex} className="my-4 border-2 p-5">
           <label className="my-2 block">Section Type</label>
           <select
@@ -133,7 +147,10 @@ const HomePage = () => {
             <textarea
               value={section.value}
               onChange={(e) =>
-                handleChange(contentIndex, "value", e.target.value)
+                handleChangeGeneric(
+                  `contentBlocks[${contentIndex}].value`,
+                  e.target.value,
+                )
               }
               className="my-5 w-full border-2 p-5"
             />
@@ -151,23 +168,26 @@ const HomePage = () => {
 
           {section.type === "product_review" && (
             <ProductReviewContentBlock
-              sections={sections}
+              sections={page.contentBlocks}
+              contentBlocks={page.contentBlocks}
+              contentBlock={page.contentBlocks[contentIndex]}
+              contentBlockIndex={contentIndex}
               contentIndex={contentIndex}
               handleAdd={handleAdd}
               handleChange={handleChange}
-              valuePath={sections[contentIndex].value}
+              valuePath={page.contentBlocks[contentIndex].value}
             />
           )}
 
           <div className="mt-2 flex">
             <button
               className="mr-1 w-1/2 rounded bg-blue-500 p-2 text-white"
-              onClick={() => move(sections, contentIndex, -1)}
+              onClick={() => move(page.contentBlocks, contentIndex, -1)}
             >
               Move Up
             </button>
             <button
-              onClick={() => move(sections, contentIndex, 1)}
+              onClick={() => move(page.contentBlocks, contentIndex, 1)}
               className="ml-1 w-1/2 rounded bg-blue-500 p-2 text-white"
             >
               Move Down
@@ -199,7 +219,7 @@ const HomePage = () => {
         </button>
       </div>
 
-      <div className="m-5">{JSON.stringify({ ...pageData, sections })}</div>
+      <div className="m-5">{JSON.stringify(page)}</div>
     </div>
   );
 };

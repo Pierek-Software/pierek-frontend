@@ -1,6 +1,7 @@
 import ApiClient from "../../../api";
 
 function GetProductInput(props) {
+  console.log("GET PRODUCT INPUT", props);
   const apiClient = new ApiClient();
 
   return (

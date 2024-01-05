@@ -2,6 +2,7 @@ import GetProductInput from "./atomic/GetProductInput";
 import Opinions from "./atomic/Opinions";
 
 function ProductReviewContentBlock(props) {
+  console.log("PRODUCT REVIEW CONTENT BLOCK", props);
   return (
     <div className="mt-4">
       <GetProductInput {...props} />
