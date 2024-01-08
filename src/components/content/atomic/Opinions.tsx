@@ -4,7 +4,7 @@ import {
   THandleAddGeneric,
   THandleMoveGeneric,
   THandleRemove,
-} from "../../../pages/debug";
+} from "../../../pages/admin/newPage";
 
 export interface IOpinionsProps {
   handleGetGeneric: THandleGetGeneric;

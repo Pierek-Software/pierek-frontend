@@ -15,7 +15,7 @@ function Product({
   brand,
   id,
 }) {
-  const title = `${brand.name} ${product.name}`;
+  const title = `${product.brand.name} ${product.name}`;
 
   return (
     <div className="space-y-5 rounded-md">
@@ -97,13 +97,13 @@ export const QuickList = ({ content }) => {
   );
 };
 
-const QuickListSection = ({ id, content, name = "Quick List" }) => {
+const QuickListSection = (props) => {
   return (
     <div>
       <div className="my-5">
-        <Header level={2}>{name}</Header>
+        <Header level={2}>{props.name || "Quick List"}</Header>
       </div>
-      <QuickList content={content} />
+      <QuickList content={props.value} />
     </div>
   );
 };

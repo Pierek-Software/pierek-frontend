@@ -33,7 +33,7 @@ export const Header = ({
 
   const BasicHeader = (
     <Tag
-      id={slugify(children as string)}
+      id={linkable ? slugify(children as string) : ""}
       className={`${headerTagToSize[Tag]} font-medium leading-normal`}
     >
       {children}

@@ -7,7 +7,7 @@ import { DetailedOpinions } from "./DetailedOpinion";
 export function ProductReview({
   caption,
   product,
-  reviewParsed,
+  markdown,
   advantages,
   disadvantages,
 }) {
@@ -60,7 +60,7 @@ export function ProductReview({
           disadvantages={disadvantages}
         />
       </div>
-      <MDXRemote components={MarkdownComponents} {...reviewParsed} />
+      <MDXRemote components={MarkdownComponents} {...markdown} />
     </section>
   );
 }

@@ -61,7 +61,7 @@ export default function RemoteMdxPage({ page }) {
             case "quick_list":
               return (
                 <div key={index}>
-                  <QuickListSection {...contentBlock.value} />
+                  <QuickListSection {...contentBlock} />
                 </div>
               );
 
@@ -88,15 +88,27 @@ export const getStaticPaths = (async () => {
           slug: "best-gaming-laptops",
         },
       },
+      {
+        params: {
+          slug: "test-slug",
+        },
+      },
+      {
+        params: {
+          slug: "slug-test-3",
+        },
+      },
     ],
     fallback: false, // false or "blocking"
   };
 }) satisfies GetStaticPaths;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const apiClient = new ApiClient();
 
-  const page = await apiClient.getPage("best-gaming-laptops");
+  const page = await apiClient.getPage(context.params.slug);
+
+  console.log("page", page);
 
   const promises = page.content.map(async (contentBlock) => {
     if (contentBlock.type === "markdown") {
@@ -107,11 +119,12 @@ export const getStaticProps: GetStaticProps = async () => {
     }
 
     if (contentBlock.type === "product_review") {
+      console.log(contentBlock);
       return {
         ...contentBlock,
         value: {
           ...contentBlock.value,
-          reviewParsed: await serialize(contentBlock.value.review),
+          markdown: await serialize(contentBlock.value.markdown),
           title: `${contentBlock.value.brand} ${contentBlock.value.model}`,
         },
       };

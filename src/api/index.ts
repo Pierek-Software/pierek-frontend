@@ -22,6 +22,20 @@ class ApiClient {
     return data;
   }
 
+  async createPage(body: any) {
+    const url = this.baseUrl + "/pages";
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+
+    return data;
+  }
+
   async getPage(slug: string) {
     const url = this.baseUrl + "/pages" + "/" + slug;
     const response = await fetch(url);

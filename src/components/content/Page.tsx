@@ -1,7 +1,7 @@
 import {
   THandleChangeGeneric,
   THandleGetGeneric,
-} from "../../pages/debug/index";
+} from "../../pages/admin/newPage/index";
 
 export interface IPageProps {
   handleChangeGeneric: THandleChangeGeneric;
@@ -11,6 +11,15 @@ export interface IPageProps {
 function Page(props: IPageProps) {
   return (
     <div>
+      <div>
+        <label className="mb-2 block">ID</label>
+        <input
+          value={props.handleGetGeneric("id") || ""}
+          onChange={(e) => props.handleChangeGeneric("id", e.target.value)}
+          className="w-full border p-2"
+          type="text"
+        />
+      </div>
       <div>
         <label className="mb-2 block">Title</label>
         <input

@@ -1,5 +1,8 @@
 import ApiClient from "../../../api";
-import { THandleChangeGeneric, THandleGetGeneric } from "../../../pages/debug";
+import {
+  THandleChangeGeneric,
+  THandleGetGeneric,
+} from "../../../pages/admin/newPage";
 
 export interface IGetProductInputProps {
   handleGetGeneric: THandleGetGeneric;

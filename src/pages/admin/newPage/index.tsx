@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import set from "lodash.set";
 import get from "lodash.get";
-import QuickListContentBlock from "../../components/content/QuickListContentBlock";
-import ProductReviewContentBlock from "../../components/content/ProductReviewContentBlock";
-import Page from "../../components/content/Page";
+import QuickListContentBlock from "../../../components/content/QuickListContentBlock";
+import ProductReviewContentBlock from "../../../components/content/ProductReviewContentBlock";
+import Page from "../../../components/content/Page";
+import ApiClient from "../../../api";
 
 const SectionTypes = ["markdown", "product_review", "quick_list"];
 
@@ -21,6 +22,7 @@ export type THandleMoveGeneric = (
 
 const HomePage = () => {
   const [page, setPage] = useState({
+    id: "0",
     title: "",
     description: "",
     contentBlocks: [],
@@ -250,6 +252,16 @@ const HomePage = () => {
         }}
       >
         Clear Cache
+      </button>
+
+      <button
+        onClick={() => {
+          const apiClient = new ApiClient();
+          console.log(page);
+          apiClient.createPage(page);
+        }}
+      >
+        Save
       </button>
       <div className="m-5">{JSON.stringify(page)}</div>
     </div>
