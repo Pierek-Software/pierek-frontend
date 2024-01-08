@@ -1,9 +1,17 @@
-import { THandleGetGeneric, THandleChangeGeneric } from "../../../pages/debug2";
+import {
+  THandleGetGeneric,
+  THandleChangeGeneric,
+  THandleAddGeneric,
+  THandleMoveGeneric,
+  THandleRemove,
+} from "../../../pages/debug";
 
 export interface IOpinionsProps {
   handleGetGeneric: THandleGetGeneric;
   handleChangeGeneric: THandleChangeGeneric;
-  handleAddGeneric: any;
+  handleAddGeneric: THandleAddGeneric;
+  handleMoveGeneric: THandleMoveGeneric;
+  handleRemoveGeneric: THandleRemove;
   rootPath: string;
 }
 
@@ -14,20 +22,61 @@ export function Opinions(props: IOpinionsProps) {
         .handleGetGeneric(props.rootPath)
         .advantages?.map((_, advantageIndex) => {
           return (
-            <input
-              type="text"
-              value={props.handleGetGeneric(
-                props.rootPath + `.advantages[${advantageIndex}]`,
-              )}
-              className="my-3 w-full border-2 p-5"
+            <div
+              className="flex items-center justify-center space-x-4"
               key={`${props.rootPath}-advantages-${advantageIndex}`}
-              onChange={(e) => {
-                props.handleChangeGeneric(
+            >
+              <input
+                type="text"
+                value={props.handleGetGeneric(
                   props.rootPath + `.advantages[${advantageIndex}]`,
-                  e.target.value,
-                );
-              }}
-            />
+                )}
+                className="my-3 w-full border-2 p-5"
+                onChange={(e) => {
+                  props.handleChangeGeneric(
+                    props.rootPath + `.advantages[${advantageIndex}]`,
+                    e.target.value,
+                  );
+                }}
+              />
+              <div className="flex items-center justify-between space-x-3">
+                <button
+                  onClick={(e) =>
+                    props.handleMoveGeneric(
+                      props.rootPath + `.advantages`,
+                      advantageIndex,
+                      -1,
+                    )
+                  }
+                  className="h-8 w-8 rounded-full bg-slate-200"
+                >
+                  ⬆️
+                </button>
+                <button
+                  onClick={(e) =>
+                    props.handleMoveGeneric(
+                      props.rootPath + `.advantages`,
+                      advantageIndex,
+                      1,
+                    )
+                  }
+                  className="h-8 w-8 rounded-full bg-slate-200"
+                >
+                  ⬇️
+                </button>
+                <button
+                  onClick={(e) =>
+                    props.handleRemoveGeneric(
+                      props.rootPath + `.advantages`,
+                      advantageIndex,
+                    )
+                  }
+                  className="h-8 w-8 rounded-full bg-slate-200"
+                >
+                  ❌
+                </button>
+              </div>
+            </div>
           );
         })}
       <button

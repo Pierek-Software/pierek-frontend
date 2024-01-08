@@ -35,14 +35,17 @@ const TwitterTags = (props: {
 };
 
 const HeadComponent = (props: HeadComponentProps) => {
-  const title = `${props.title} | pierek.com`;
+  const title = `${props.title} | YourNextLaptop.com`;
   return (
     <Head>
       <title>{title}</title>
       <meta name="description" content={props.description} />
       <meta name="keywords" content={props?.keywords?.toString() || ""} />
-      <meta name="author" content={props?.author ? props.author : "Pierek"} />
-      <meta name="publisher" content="Pierek" />
+      <meta
+        name="author"
+        content={props?.author ? props.author : "YourNextLaptop.com"}
+      />
+      <meta name="publisher" content="YourNextLaptop" />
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={props.description} />

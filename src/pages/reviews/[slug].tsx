@@ -1,15 +1,14 @@
-import Navbar from "../components/templates/Navbar";
-import Footer from "../components/templates/Footer";
+import Navbar from "../../components/templates/Navbar";
+import Footer from "../../components/templates/Footer";
 
 import { GetStaticPaths, GetStaticProps } from "next";
 import { serialize } from "next-mdx-remote/serialize";
-import MarkdownComponents from "../mappers/MarkdownComponents";
+import MarkdownComponents from "../../mappers/MarkdownComponents";
 import { MDXRemote } from "next-mdx-remote";
-import Dictionary from "../components/atom/Dictionary";
-import { ProductReview } from "../components/review-content/ProductReview";
-import QuickListSection from "../components/QuickList";
-import ApiClient from "../api";
-import ReviewGenerator from "../components/test";
+import Dictionary from "../../components/atom/Dictionary";
+import { ProductReview } from "../../components/review-content/ProductReview";
+import QuickListSection from "../../components/QuickList";
+import ApiClient from "../../api";
 
 export default function RemoteMdxPage({ page }) {
   return (

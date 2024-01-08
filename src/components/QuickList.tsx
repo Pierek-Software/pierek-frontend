@@ -81,10 +81,10 @@ function Product({
   );
 }
 
-const QuickList = ({ content }) => {
+export const QuickList = ({ content }) => {
   return (
     <>
-      <div className="flex flex-col justify-between text-center md:space-x-8 lg:flex-row">
+      <div className="flex flex-col text-center md:space-x-8 lg:flex-row">
         {content.map((quickListItem, index) => {
           return (
             <div key={index}>
@@ -97,11 +97,11 @@ const QuickList = ({ content }) => {
   );
 };
 
-const QuickListSection = ({ id, content }) => {
+const QuickListSection = ({ id, content, name = "Quick List" }) => {
   return (
     <div>
       <div className="my-5">
-        <Header level={2}>Quick List</Header>
+        <Header level={2}>{name}</Header>
       </div>
       <QuickList content={content} />
     </div>

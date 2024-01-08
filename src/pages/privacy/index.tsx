@@ -125,11 +125,11 @@ export default function Page() {
             <p>
               <strong>Website</strong> refers to Pierek, accessible from{" "}
               <a
-                href="https://www.pierek.com/"
+                href="https://www.yournextlaptop.com/"
                 rel="external nofollow noopener"
                 target="_blank"
               >
-                https://www.pierek.com/
+                https://www.yournextlaptop.com/
               </a>
             </p>
           </li>
@@ -566,7 +566,7 @@ export default function Page() {
           us:
         </p>
         <ul>
-          <li>By email: contact@pierek.com</li>
+          <li>By email: contact@yournextlaptop.com</li>
         </ul>
       </section>
       <Footer />

@@ -14,6 +14,8 @@ function ProductReviewContentBlock(props) {
         handleGetGeneric={props.handleGetGeneric}
         handleChangeGeneric={props.handleChangeGeneric}
         handleAddGeneric={props.handleAddGeneric}
+        handleMoveGeneric={props.handleMoveGeneric}
+        handleRemoveGeneric={props.handleRemoveGeneric}
       />
     </div>
   );

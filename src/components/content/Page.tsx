@@ -1,11 +1,21 @@
-function Page(props) {
+import {
+  THandleChangeGeneric,
+  THandleGetGeneric,
+} from "../../pages/debug/index";
+
+export interface IPageProps {
+  handleChangeGeneric: THandleChangeGeneric;
+  handleGetGeneric: THandleGetGeneric;
+}
+
+function Page(props: IPageProps) {
   return (
     <div>
       <div>
         <label className="mb-2 block">Title</label>
         <input
-          value={props.pageData.title || ""}
-          onChange={(e) => props.handlePageChange("title", e.target.value)}
+          value={props.handleGetGeneric("title") || ""}
+          onChange={(e) => props.handleChangeGeneric("title", e.target.value)}
           className="w-full border p-2"
           type="text"
         />
@@ -13,9 +23,9 @@ function Page(props) {
       <div>
         <label className="mb-2 block">Description</label>
         <input
-          value={props.pageData.description || ""}
+          value={props.handleGetGeneric("description") || ""}
           onChange={(e) =>
-            props.handlePageChange("description", e.target.value)
+            props.handleChangeGeneric("description", e.target.value)
           }
           className="w-full border p-2"
           type="text"
@@ -24,8 +34,8 @@ function Page(props) {
       <div>
         <label className="mb-2 block">Image</label>
         <input
-          value={props.pageData.image || ""}
-          onChange={(e) => props.handlePageChange("image", e.target.value)}
+          value={props.handleGetGeneric("image") || ""}
+          onChange={(e) => props.handleChangeGeneric("image", e.target.value)}
           className="w-full border p-2"
           type="text"
         />
@@ -33,8 +43,10 @@ function Page(props) {
       <div>
         <label className="mb-2 block">Author ID</label>
         <input
-          value={props.pageData.author_id || ""}
-          onChange={(e) => props.handlePageChange("author_id", e.target.value)}
+          value={props.handleGetGeneric("author_id") || ""}
+          onChange={(e) =>
+            props.handleChangeGeneric("author_id", e.target.value)
+          }
           className="w-full border p-2"
           type="text"
         />
@@ -42,8 +54,10 @@ function Page(props) {
       <div>
         <label className="mb-2 block">Created At</label>
         <input
-          value={props.pageData.created_at || ""}
-          onChange={(e) => props.handlePageChange("created_at", e.target.value)}
+          value={props.handleGetGeneric("created_at") || ""}
+          onChange={(e) =>
+            props.handleChangeGeneric("created_at", e.target.value)
+          }
           className="w-full border p-2"
           type="text"
         />
@@ -51,8 +65,10 @@ function Page(props) {
       <div>
         <label className="mb-2 block">Updated At</label>
         <input
-          value={props.pageData.updated_at || ""}
-          onChange={(e) => props.handlePageChange("updated_at", e.target.value)}
+          value={props.handleGetGeneric("updated_at") || ""}
+          onChange={(e) =>
+            props.handleChangeGeneric("updated_at", e.target.value)
+          }
           className="w-full border p-2"
           type="text"
         />

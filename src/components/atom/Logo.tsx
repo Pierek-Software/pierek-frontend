@@ -9,7 +9,7 @@ export default function Logo({ className }) {
           title="Pierek Logo"
           alt="Pierek Logo"
           className={className}
-          src="/logo_white.svg"
+          src="/logo.svg"
         />
       }
     ></OriginalLink>

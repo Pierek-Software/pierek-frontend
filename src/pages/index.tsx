@@ -1,209 +1,93 @@
 import Navbar from "../components/templates/Navbar";
-import Technology from "../components/atom/Technology";
-import CaseStudiesSection from "../components/templates/CaseStudiesSection";
 import Footer from "../components/templates/Footer";
-import { DiscoverMoreButton } from "../components/atom/Button";
 import HeadComponent from "../components/atom/Head";
+import { QuickList } from "../components/QuickList";
+import { Header } from "../components/Typography";
 
 export default function Home() {
   return (
     <>
       <HeadComponent
         title={"Home Page"}
-        description={
-          "Pierek is problems solving oriented company, focused on TaaS, outsourcing and consulting"
-        }
-        keywords={["Home Page", "TaaS", "Consulting", "Outsourcing"]}
+        description={"YourNextLaptop is trusted website for choosing laptops"}
+        keywords={["Laptop", "Laptop Reviews", "Laptop News"]}
       />
       <section
         className="
-        flex h-screen flex-col 
-        bg-gradient-to-b from-slate-800 to-slate-950
+        flex flex-col
         "
       >
-        <Navbar background={false} wave={false} />
+        <Navbar background={true} wave={false} />
         <section className="container">
-          <div
-            className="
-            mt-16
-            sm:mt-24
-            md:mt-20
-            lg:mt-10 lg:flex lg:items-center lg:align-middle
-            "
-          >
-            <div className="lg:w-2/3">
-              <h1
-                className="
-                text-center text-4xl font-bold leading-snug text-white
-                sm:text-4xl
-                md:text-7xl md:leading-relaxed
-                lg:text-left lg:text-8xl lg:leading-tight
-                2xl:max-w-7xl 2xl:text-9xl
-                "
-              >
-                Problem solving oriented company
-              </h1>
-            </div>
-            <div className="hidden w-1/3 lg:block">
-              <img src="/static/header-illustration.png" />
-            </div>
-          </div>
+          <h2 className="py-2 text-3xl font-bold text-gray-900 md:py-5 md:text-4xl">
+            Best Laptops Overall
+          </h2>
+
+          <QuickList
+            content={[
+              {
+                brand: { name: "HP" },
+                product: {
+                  name: "TPN-Q286",
+                  main_image:
+                    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/713XTyObMWL._AC_SX679_.jpg",
+                },
+                advantages: ["1", "2", "3"],
+                disadvantages: ["1", "2", "3"],
+                description:
+                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sodales purus in nibh euismod, non vehicula augue pulvinar. Vivamus placerat sodales ultricies. Quisque gravida in erat et suscipit. Maecenas eleifend erat a nunc viverra, eget rhoncus lorem auctor. Aliquam sollicitudin eu enim a porttitor. Maecenas lobortis magna eget nulla laoreet, in aliquam justo tincidunt. Aliquam ultrices justo quis est ornare, eu ornare purus iaculis. Cras condimentum orci quam, sodales imperdiet lectus dictum laoreet.",
+              },
+              {
+                brand: { name: "HP" },
+                product: {
+                  name: "TPN-Q286",
+                  main_image:
+                    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/713XTyObMWL._AC_SX679_.jpg",
+                },
+                advantages: ["1", "2", "3"],
+                disadvantages: ["1", "2", "3"],
+                description:
+                  "Maecenas nec elementum mi. Vestibulum ac cursus tellus. Fusce iaculis quam in erat maximus volutpat. Mauris eu diam vel ipsum placerat pellentesque. Nam ut laoreet velit. In varius tortor ut neque iaculis dapibus. Etiam posuere accumsan libero, sed luctus purus venenatis non. Suspendisse eu erat feugiat, finibus nibh vitae, fermentum purus. Aenean a felis facilisis, vehicula nisi rutrum, tincidunt sem. Maecenas interdum, nisl nec tincidunt lacinia, mi metus convallis arcu, id semper quam ante sit amet lorem. Mauris viverra suscipit neque in vehicula. Duis pretium odio ligula, eget condimentum ligula sollicitudin et. Sed cursus quis massa nec cursus. In convallis suscipit viverra.",
+              },
+              {
+                brand: { name: "HP" },
+                product: {
+                  name: "TPN-Q286",
+                  main_image:
+                    "https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/713XTyObMWL._AC_SX679_.jpg",
+                },
+                advantages: ["1", "2", "3"],
+                disadvantages: ["1", "2", "3"],
+                description:
+                  "Nullam tempor lacinia arcu quis pretium. Nunc iaculis vehicula elit, eget vestibulum eros iaculis sed. Nunc a iaculis lectus, eget lacinia sapien. Morbi semper odio ante, eu finibus erat maximus et. Sed blandit interdum diam, sed accumsan nulla placerat et. Ut rhoncus, elit id hendrerit condimentum, justo leo blandit dolor, ut tempor tellus turpis a felis. Morbi condimentum in orci non posuere. Curabitur tellus neque, tempor eget placerat vitae, auctor at nunc. Aliquam orci nisl, sollicitudin a vehicula ac, eleifend eget mauris. Nullam fermentum arcu eu justo tincidunt, ac vulputate urna posuere.",
+              },
+            ]}
+          />
         </section>
-        <div
-          className="
-          mt-14 flex justify-center
-          md:mt-48
-          lg:mt-24
-          lg:hidden
-          "
-        >
-          <a href="/contact">
-            <button
-              className="
-            h-44 w-44 rounded-full border-2 bg-slate-800  text-3xl font-bold text-white hover:bg-slate-900
-            md:h-80 md:w-80 md:border-4 md:text-5xl
-            lg:hidden
-            "
-            >
-              Contact
-            </button>
-          </a>
-        </div>
       </section>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-        <path
-          fill="#020617"
-          fillOpacity="1"
-          d="M0,32L120,74.7C240,117,480,203,720,218.7C960,235,1200,181,1320,154.7L1440,128L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z"
-        ></path>
-      </svg>
 
-      <section className="container mx-auto">
-        <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-7xl">
-          Custom Software Development
+      <section className="container">
+        <h2 className="py-2 text-3xl font-bold text-gray-900 md:py-5 md:text-4xl">
+          Reviews
         </h2>
-        <p className="text-2xl font-light md:text-4xl">
-          Becuase tailored solutions are the best solutions
-        </p>
-      </section>
 
-      <svg
-        className="-mb-0.5"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="#020617"
-          fillOpacity="1"
-          d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-
-      <section className="bg-slate-950 text-white">
-        <div className="container mx-auto">
-          <h2 className="py-2 text-4xl font-bold md:py-5 md:text-7xl">
-            Outsouring
-          </h2>
-          <p className="text-2xl font-light md:text-4xl">
-            Becuase good people are hard to find
-          </p>
-        </div>
-      </section>
-
-      <svg
-        className="-mt-0.5"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="#020617"
-          fillOpacity="1"
-          d="M0,128L48,138.7C96,149,192,171,288,176C384,181,480,171,576,176C672,181,768,203,864,192C960,181,1056,139,1152,133.3C1248,128,1344,160,1392,176L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-        ></path>
-      </svg>
-
-      <section className="container mx-auto bg-white">
-        <div className="">
-          <h2 className="py-2 text-4xl font-bold text-black md:py-5 md:text-7xl">
-            Technologies
-          </h2>
-          <p className="text-2xl font-light md:text-4xl">
-            Because choosing right tools is crucial
-          </p>
-          <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="flex flex-col justify-between">
-              <div className=" pt-4">
-                <Technology
-                  icon="fa-brands fa-js"
-                  name="JavaScript / TypeScript Development"
-                />
-              </div>
-              <div className="flex justify-center pt-4">
-                <Technology
-                  icon="fa-brands fa-node-js"
-                  name="Node.js Development"
-                />
-                <Technology
-                  icon="fa-brands fa-react"
-                  name="React Development"
-                />
-              </div>
-              <div className="flex justify-center pt-4">
-                <Technology
-                  icon="fa-brands fa-aws"
-                  name="Amazon Web Services"
-                />
-                <Technology
-                  icon="fa-brands fa-microsoft"
-                  name="Microsoft Azure"
-                />
-                <Technology
-                  icon="fa-brands fa-google"
-                  name="Google Cloud Platform"
-                />
-              </div>
-            </div>
-            <DiscoverMoreButton url="/technologies" />
+        <div className="flex">
+          <div className="space-y-8 underline">
+            <Header level={3} linkable={false}>
+              Best laptops for gaming
+            </Header>
+            <Header level={3} linkable={false}>
+              Best laptops for gaming under 1000$
+            </Header>
+            <Header level={3} linkable={false}>
+              Best laptops for gaming under 2000$
+            </Header>
+            <Header level={3} linkable={false}>
+              Best laptops for gaming under 3000$
+            </Header>
           </div>
         </div>
       </section>
-
-      <svg
-        className="-mb-0.5"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="#020617"
-          fillOpacity="1"
-          d="M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,250.7C1248,256,1344,288,1392,304L1440,320L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
-        ></path>
-      </svg>
-
-      <section className="bg-slate-950 text-white">
-        <div className="container mx-auto">
-          <h2 className="py-2 text-4xl font-bold md:py-5 md:text-7xl">
-            Consulting
-          </h2>
-          <p className="text-2xl font-light md:text-4xl">
-            Becuase tips from professionals are essentials
-          </p>
-        </div>
-      </section>
-
-      <svg
-        className="-mt-0.5"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-      >
-        <path
-          fill="#020617"
-          fillOpacity="1"
-          d="M0,128L48,138.7C96,149,192,171,288,176C384,181,480,171,576,176C672,181,768,203,864,192C960,181,1056,139,1152,133.3C1248,128,1344,160,1392,176L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
-        ></path>
-      </svg>
-
-      <CaseStudiesSection />
       <Footer />
     </>
   );

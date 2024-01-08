@@ -11,7 +11,7 @@ export default function Page() {
       />
       <Navbar background={true} wave={false} />
       <main className="container mt-5">
-        <h1>Terms of Service for pierek.com</h1>
+        <h1>Terms of Service for yournextlaptop.com</h1>
 
         <p>
           <em>Last Updated: 13.12.2023</em>
@@ -57,7 +57,7 @@ export default function Page() {
         <h2>10. Contact Information</h2>
         <p>
           If you have any questions about these Terms of Service, please contact
-          us at contact@pierek.com.
+          us at contact@yournextlaptop.com.
         </p>
 
         <p>
@@ -68,7 +68,7 @@ export default function Page() {
         <p>
           <strong>Pierek LTD</strong>
         </p>
-        <p>contact@pierek.com</p>
+        <p>contact@yournextlaptop.com</p>
       </main>
 
       <Footer />

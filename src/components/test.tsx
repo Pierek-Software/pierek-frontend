@@ -67,7 +67,7 @@ const ReviewGenerator = () => {
       advantages,
       disadvantages,
     };
-    console.log(JSON.stringify(reviewData));
+    // console.log(JSON.stringify(reviewData));
   };
 
   return (

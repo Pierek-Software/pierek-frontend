@@ -9,6 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        primary: "#FF9900",
+        secondary: "#232f3e",
         "orange-amazon": "#FF9900",
       },
     },

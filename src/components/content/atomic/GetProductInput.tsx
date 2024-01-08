@@ -1,5 +1,5 @@
 import ApiClient from "../../../api";
-import { THandleChangeGeneric, THandleGetGeneric } from "../../../pages/debug2";
+import { THandleChangeGeneric, THandleGetGeneric } from "../../../pages/debug";
 
 export interface IGetProductInputProps {
   handleGetGeneric: THandleGetGeneric;
@@ -8,7 +8,6 @@ export interface IGetProductInputProps {
 }
 
 function GetProductInput(props: IGetProductInputProps) {
-  console.log("GET PRODUCT INPUT", props);
   const apiClient = new ApiClient();
 
   return (

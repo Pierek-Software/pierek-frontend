@@ -10,7 +10,7 @@ export default function Navbar(props: NavbarProps) {
 
   return (
     <>
-      <nav className={props.background === true ? "bg-slate-800" : ""}>
+      <nav className={props.background === true ? "bg-secondary" : ""}>
         <ul
           className="
         container flex items-center justify-between py-5 align-middle
@@ -19,9 +19,9 @@ export default function Navbar(props: NavbarProps) {
         lg:py-2
         "
         >
-          <li className="px-5 text-xl font-bold sm:px-0 lg:grow">
+          <li className="text-2xl font-bold sm:px-0 lg:grow">
             <a title="Home Page" href="/">
-              <img
+              {/* <img
                 className="
                 h-6
                 md:h-9
@@ -29,7 +29,8 @@ export default function Navbar(props: NavbarProps) {
                 src="/logo_white.svg"
                 alt="Pierek Logo"
                 title="Pierek Logo"
-              />
+              /> */}
+              <div className="text-white">YourNextLaptop.com</div>
             </a>
           </li>
           <li className="lg:hidden">
@@ -57,25 +58,17 @@ export default function Navbar(props: NavbarProps) {
             </svg>
           </li>
 
-          <li className="hidden px-5 text-2xl font-bold text-white hover:underline lg:block">
+          {/* <li className="hidden px-5 text-xl font-bold text-white hover:underline lg:block">
             <a title="Technologies" href="/technologies">
               Technologies
             </a>
-          </li>
+          </li> */}
 
-          <li className="hidden px-5 text-2xl font-bold text-white hover:underline lg:block">
+          {/* <li className="hidden px-5 text-xl font-bold text-white hover:underline lg:block">
             <a title="Case Studies" href="/case-studies">
               Case Studies
             </a>
-          </li>
-
-          <li className="hidden px-5 text-xl text-white lg:block">
-            <button className="rounded-full bg-slate-700 px-4 py-2 font-bold text-white hover:bg-slate-950">
-              <a title="Contact" href="/contact">
-                Contact
-              </a>
-            </button>
-          </li>
+          </li> */}
         </ul>
         {navbarOpen === true ? (
           <section className="absolute top-0 h-screen w-screen bg-slate-900 text-white">
