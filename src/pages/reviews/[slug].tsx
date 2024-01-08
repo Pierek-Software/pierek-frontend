@@ -100,7 +100,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
 
     if (contentBlock.type === "product_review") {
-      console.log(contentBlock);
       return {
         ...contentBlock,
         value: {

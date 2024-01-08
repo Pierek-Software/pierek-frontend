@@ -249,7 +249,6 @@ const HomePage = () => {
       <button
         onClick={() => {
           const apiClient = new ApiClient();
-          console.log(page);
           apiClient.createPage(page);
         }}
       >

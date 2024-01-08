@@ -3,6 +3,7 @@ const nextConfig = {
   trailingSlash: true,
   reactStrictMode: false,
   poweredByHeader: false,
+  skipTrailingSlashRedirect: true,
   typescript: {
     ignoreBuildErrors: true,
   },
