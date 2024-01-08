@@ -22,6 +22,33 @@ class ApiClient {
     return data;
   }
 
+  async getPagesStaticPaths() {
+    const url = this.baseUrl + "/pages/" + "static-paths";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+
+    return data;
+  }
+
+  async updatePage(body: any) {
+    const url = this.baseUrl + "/pages" + "/" + body.page.id;
+    const response = await fetch(url, {
+      method: "PUT",
+      body: JSON.stringify(body),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+
+    return data;
+  }
+
   async createPage(body: any) {
     const url = this.baseUrl + "/pages";
     const response = await fetch(url, {

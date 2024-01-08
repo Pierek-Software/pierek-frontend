@@ -81,34 +81,15 @@ export default function RemoteMdxPage({ page }) {
 }
 
 export const getStaticPaths = (async () => {
-  return {
-    paths: [
-      {
-        params: {
-          slug: "best-gaming-laptops",
-        },
-      },
-      {
-        params: {
-          slug: "test-slug",
-        },
-      },
-      {
-        params: {
-          slug: "slug-test-3",
-        },
-      },
-    ],
-    fallback: false, // false or "blocking"
-  };
+  const apiClient = new ApiClient();
+  const paths = await apiClient.getPagesStaticPaths();
+  return { ...paths, fallback: false };
 }) satisfies GetStaticPaths;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const apiClient = new ApiClient();
 
   const page = await apiClient.getPage(context.params.slug);
-
-  console.log("page", page);
 
   const promises = page.content.map(async (contentBlock) => {
     if (contentBlock.type === "markdown") {
