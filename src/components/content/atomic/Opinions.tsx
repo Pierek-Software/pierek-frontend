@@ -90,22 +90,63 @@ export function Opinions(props: IOpinionsProps) {
 
       {props
         .handleGetGeneric(props.rootPath)
-        ?.disadvantages?.map((disadvantage, advantageIndex: any) => {
+        .disadvantages?.map((_, advantageIndex) => {
           return (
-            <input
-              type="text"
-              value={props.handleGetGeneric(
-                props.rootPath + `.disadvantages[${advantageIndex}]`,
-              )}
-              className="my-3 w-full border-2 p-5"
+            <div
+              className="flex items-center justify-center space-x-4"
               key={`${props.rootPath}-disadvantages-${advantageIndex}`}
-              onChange={(e) =>
-                props.handleChangeGeneric(
+            >
+              <input
+                type="text"
+                value={props.handleGetGeneric(
                   props.rootPath + `.disadvantages[${advantageIndex}]`,
-                  e.target.value,
-                )
-              }
-            />
+                )}
+                className="my-3 w-full border-2 p-5"
+                onChange={(e) => {
+                  props.handleChangeGeneric(
+                    props.rootPath + `.disadvantages[${advantageIndex}]`,
+                    e.target.value,
+                  );
+                }}
+              />
+              <div className="flex items-center justify-between space-x-3">
+                <button
+                  onClick={(e) =>
+                    props.handleMoveGeneric(
+                      props.rootPath + `.disadvantages`,
+                      advantageIndex,
+                      -1,
+                    )
+                  }
+                  className="h-8 w-8 rounded-full bg-slate-200"
+                >
+                  ⬆️
+                </button>
+                <button
+                  onClick={(e) =>
+                    props.handleMoveGeneric(
+                      props.rootPath + `.disadvantages`,
+                      advantageIndex,
+                      1,
+                    )
+                  }
+                  className="h-8 w-8 rounded-full bg-slate-200"
+                >
+                  ⬇️
+                </button>
+                <button
+                  onClick={(e) =>
+                    props.handleRemoveGeneric(
+                      props.rootPath + `.disadvantages`,
+                      advantageIndex,
+                    )
+                  }
+                  className="h-8 w-8 rounded-full bg-slate-200"
+                >
+                  ❌
+                </button>
+              </div>
+            </div>
           );
         })}
       <button
