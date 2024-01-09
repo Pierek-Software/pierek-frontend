@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-
+import set from "lodash.set";
+import get from "lodash.get";
 import QuickListContentBlock from "../../../../components/content/QuickListContentBlock";
 import ProductReviewContentBlock from "../../../../components/content/ProductReviewContentBlock";
 import Page from "../../../../components/content/Page";
@@ -24,20 +25,7 @@ export type THandleMoveGeneric = (
 
 const HomePage = () => {
   const router = useRouter();
-  const {
-    page,
-    setPage,
-    handleAdd,
-    handleAddGeneric,
-    handleAddSection,
-    handleChangeGeneric,
-    handleGetGeneric,
-    handleMoveGeneric,
-    handleRemoveGeneric,
-    handleRemoveQuickList,
-    handleRemoveSection,
-    handleTypeChange,
-  } = usePage();
+  const { page, setPage } = usePage();
 
   useEffect(() => {
     const getPageById = async () => {
@@ -55,6 +43,105 @@ const HomePage = () => {
 
     getPageById();
   }, [router]);
+
+  function move(array, index, offset) {
+    const output = [...array];
+    const element = output.splice(index, 1)[0];
+    let updatedIndex = index + offset;
+    if (updatedIndex < 0) {
+      updatedIndex++;
+    } else if (updatedIndex >= array.length) {
+      updatedIndex -= array.length;
+    }
+    output.splice(updatedIndex, 0, element);
+    setPage((prevPage) => ({ ...prevPage, contentBlocks: output }));
+    return output;
+  }
+
+  const handleAddSection = () => {
+    const newSection = { type: "", value: {} };
+    setPage({ ...page, contentBlocks: [...page.contentBlocks, newSection] });
+  };
+
+  const handleTypeChange = (index, selectedType) => {
+    const updatedContentBlocks = [...page.contentBlocks];
+    updatedContentBlocks[index].type = selectedType;
+    updatedContentBlocks[index].value = {};
+
+    if (selectedType === "quick_list") {
+      updatedContentBlocks[index].value = [];
+    }
+
+    if (selectedType === "markdown") {
+      updatedContentBlocks[index].value = "";
+    }
+
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
+  };
+
+  const handleRemoveSection = (index) => {
+    const updatedContentBlocks = [...page.contentBlocks];
+    updatedContentBlocks.splice(index, 1);
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
+  };
+
+  const handleRemoveGeneric: THandleRemove = (path, index) => {
+    const updatedContentBlocks = [...get(page, path, [])];
+    updatedContentBlocks.splice(parseInt(index, 10), 1);
+    handleChangeGeneric(path, updatedContentBlocks);
+  };
+  const handleAddGeneric = (path: string, value: any) => {
+    const updatedPage = { ...page };
+
+    let originalValue = get(page, path);
+    if (!originalValue) {
+      originalValue = [];
+    }
+
+    set(page, path, [...originalValue, value]);
+
+    setPage(updatedPage);
+  };
+
+  const handleChangeGeneric = (path: string, value: any): void => {
+    const updatedPage = { ...page };
+    set(updatedPage, path, value);
+    setPage(updatedPage);
+  };
+
+  const handleMoveGeneric: THandleMoveGeneric = (path, index, offset) => {
+    const updatedContentBlocks = move(
+      get(page, path, []),
+      parseInt(index, 10),
+      offset,
+    );
+
+    handleChangeGeneric(path, updatedContentBlocks);
+  };
+
+  const handleGetGeneric = (path: string) => {
+    const value = get(page, path);
+    return value;
+  };
+
+  const handleRemoveQuickList = (contentIndex, quickListIndex) => {
+    const updatedContentBlocks = [...page.contentBlocks];
+    updatedContentBlocks[contentIndex].value.splice(quickListIndex, 1);
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
+  };
+
+  const handleAdd = (contentIndex, path, value) => {
+    const updatedContentBlocks = [...page.contentBlocks];
+
+    let originalValue = get(updatedContentBlocks[contentIndex], path);
+    if (!originalValue) {
+      originalValue = [];
+    }
+
+    set(updatedContentBlocks[contentIndex], path, [...originalValue, value]);
+
+    setPage({ ...page, contentBlocks: updatedContentBlocks });
+  };
 
   return (
     <div className="p-4">
