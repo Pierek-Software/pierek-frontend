@@ -9,7 +9,8 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "format": "prettier --check .",
-    "format:fix": "prettier --write ."
+    "format:fix": "prettier --write .",
+    "deploy": "aws s3 sync ./out s3://yournextlaptop.com && aws cloudfront create-invalidation --distribution-id E2A5SSOZHWQ9QI --paths \"/*\""
   },
   "dependencies": {
     "@editorjs/editorjs": "^2.28.2",

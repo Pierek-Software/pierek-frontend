@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import set from "lodash.set";
 import get from "lodash.get";
 import QuickListContentBlock from "../../../components/content/QuickListContentBlock";
 import ProductReviewContentBlock from "../../../components/content/ProductReviewContentBlock";
 import Page from "../../../components/content/Page";
 import ApiClient from "../../../api";
+import withAuth from "../../../layouts/withAuth";
 
 const SectionTypes = ["markdown", "product_review", "quick_list"];
 
@@ -27,11 +28,6 @@ const HomePage = () => {
     description: "",
     contentBlocks: [],
   });
-
-  useEffect(() => {
-    const apiClient = new ApiClient();
-    const page = apiClient.getPage();
-  }, []);
 
   function move(array, index, offset) {
     const output = [...array];
@@ -252,11 +248,11 @@ const HomePage = () => {
           apiClient.createPage(page);
         }}
       >
-        Save
+        Create
       </button>
       <div className="m-5">{JSON.stringify(page)}</div>
     </div>
   );
 };
 
-export default HomePage;
+export default withAuth(HomePage);

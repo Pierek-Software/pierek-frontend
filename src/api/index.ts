@@ -11,6 +11,8 @@ export interface IGetPosts {
 
 class ApiClient {
   baseUrl = process.env.NEXT_PUBLIC_API_URL + "/v1";
+  baseAdminUrl = this.baseUrl + "/admin";
+
   async getPosts({ pagination }: IGetPosts) {
     const url =
       this.baseUrl +
@@ -20,6 +22,37 @@ class ApiClient {
     const data = await response.json();
 
     return data;
+  }
+
+  async adminGetPageById(id: string) {
+    const url = this.baseAdminUrl + "/pages" + "/" + id;
+
+    const request = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        key: localStorage.getItem("key"),
+      },
+    });
+
+    const response = await request.json();
+    return response;
+  }
+
+  async verifyKey(key: string) {
+    const url = this.baseUrl + "/verify-key";
+    try {
+      const request = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify({ key }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const response = await request.json();
+      return response;
+    } catch (err) {
+      return false;
+    }
   }
 
   async getPagesStaticPaths() {
@@ -35,15 +68,17 @@ class ApiClient {
     return data;
   }
 
-  async updatePage(body: any) {
-    const url = this.baseUrl + "/pages" + "/" + body.page.id;
+  async updatePage(page: any) {
+    const url = this.baseUrl + "/pages" + "/" + page.id;
     const response = await fetch(url, {
       method: "PUT",
-      body: JSON.stringify(body),
+      body: JSON.stringify(page),
       headers: {
         "Content-Type": "application/json",
+        key: localStorage.getItem("key"),
       },
     });
+
     const data = await response.json();
 
     return data;

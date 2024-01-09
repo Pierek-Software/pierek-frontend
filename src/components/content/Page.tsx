@@ -41,6 +41,15 @@ function Page(props: IPageProps) {
         />
       </div>
       <div>
+        <label className="mb-2 block">Slug</label>
+        <input
+          value={props.handleGetGeneric("slug") || ""}
+          onChange={(e) => props.handleChangeGeneric("slug", e.target.value)}
+          className="w-full border p-2"
+          type="text"
+        />
+      </div>
+      <div>
         <label className="mb-2 block">Image</label>
         <input
           value={props.handleGetGeneric("image") || ""}
