@@ -10,13 +10,9 @@
     "lint:fix": "eslint --fix",
     "format": "prettier --check .",
     "format:fix": "prettier --write .",
-    "deploy": "aws s3 sync ./out s3://yournextlaptop.com && aws cloudfront create-invalidation --distribution-id E2A5SSOZHWQ9QI --paths \"/*\""
+    "deploy": "npm run build && aws s3 sync ./out s3://yournextlaptop.com && aws cloudfront create-invalidation --distribution-id E2A5SSOZHWQ9QI --paths \"/*\""
   },
   "dependencies": {
-    "@editorjs/editorjs": "^2.28.2",
-    "@editorjs/simple-image": "^1.6.0",
-    "@mdx-js/mdx": "^3.0.0",
-    "@mdx-js/react": "^3.0.0",
     "lodash.get": "^4.4.2",
     "lodash.set": "^4.3.2",
     "lodash.unset": "^4.5.2",
@@ -24,9 +20,7 @@
     "next-mdx-remote": "^4.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-syntax-highlighter": "^15.5.0",
-    "slate": "^0.101.5",
-    "slate-react": "^0.101.5"
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@types/lodash.get": "^4.4.9",

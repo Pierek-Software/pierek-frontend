@@ -36,7 +36,7 @@ const ProductsPage = ({ products }) => {
               target="_blank"
               rel="nofollow"
             >
-              <button className="w-full rounded-b-md bg-orange-amazon px-4 py-2 font-bold">
+              <button className="w-full rounded-b-md bg-primary px-4 py-2 font-bold">
                 View at Amazon.com
               </button>
             </a>

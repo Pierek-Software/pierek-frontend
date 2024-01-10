@@ -23,7 +23,7 @@ export default function RemoteMdxPage({ page }) {
         </div>
 
         <img
-          className="border-r-2 border-t-2 border-orange-amazon"
+          className="border-r-2 border-t-2 border-primary"
           src={page.image}
         />
 

@@ -11,7 +11,6 @@ const config: Config = {
       colors: {
         primary: "#FF9900",
         secondary: "#232f3e",
-        "orange-amazon": "#FF9900",
       },
     },
     container: {

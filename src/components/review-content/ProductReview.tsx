@@ -38,7 +38,7 @@ export function ProductReview({
           href={amazonLinkBuilder(product.asin)}
           target="blank"
         >
-          <button className=" w-full bg-orange-amazon px-4 py-2 font-bold">
+          <button className=" w-full bg-primary px-4 py-2 font-bold">
             View at Amazon.com
           </button>
         </a>

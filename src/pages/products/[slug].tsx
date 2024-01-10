@@ -35,7 +35,7 @@ const ProductPage = ({ product }) => {
       <ProductSpecificationsSection specifications={product.specifications} />
 
       <a href={amazonLinkBuilder(product.asin)} target="_blank" rel="nofollow">
-        <button className="my-5 w-full rounded-md bg-orange-amazon px-4 py-2 font-bold">
+        <button className="my-5 w-full rounded-md bg-primary px-4 py-2 font-bold">
           View at Amazon.com
         </button>
       </a>
