@@ -1,7 +1,10 @@
 import { Header, DictionaryLink } from "../Typography";
 
 export interface DictionaryProps {
-  paragraphs: string[];
+  dictionaryItem: {
+    name: string;
+    value: string;
+  }[];
 }
 
 const Dictionary = (props: DictionaryProps) => {
@@ -10,14 +13,14 @@ const Dictionary = (props: DictionaryProps) => {
       <Header linkable={false} level={2}>
         Dictionary
       </Header>
-      {props.paragraphs.map((text, index) => {
+      {props.dictionaryItem.map((dictionaryItem, index) => {
         return (
           <DictionaryLink
-            classId={text}
+            classId={dictionaryItem.value}
             className="my-1 hover:underline"
             key={index}
           >
-            {`${index + 1}. ${text}`}
+            {`${index + 1}. ${dictionaryItem.name}`}
           </DictionaryLink>
         );
       })}

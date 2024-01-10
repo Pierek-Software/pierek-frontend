@@ -9,6 +9,7 @@ import Dictionary from "../../components/atom/Dictionary";
 import { ProductReview } from "../../components/review-content/ProductReview";
 import QuickListSection from "../../components/QuickList";
 import ApiClient from "../../api";
+import { slugify } from "../../utils";
 
 export default function RemoteMdxPage({ page }) {
   return (
@@ -43,7 +44,11 @@ export default function RemoteMdxPage({ page }) {
         </section>
 
         <div className="rounded-md md:float-right md:m-0">
-          <Dictionary paragraphs={page.dictionary} />
+          <Dictionary
+            dictionaryItem={page.dictionary.map((name) => {
+              return { name, value: slugify(name) };
+            })}
+          />
         </div>
 
         {page.content.map((contentBlock, index) => {
@@ -89,7 +94,7 @@ export const getStaticPaths = (async () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const apiClient = new ApiClient();
 
-  const page = await apiClient.getPage(context.params.slug);
+  const page = await apiClient.getPage(context.params.slug as string);
 
   const promises = page.content.map(async (contentBlock) => {
     if (contentBlock.type === "markdown") {
@@ -105,7 +110,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         value: {
           ...contentBlock.value,
           markdown: await serialize(contentBlock.value.markdown),
-          title: `${contentBlock.value.brand} ${contentBlock.value.model}`,
+          title: `${contentBlock.value.product.brand.name} ${contentBlock.value.product.name}`,
         },
       };
     }
@@ -113,6 +118,18 @@ export const getStaticProps: GetStaticProps = async (context) => {
   });
 
   page.content = (await Promise.all(promises)) as any;
+
+  const dictionary = [];
+  page.content.map((contentBlock) => {
+    if (contentBlock.type === "quick_list") {
+      return dictionary.push("Quick List");
+    }
+    if (contentBlock.type === "product_review") {
+      return dictionary.push(contentBlock.value.title);
+    }
+  });
+
+  page.dictionary = dictionary;
 
   return {
     props: {

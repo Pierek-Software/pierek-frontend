@@ -16,16 +16,16 @@ function Footer() {
           <div className="mt-3 flex flex-col md:mt-0">
             <h3 className="my-1 text-lg font-bold md:my-0">Reviews</h3>
             <DefaultLink
-              name="Best gaming laptops"
-              href="/reviews/best-gaming-laptops"
+              name="Best gaming laptop"
+              href="/reviews/best-gaming-laptop"
             />
+          </div>
+
+          <div className="mt-3 flex flex-col md:mt-0">
+            <h3 className="my-1 text-lg font-bold md:my-0">Products</h3>
             <DefaultLink
-              name="Best gaming laptops under 1000$"
-              href="/reviews/best-gaming-laptops-under-1000-usd"
-            />
-            <DefaultLink
-              name="Best gaming laptops under 2000$"
-              href="/reviews/best-gaming-laptops-under-2000-usd"
+              name="Lenovo Legion Pro 7i (Gen8)"
+              href="/products/legion-pro-7i-gen-8"
             />
           </div>
 

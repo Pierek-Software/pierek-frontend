@@ -3,6 +3,7 @@ import MarkdownComponents from "../../mappers/MarkdownComponents";
 import { amazonLinkBuilder } from "../../utils";
 import { Header } from "../Typography";
 import { DetailedOpinions } from "./DetailedOpinion";
+import ProductSpecificationsSection from "../sections/product/Specifications";
 
 export function ProductReview({
   caption,
@@ -24,18 +25,7 @@ export function ProductReview({
           <p className="my-2 text-xl font-extralight">{caption}</p>
         </div>
       </div>
-      <div>
-        <Header level={3}>Specifications</Header>
-        <div className="flex flex-col lg:flex-row">
-          {Object.entries(product.specifications).map(([key, value], index) => {
-            return (
-              <p key={index} className="my-1 lg:mx-4">
-                <b>{key}</b>: {value as string}
-              </p>
-            );
-          })}
-        </div>
-      </div>
+      <ProductSpecificationsSection specifications={product.specifications} />
       <div>
         <div className="my-3">
           <Header linkable={false} level={4}>
@@ -53,7 +43,7 @@ export function ProductReview({
           </button>
         </a>
       </div>
-      <div className="float-right rounded-md md:max-w-xs">
+      <div className="rounded-md md:float-right md:max-w-xs">
         <DetailedOpinions
           brand={product.brand}
           advantages={advantages}

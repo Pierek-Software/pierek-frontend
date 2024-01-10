@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import set from "lodash.set";
 import get from "lodash.get";
-import ApiClient from "../../api";
 
 const usePage = (initialPage = {}) => {
   const [page, setPage] = useState(initialPage);

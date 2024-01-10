@@ -68,8 +68,43 @@ class ApiClient {
     return data;
   }
 
+  async getProductsStaticPaths() {
+    const url = this.baseUrl + "/products/" + "static-paths";
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await response.json();
+
+    return data;
+  }
+
+  async getProducts() {
+    const url = this.baseUrl + "/products/";
+
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data;
+  }
+
+  async getProductById(id: number) {
+    const url = this.baseAdminUrl + "/products" + id;
+    const response = await fetch(url, {
+      headers: {
+        "Content-Type": "application/json",
+        key: localStorage.getItem("key"),
+      },
+    });
+    const data = await response.json();
+
+    return data;
+  }
+
   async updatePage(page: any) {
-    const url = this.baseUrl + "/pages" + "/" + page.id;
+    const url = this.baseAdminUrl + "/pages" + "/" + page.id;
     const response = await fetch(url, {
       method: "PUT",
       body: JSON.stringify(page),
@@ -91,6 +126,7 @@ class ApiClient {
       body: JSON.stringify(body),
       headers: {
         "Content-Type": "application/json",
+        key: localStorage.getItem("key"),
       },
     });
     const data = await response.json();
@@ -106,16 +142,12 @@ class ApiClient {
     return data;
   }
 
-  async getProductById(id: number) {
-    try {
-      const url = this.baseUrl + "/products" + "/" + id;
-      const response = await fetch(url);
-      const data = await response.json();
+  async getProductBySlug(slug: string) {
+    const url = this.baseUrl + "/products" + "/" + slug;
+    const response = await fetch(url);
+    const data = await response.json();
 
-      return data;
-    } catch (err) {
-      return;
-    }
+    return data;
   }
 
   async getSitemap() {
