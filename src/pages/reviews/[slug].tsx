@@ -1,6 +1,3 @@
-import Navbar from "../../components/templates/Navbar";
-import Footer from "../../components/templates/Footer";
-
 import { GetStaticPaths, GetStaticProps } from "next";
 import { serialize } from "next-mdx-remote/serialize";
 import MarkdownComponents from "../../mappers/MarkdownComponents";
@@ -10,78 +7,83 @@ import { ProductReview } from "../../components/review-content/ProductReview";
 import QuickListSection from "../../components/QuickList";
 import ApiClient from "../../api";
 import { slugify } from "../../utils";
+import { useRouter } from "next/router";
+import ClientLayout from "../../layouts/ClientLayout";
 
 export default function RemoteMdxPage({ page }) {
+  const router = useRouter();
+
   return (
-    <>
-      <Navbar background={true} wave={false} />
+    <ClientLayout
+      path={router.asPath}
+      title={page.title}
+      description={page.description}
+      keywords={page.dictionary}
+      breadcrumbs={[
+        { name: "Home Page", value: "/" },
+        { name: "Reviews", value: "/reviews" },
+        { name: page.title, value: "#" },
+      ]}
+    >
+      <div>
+        <h1 className="text-3xl font-bold leading-snug">{page.title}</h1>
+        <p className="mt-2">{`By ${page.author.first_name} ${page.author.last_name}`}</p>
+      </div>
 
-      <main className="container mt-5 space-y-5">
-        <div>
-          <h1 className="text-3xl font-bold leading-snug">{page.title}</h1>
-          <p className="mt-2">{`By ${page.author.first_name} ${page.author.last_name}`}</p>
-        </div>
+      <img className="border-r-2 border-t-2 border-primary" src={page.image} />
 
-        <img
-          className="border-r-2 border-t-2 border-primary"
-          src={page.image}
+      <section className="flex w-20 justify-between">
+        <a
+          target="_blank"
+          href={`https://www.facebook.com/sharer/sharer.php?u=${process.env.NEXT_PUBLIC_DOMAIN}${router.asPath}`}
+        >
+          <img className="h-8 w-8" src="/icons/facebook.svg" />
+        </a>
+
+        <a
+          target="_blank"
+          href={`https://twitter.com/intent/tweet?text=${page.title}&url=${process.env.NEXT_PUBLIC_DOMAIN}${router.asPath}`}
+        >
+          <img className="h-8 w-8" src="/icons/twitter.svg" />
+        </a>
+      </section>
+
+      <div className="rounded-md md:float-right md:m-0">
+        <Dictionary
+          dictionaryItem={page.dictionary.map((name) => {
+            return { name, value: slugify(name) };
+          })}
         />
+      </div>
 
-        <section className="flex w-20 justify-between">
-          <a
-            target="_blank"
-            href="https://www.facebook.com/sharer/sharer.php?u=https://www.pcgamer.com/best-gaming-laptop/"
-          >
-            <img className="h-8 w-8" src="/icons/facebook.svg" />
-          </a>
+      {page.content.map((contentBlock, index) => {
+        switch (contentBlock.type) {
+          case "markdown":
+            return (
+              <div key={index}>
+                <MDXRemote
+                  {...contentBlock.value}
+                  components={MarkdownComponents}
+                />
+              </div>
+            );
 
-          <a
-            target="_blank"
-            href="https://twitter.com/intent/tweet?text=Best%20gaming%20laptops%20in%202023%3A%20I%27ve%20had%20my%20pick%20of%20portable%20powerhouses%20and%20these%20are%20the%20best&url=https://www.pcgamer.com/best-gaming-laptop/"
-          >
-            <img className="h-8 w-8" src="/icons/twitter.svg" />
-          </a>
-        </section>
+          case "quick_list":
+            return (
+              <div key={index}>
+                <QuickListSection {...contentBlock} />
+              </div>
+            );
 
-        <div className="rounded-md md:float-right md:m-0">
-          <Dictionary
-            dictionaryItem={page.dictionary.map((name) => {
-              return { name, value: slugify(name) };
-            })}
-          />
-        </div>
-
-        {page.content.map((contentBlock, index) => {
-          switch (contentBlock.type) {
-            case "markdown":
-              return (
-                <div key={index}>
-                  <MDXRemote
-                    {...contentBlock.value}
-                    components={MarkdownComponents}
-                  />
-                </div>
-              );
-
-            case "quick_list":
-              return (
-                <div key={index}>
-                  <QuickListSection {...contentBlock} />
-                </div>
-              );
-
-            case "product_review":
-              return (
-                <div key={index}>
-                  <ProductReview {...contentBlock.value} />
-                </div>
-              );
-          }
-        })}
-      </main>
-
-      <Footer />
-    </>
+          case "product_review":
+            return (
+              <div key={index}>
+                <ProductReview {...contentBlock.value} />
+              </div>
+            );
+        }
+      })}
+    </ClientLayout>
   );
 }
 

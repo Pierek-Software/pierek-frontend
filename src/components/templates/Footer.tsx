@@ -16,8 +16,8 @@ function Footer() {
           <div className="mt-3 flex flex-col md:mt-0">
             <h3 className="my-1 text-lg font-bold md:my-0">Reviews</h3>
             <DefaultLink
-              name="Best gaming laptop"
-              href="/reviews/best-gaming-laptop"
+              name="Best gaming laptops"
+              href="/reviews/best-gaming-laptops"
             />
           </div>
 

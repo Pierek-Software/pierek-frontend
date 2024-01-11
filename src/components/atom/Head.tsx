@@ -6,6 +6,7 @@ export interface HeadComponentProps {
   description: string;
   keywords?: string[];
   imageSource?: string;
+  path?: string;
 }
 
 const TwitterTags = (props: {
@@ -46,6 +47,13 @@ const HeadComponent = (props: HeadComponentProps) => {
         content={props?.author ? props.author : "YourNextLaptop.com"}
       />
       <meta name="publisher" content="YourNextLaptop" />
+
+      <meta name="robots" content="index follow" />
+
+      <link
+        rel="canonical"
+        href={`${process.env.NEXT_PUBLIC_DOMAIN}${props.path}`}
+      />
 
       <meta property="og:title" content={title} />
       <meta property="og:description" content={props.description} />

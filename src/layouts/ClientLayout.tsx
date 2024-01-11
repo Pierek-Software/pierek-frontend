@@ -8,12 +8,16 @@ const ClientLayout = ({
   breadcrumbs,
   title,
   description,
+  path,
   keywords,
 }) => {
+  const cleanPath = path.split("#")[0].split("?")[0];
+
   return (
     <>
       <HeadComponent
         title={title}
+        path={cleanPath}
         description={description}
         keywords={keywords}
       />
