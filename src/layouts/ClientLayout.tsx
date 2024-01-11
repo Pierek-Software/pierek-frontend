@@ -11,7 +11,7 @@ const ClientLayout = ({
   path,
   keywords,
 }) => {
-  const cleanPath = path.split("#")[0].split("?")[0];
+  const cleanPath = path?.split("#")[0]?.split("?")[0];
 
   return (
     <>

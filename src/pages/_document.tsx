@@ -33,6 +33,19 @@ export default function Document() {
 
         <script
           async
+          src="https://www.googletagmanager.com/gtag/js?id=G-MJNCF7NQTX"
+        ></script>
+        <script>
+          {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-MJNCF7NQTX');
+          `}
+        </script>
+
+        <script
+          async
           src="https://www.googletagmanager.com/gtag/js?id=G-T6SZ6V6W66"
         ></script>
         <script>
