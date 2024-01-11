@@ -91,7 +91,7 @@ class ApiClient {
   }
 
   async getProductById(id: number) {
-    const url = this.baseAdminUrl + "/products" + id;
+    const url = this.baseAdminUrl + "/products/" + id;
     const response = await fetch(url, {
       headers: {
         "Content-Type": "application/json",
