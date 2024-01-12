@@ -22,14 +22,6 @@ function Footer() {
           </div>
 
           <div className="mt-3 flex flex-col md:mt-0">
-            <h3 className="my-1 text-lg font-bold md:my-0">Products</h3>
-            <DefaultLink
-              name="Lenovo Legion Pro 7i (Gen8)"
-              href="/products/legion-pro-7i-gen-8"
-            />
-          </div>
-
-          <div className="mt-3 flex flex-col md:mt-0">
             <h3 className="my-1 text-lg font-bold md:my-0">Informations</h3>
             <DefaultLink name="Privacy Policy" href="/policy" />
             <DefaultLink

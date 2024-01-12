@@ -30,58 +30,6 @@ export default function Document() {
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-MJNCF7NQTX"
-        ></script>
-        <script>
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-MJNCF7NQTX');
-          `}
-        </script>
-
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-T6SZ6V6W66"
-        ></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-T6SZ6V6W66');
-          `}
-        </script>
-
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-11408627347"
-        ></script>
-        <script>
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-11408627347');
-          `}
-        </script>
-
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-819170558"
-        ></script>
-        <script>
-          {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'AW-819170558');
-        `}
-        </script>
       </Head>
       <body>
         <Main />

@@ -1,30 +1,19 @@
 import { amazonLinkBuilder } from "../utils";
 import { Header, Paragraph } from "./Typography";
 
-const ProductIndexToTrophy = {
-  "0": "🥇",
-  "1": "🥈",
-  "2": "🥉",
-};
-
-function Product({
-  advantages,
-  disadvantages,
-  description,
-  product,
-  brand,
-  id,
-}) {
+function Product({ advantages, disadvantages, description, product }) {
   const title = `${product.brand.name} ${product.name}`;
 
   return (
     <div className="space-y-5 rounded-md">
-      <Header linkable={false} level={3}>
-        {`${title} ${id <= 2 ? ProductIndexToTrophy[id] : ""}`}
-      </Header>
+      <div className="lg:h-16">
+        <Header linkable={false} level={3}>
+          {title}
+        </Header>
+      </div>
       <img className="mx-auto h-48 object-contain" src={product.main_image} />
 
-      <div className="flex justify-center align-middle">
+      <div className="lg:h-16">
         <Header linkable={false} level={4}>
           {`${title} Description`}
         </Header>
@@ -35,9 +24,11 @@ function Product({
       </div>
 
       <div className="flex justify-center align-middle">
-        <Header linkable={false} level={4}>
-          {`${title} Pros & Cons`}
-        </Header>
+        <div className="lg:h-16">
+          <Header linkable={false} level={4}>
+            {`${title} Pros & Cons`}
+          </Header>
+        </div>
       </div>
       <div className="flex flex-col text-left">
         <div className="my-1 flex flex-col items-stretch justify-stretch rounded-md">
@@ -63,7 +54,7 @@ function Product({
       </div>
 
       <div>
-        <div>
+        <div className="lg:h-16">
           <Header linkable={false} level={4}>
             {`${title} Pricing`}
           </Header>
