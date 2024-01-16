@@ -22,7 +22,7 @@ const ClientLayout = ({
         keywords={keywords}
       />
       <Navbar background={true} wave={false} />
-      <main className="container space-y-5">
+      <main className="container min-h-screen space-y-5">
         <nav className="my-5">
           <Breadcrumbs breadcrumbs={breadcrumbs} />
         </nav>
