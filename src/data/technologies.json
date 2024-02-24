@@ -1,0 +1,129 @@
+[
+  {
+    "id": 1,
+    "title": "JavaScript",
+    "category": 0,
+    "iconPath": "javascript.svg"
+  },
+
+  {
+    "id": 2,
+    "title": "TypeScript",
+    "category": 0,
+    "iconPath": "typescript.svg"
+  },
+  {
+    "id": 3,
+    "title": "PostgresSQL",
+    "category": 1,
+    "iconPath": "postgresql.svg"
+  },
+  {
+    "id": 4,
+    "title": "MySQL",
+    "category": 1,
+    "iconPath": "mysql.svg"
+  },
+  {
+    "id": 5,
+    "title": "Redis",
+    "category": 1,
+    "iconPath": "redis.svg"
+  },
+  {
+    "id": 6,
+    "title": "Elasticsearch",
+    "category": 1,
+    "iconPath": "elasticsearch.svg"
+  },
+  {
+    "id": 7,
+    "title": "MongoDB",
+    "category": 1,
+    "iconPath": "mongodb.svg"
+  },
+  {
+    "id": 8,
+    "title": "GitHub",
+    "category": 2,
+    "iconPath": "github.svg"
+  },
+  {
+    "id": 8,
+    "title": "GitLab",
+    "category": 2,
+    "iconPath": "gitlab.svg"
+  },
+  {
+    "id": 9,
+    "title": "BitBucket",
+    "category": 2,
+    "iconPath": "bitbucket.svg"
+  },
+  { "id": 10, "title": "Next.js", "category": 9, "iconPath": "nextjs.svg" },
+  { "id": 11, "title": "Nest.js", "category": 3, "iconPath": "nestjs.svg" },
+  { "id": 23, "title": "Node.js", "category": 7, "iconPath": "nodejs.svg" },
+  { "id": 12, "title": "Express", "category": 3, "iconPath": "express.svg" },
+  { "id": 13, "title": "Koa", "category": 3, "iconPath": "koa.svg" },
+  { "id": 14, "title": "React", "category": 9, "iconPath": "react.svg" },
+  { "id": 15, "title": "ESLint", "category": 4, "iconPath": "eslint.svg" },
+  { "id": 16, "title": "Prettier", "category": 4, "iconPath": "prettier.svg" },
+  { "id": 17, "title": "Jest", "category": 4, "iconPath": "jest.svg" },
+  { "id": 18, "title": "Mocha", "category": 4, "iconPath": "mocha.svg" },
+  {
+    "id": 19,
+    "title": "Amazon Web Services",
+    "category": 5,
+    "iconPath": "aws.svg"
+  },
+  {
+    "id": 20,
+    "title": "Google Cloud Platfotm",
+    "category": 5,
+    "iconPath": "gcp.svg"
+  },
+  {
+    "id": 21,
+    "title": "Microsoft Azure",
+    "category": 5,
+    "iconPath": "azure.svg"
+  },
+  { "id": 22, "title": "Docker", "category": 6, "iconPath": "docker.svg" },
+  {
+    "id": 23,
+    "title": "Kubernetes",
+    "category": 6,
+    "iconPath": "kubernetes.svg"
+  },
+  { "id": 24, "title": "Fastify", "category": 3, "iconPath": "fastify.svg" },
+  {
+    "id": 25,
+    "title": "Socket.io",
+    "category": 4,
+    "iconPath": "socket-io.svg"
+  },
+  {
+    "id": 26,
+    "title": "Deno",
+    "category": 7,
+    "iconPath": "deno.svg"
+  },
+  {
+    "id": 27,
+    "title": "Bun",
+    "category": 7,
+    "iconPath": "bun.svg"
+  },
+  {
+    "id": 28,
+    "title": "Tailwind CSS",
+    "category": 8,
+    "iconPath": "tailwind-css.svg"
+  },
+  {
+    "id": 29,
+    "title": "Material UI",
+    "category": 8,
+    "iconPath": "material-ui.svg"
+  }
+]

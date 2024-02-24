@@ -1,0 +1,63 @@
+[
+  {
+    "title": "Development of pet marketplace for leading UK company",
+    "nda": false,
+    "category": "Pet Marketplace",
+    "client": "pets4Homes",
+    "clientUrl": "https://www.pets4homes.co.uk",
+    "provider": "The Software House",
+    "providerUrl": "https://tsh.io/",
+    "description": "pets4Homes is leading pet marketplace in United Kingdom. The job was to create new application to aggregate and manage marketplace websites, where pets4homes being the largest one",
+    "notables": [
+      "CQRS (PostgreSQL and Elasticsearch)",
+      "TypeScript",
+      "Monorepo"
+    ]
+  },
+  {
+    "category": "Finance",
+    "client": "Klarna",
+    "nda": false,
+    "clientUrl": "https://www.klarna.com/international",
+    "provider": "Evolution Jobs",
+    "providerUrl": "https://evolutionjobs.com/eu/",
+    "title": "Consulting / Development for Fintech company",
+    "description": "Klarna is biggest Sweden Fintech. Working in customer service field. Main tasks was to aggregate data from different systems. Working based on roadmap with small Scrum team",
+    "notables": [
+      "Monorepo",
+      "TypeScript",
+      "CQRS (PostgreSQL and Elasticsearch)"
+    ]
+  },
+
+  {
+    "title": "Development of dynamic REST API for real estate company",
+    "nda": true,
+    "client": null,
+    "clientUrl": null,
+    "provider": null,
+    "providerUrl": null,
+    "category": "Real Estate",
+    "description": "Working as solo developer i developed fully dynamic REST API with advanced query building that communicate with database. Additional advanced permission system was introduced for users, endpoints, endpoint data, as well as upload module to local folder. Application also include endpoints documentation. Application was delivered as code and production Docker Image, approved by testers. ",
+    "notables": [
+      "Work as solo developer from problem to fully finished application",
+      "Direct communication with client",
+      "Fully responsible to deliver everything"
+    ]
+  },
+  {
+    "category": "Finance",
+    "title": "Consulting / Development for Fintech company",
+    "description": "Fintech platform specialising in debit card for kids managed by family requested to refactor old microservices. Main task was to move code from JavaScript pre ES6 version to latest TypeScript. Additional unit, integration testing was needed to accomplish 80% test coverage",
+    "nda": true,
+    "client": null,
+    "provider": null,
+    "providerUrl": null,
+    "clientUrl": null,
+    "notables": [
+      "JavaScript migration to TypeScript",
+      "Package upgrades",
+      "Testing"
+    ]
+  }
+]
