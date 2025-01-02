@@ -90,6 +90,7 @@ function Footer({ wave = true }: FooterProps) {
             <Link href="/technologies">Technologies</Link>
             <Link href="/blog">Blog</Link>
             <Link href="/case-studies">Case Studies</Link>
+            <Link href="https://www.venusly.co/en">venusly</Link>
             <Link
               rel="noreferrer noopener"
               target="_blank"
